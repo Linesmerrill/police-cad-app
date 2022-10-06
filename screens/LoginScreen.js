@@ -25,8 +25,8 @@ const LoginScreen = () => {
       {/* Logo & Name */}
       <View className="items-center mt-10">
         <View className="flex-row flex-1 items-center space-x-4">
-          <ShieldCheckIcon color="white" size={40} />
-          <Text className="text-4xl text-white font-light">
+          <ShieldCheckIcon color="#B19356" size={42} />
+          <Text className="text-4xl text-[#1B96D6] font-bold">
             Lines Police CAD
           </Text>
         </View>
@@ -35,7 +35,7 @@ const LoginScreen = () => {
       {/* Sign in fields */}
       <View className="flex-1 mt-10 mx-4">
         <View>
-          <Text className="text-white text-3xl font-semibold pb-3">
+          <Text className="text-[#1B96D6] text-3xl font-semibold pb-3">
             Sign In
           </Text>
           <View className="bg-gray-200 p-4 rounded-lg">
@@ -58,14 +58,14 @@ const LoginScreen = () => {
             <TouchableOpacity
               onPress={() => navigation.navigate("ForgotPassword")}
             >
-              <Text className="text-white text-base">forgot password?</Text>
+              <Text className="text-[#1B96D6] text-base">forgot password?</Text>
             </TouchableOpacity>
           </View>
         </View>
         <View className="mt-5">
           <TouchableOpacity
-            onPress={() => navigation.navigate("Login")}
-            className="mx-2 bg-[#0778E8] p-4 rounded-full flex-row items-center"
+            onPress={() => navigation.navigate("Home")}
+            className="mx-2 bg-[#1B96D6] p-4 rounded-full flex-row items-center"
           >
             <Text className="flex-1 text-white font-extrabold text-lg text-center">
               Sign In
@@ -76,20 +76,22 @@ const LoginScreen = () => {
 
       {/* Sign in with Face ID */}
       <View className="flex-1 items-center -mt-40 ">
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <View className="flex-row ">
             <View className="flex-1 justify-center pl-8">
-              <FaceSmileIcon size={80} color="white" />
+              <FaceSmileIcon size={80} color="#F4F4F4" />
             </View>
           </View>
-          <Text className="text-white text-base">Sign in with Face ID</Text>
+          <Text className="text-[#1B96D6] text-base">Sign in with Face ID</Text>
         </TouchableOpacity>
       </View>
 
       {/* Create Account */}
       <View className="items-center pb-8">
         <TouchableOpacity onPress={() => navigation.navigate("CreateAccount")}>
-          <Text className="text-white text-xl">Don't have an account?</Text>
+          <Text className="text-[#1B96D6] text-xl font-medium">
+            Don't have an account?
+          </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
