@@ -88,7 +88,7 @@ const LoginScreen = () => {
 
       {/* Create Account */}
       <View className="items-center pb-8">
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("CreateAccount")}>
           <Text className="text-white text-xl">Don't have an account?</Text>
         </TouchableOpacity>
       </View>
