@@ -9,11 +9,12 @@ import {
 import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { ChevronDownIcon, UserIcon } from "react-native-heroicons/outline";
+import UserCategory from "../components/RoleIcon";
 import RoleIcon from "../components/RoleIcon";
 
-const HomeScreen = () => {
+const CivilianScreen = () => {
   const navigation = useNavigation();
-  const civilianUser = require("../assets/images/civilian-icon.png");
+  const activeRoleIcon = require("../assets/images/civilian-icon.png");
   const [isPressed, setIsPressed] = useState(false);
   const [currentRole, setCurrentRole] = useState("Civilian");
 
@@ -30,7 +31,7 @@ const HomeScreen = () => {
         <View className="flex-row pb-3 items-center mx-4 space-x-2 justify-between">
           <View className="flex-row space-x-2">
             <Image
-              source={civilianUser}
+              source={activeRoleIcon}
               className="h-7 w-7 bg-gray-300 p-4 rounded-full"
             />
 
@@ -55,4 +56,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default CivilianScreen;
