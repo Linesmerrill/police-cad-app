@@ -1,7 +1,9 @@
 import { NavigationContainer, StackActions } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TailwindProvider } from "tailwindcss-react-native";
+import CivilianListScreen from "./screens/CivilianListScreen";
 import CivilianScreen from "./screens/CivilianScreen";
+import CommunitiesScreen from "./screens/CommunitiesScreen";
 import CreateAccountScreen from "./screens/CreateAccountScreen";
 import DispatchScreen from "./screens/DispatchScreen";
 import FireEmsScreen from "./screens/FireEmsScreen";
@@ -49,6 +51,16 @@ export default function App() {
           <Stack.Screen
             name="FireEms"
             component={FireEmsScreen}
+            options={{ presentation: "fullScreenModal", headerShown: false }}
+          />
+          <Stack.Screen
+            name="Communities"
+            component={CommunitiesScreen}
+            options={{ presentation: "fullScreenModal", headerShown: false }}
+          />
+          <Stack.Screen
+            name="CivilianList"
+            component={CivilianListScreen}
             options={{ presentation: "fullScreenModal", headerShown: false }}
           />
         </Stack.Navigator>

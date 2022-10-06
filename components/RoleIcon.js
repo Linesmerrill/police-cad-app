@@ -52,7 +52,7 @@ const RoleIcon = () => {
 
         {/* Fire/EMS */}
         <TouchableOpacity
-          className=" p-4 border-gray-200"
+          className="p-4 border-gray-200"
           onPress={() => navigation.navigate("FireEms")}
         >
           <View className="flex-row items-center">
