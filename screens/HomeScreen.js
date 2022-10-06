@@ -26,11 +26,11 @@ const HomeScreen = () => {
           <Text className="font-bold text-gray-400 text-xs">Logged in as</Text>
           <Text className="font-bold text-xl text-white">
             Civilian
-            <ChevronDownIcon size={20} color="#00CCBB" />
+            <ChevronDownIcon size={20} color="#1B96D6" />
           </Text>
         </View>
 
-        <UserIcon className="flex-1" size={35} color="#00CCBB" />
+        <UserIcon className="flex-1" size={35} color="#1B96D6" />
       </View>
     </SafeAreaView>
   );

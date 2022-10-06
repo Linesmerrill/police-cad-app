@@ -24,10 +24,10 @@ const CreateAccountScreen = () => {
         <View className="flex-1">
           <View className="p-5">
             <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-              <XMarkIcon color="white" size={30} />
+              <XMarkIcon color="#B19356" size={30} />
             </TouchableOpacity>
           </View>
-          <Text className="text-white text-2xl font-bold pl-5">
+          <Text className="text-[#1B96D6] text-2xl font-bold pl-5">
             Create a New Account
           </Text>
           <View className="flex-1 mx-4 mt-6">
@@ -62,7 +62,7 @@ const CreateAccountScreen = () => {
         <View className="">
           <TouchableOpacity
             onPress={() => navigation.navigate("Home")}
-            className="mx-5 bg-[#00CCBB] p-4 mb-4 rounded-full flex-row items-center space-x-1"
+            className="mx-5 bg-[#1B96D6] p-4 mb-4 rounded-full flex-row items-center space-x-1"
           >
             <Text className="flex-1 text-white font-extrabold text-lg text-center">
               Submit

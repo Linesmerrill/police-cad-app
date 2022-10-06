@@ -58,7 +58,7 @@ const LoginScreen = () => {
             <TouchableOpacity
               onPress={() => navigation.navigate("ForgotPassword")}
             >
-              <Text className="text-[#1B96D6] text-base">forgot password?</Text>
+              <Text className="text-[#B19356] text-base">forgot password?</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -82,7 +82,7 @@ const LoginScreen = () => {
               <FaceSmileIcon size={80} color="#F4F4F4" />
             </View>
           </View>
-          <Text className="text-[#1B96D6] text-base">Sign in with Face ID</Text>
+          <Text className="text-[#B19356] text-base">Sign in with Face ID</Text>
         </TouchableOpacity>
       </View>
 
