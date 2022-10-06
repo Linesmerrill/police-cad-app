@@ -65,7 +65,7 @@ const LoginScreen = () => {
         <View className="mt-5">
           <TouchableOpacity
             onPress={() => navigation.navigate("Login")}
-            className="mx-5 bg-[#0778E8] p-4 rounded-full flex-row items-center space-x-1"
+            className="mx-2 bg-[#0778E8] p-4 rounded-full flex-row items-center"
           >
             <Text className="flex-1 text-white font-extrabold text-lg text-center">
               Sign In
