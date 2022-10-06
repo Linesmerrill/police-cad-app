@@ -4,10 +4,12 @@ import {
   SafeAreaView,
   TextInput,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { ShieldCheckIcon } from "react-native-heroicons/outline";
+import { FaceSmileIcon, ShieldCheckIcon } from "react-native-heroicons/outline";
+import TouchID from "react-native-touch-id";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -24,7 +26,7 @@ const LoginScreen = () => {
       <View className="items-center mt-10">
         <View className="flex-row flex-1 items-center space-x-4">
           <ShieldCheckIcon color="white" size={40} />
-          <Text className="text-4xl text-white font-semibold">
+          <Text className="text-4xl text-white font-light">
             Lines Police CAD
           </Text>
         </View>
@@ -60,6 +62,35 @@ const LoginScreen = () => {
             </TouchableOpacity>
           </View>
         </View>
+        <View className="mt-5">
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Login")}
+            className="mx-5 bg-[#0778E8] p-4 rounded-full flex-row items-center space-x-1"
+          >
+            <Text className="flex-1 text-white font-extrabold text-lg text-center">
+              Sign In
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      {/* Sign in with Face ID */}
+      <View className="flex-1 items-center -mt-40 ">
+        <TouchableOpacity>
+          <View className="flex-row ">
+            <View className="flex-1 justify-center pl-8">
+              <FaceSmileIcon size={80} color="white" />
+            </View>
+          </View>
+          <Text className="text-white text-base">Sign in with Face ID</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Create Account */}
+      <View className="items-center pb-8">
+        <TouchableOpacity>
+          <Text className="text-white text-xl">Don't have an account?</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
