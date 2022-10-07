@@ -26,7 +26,7 @@ const LoginScreen = () => {
       <View className="items-center mt-10">
         <View className="flex-row flex-1 items-center space-x-4">
           <ShieldCheckIcon color="#B19356" size={42} />
-          <Text className="text-4xl text-[#1B96D6] font-bold">
+          <Text className="text-4xl text-[#1B96D6] font-semibold">
             Lines Police CAD
           </Text>
         </View>
