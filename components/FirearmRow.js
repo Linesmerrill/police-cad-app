@@ -8,7 +8,7 @@ const FirearmRow = () => {
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {/* Civilian Card */}
         <TouchableOpacity className="relative mr-2">
-          <View className="bg-[#A83B00] items-center h-40 w-40 rounded-lg justify-center opacity-80">
+          <View className="bg-[#A83B00] items-center h-40 w-40 rounded-lg justify-center opacity-90">
             <FireIcon size={40} color="white" />
             <Text className="text-white font-semibold pt-1">9EQFRRW0</Text>
             <Text className="text-white">Pistol</Text>
@@ -17,7 +17,7 @@ const FirearmRow = () => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity className="relative mr-2">
-          <View className="bg-[#A83B00] items-center h-40 w-40 rounded-lg justify-center opacity-80">
+          <View className="bg-[#A83B00] items-center h-40 w-40 rounded-lg justify-center opacity-90">
             <FireIcon size={40} color="white" />
             <Text className="text-white font-semibold pt-1">QBF2MP3G</Text>
             <Text className="text-white">Pistol</Text>
@@ -26,7 +26,7 @@ const FirearmRow = () => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity className="relative mr-2">
-          <View className="bg-[#A83B00] items-center h-40 w-40 rounded-lg justify-center opacity-80">
+          <View className="bg-[#A83B00] items-center h-40 w-40 rounded-lg justify-center opacity-90">
             <FireIcon size={40} color="white" />
             <Text className="text-white font-semibold pt-1">KC02DT8B</Text>
             <Text className="text-white">Pistol</Text>
@@ -34,7 +34,7 @@ const FirearmRow = () => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity className="relative mr-2">
-          <View className="bg-[#A83B00] items-center h-40 w-40 rounded-lg justify-center opacity-80">
+          <View className="bg-[#A83B00] items-center h-40 w-40 rounded-lg justify-center opacity-90">
             <FireIcon size={40} color="white" />
             <Text className="text-white font-semibold pt-1">HSH8ST26</Text>
             <Text className="text-white">Pistol</Text>
@@ -43,7 +43,7 @@ const FirearmRow = () => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity className="relative mr-2">
-          <View className="bg-[#A83B00] items-center h-40 w-40 rounded-lg justify-center opacity-80">
+          <View className="bg-[#A83B00] items-center h-40 w-40 rounded-lg justify-center opacity-90">
             <FireIcon size={40} color="white" />
             <Text className="text-white font-semibold pt-1">518FTZ7D</Text>
             <Text className="text-white">Pistol</Text>

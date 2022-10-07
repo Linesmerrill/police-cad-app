@@ -49,7 +49,7 @@ const CivilianScreen = () => {
         imageLocation={activeRoleIcon}
         icon="home"
       />
-      <ScrollView className="">
+      <ScrollView className="bg-black">
         <SafeAreaView className="flex-1 mb-20">
           {/* Horizontal Scroll for featured items */}
           <View className="flex-row justify-between m-4">
@@ -96,7 +96,9 @@ const CivilianScreen = () => {
             </ScrollView>
           </View>
           <View className="ml-4 border-b border-gray-500">
-            <Text className="text-xl font-bold ">Civilian Dashboard</Text>
+            <Text className="text-xl font-bold text-white">
+              Civilian Dashboard
+            </Text>
           </View>
 
           <View className="ml-4 border-gray-500">
@@ -104,11 +106,13 @@ const CivilianScreen = () => {
               onPress={() => navigation.navigate("CivilianList")}
             >
               <View className="flex-row items-center justify-between pr-4">
-                <Text className="text-lg h-10 mt-2 font-bold">Civilians</Text>
+                <Text className="text-lg h-10 mt-2 font-bold text-white">
+                  Civilians
+                </Text>
                 <ArrowRightIcon color="#02284F" />
               </View>
 
-              <Text className="text-xs text-gray-500 -mt-4">
+              <Text className="text-xs text-gray-200 -mt-4">
                 View your civilians
               </Text>
             </TouchableOpacity>
@@ -117,16 +121,18 @@ const CivilianScreen = () => {
             <CivilianRow />
           </View>
 
-          <View className="ml-4 border-gray-500">
+          <View className="ml-4">
             <TouchableOpacity
               onPress={() => navigation.navigate("VehicleList")}
             >
               <View className="flex-row items-center justify-between pr-4">
-                <Text className="text-lg h-10 mt-2 font-bold">Vehicles</Text>
+                <Text className="text-lg h-10 mt-2 font-bold text-white">
+                  Vehicles
+                </Text>
                 <ArrowRightIcon color="#02284F" />
               </View>
 
-              <Text className="text-xs text-gray-500 -mt-4">
+              <Text className="text-xs text-gray-200 -mt-4">
                 View your vehicles
               </Text>
             </TouchableOpacity>
@@ -140,11 +146,13 @@ const CivilianScreen = () => {
               onPress={() => navigation.navigate("FirearmList")}
             >
               <View className="flex-row items-center justify-between pr-4">
-                <Text className="text-lg h-10 mt-2 font-bold">Firearms</Text>
+                <Text className="text-lg h-10 mt-2 font-bold text-white">
+                  Firearms
+                </Text>
                 <ArrowRightIcon color="#02284F" />
               </View>
 
-              <Text className="text-xs text-gray-500 -mt-4">
+              <Text className="text-xs text-gray-200 -mt-4">
                 View your firearms
               </Text>
             </TouchableOpacity>
