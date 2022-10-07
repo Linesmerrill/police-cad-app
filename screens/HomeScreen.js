@@ -50,6 +50,12 @@ const HomeScreen = () => {
         </View>
       </SafeAreaView>
 
+      <SafeAreaView>
+        <Text className="text-xl text-[#02284F] font-semibold m-4">
+          Welcome!
+        </Text>
+      </SafeAreaView>
+
       {isPressed && <RoleIcon />}
     </>
   );

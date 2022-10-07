@@ -58,7 +58,7 @@ const LoginScreen = () => {
             <TouchableOpacity
               onPress={() => navigation.navigate("ForgotPassword")}
             >
-              <Text className="text-[#B19356] text-base">forgot password?</Text>
+              <Text className="text-white text-base">forgot password?</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -75,14 +75,16 @@ const LoginScreen = () => {
       </View>
 
       {/* Sign in with Face ID */}
-      <View className="flex-1 items-center -mt-40 ">
+      <View className="flex-1 items-center -mt-40">
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <View className="flex-row ">
-            <View className="flex-1 justify-center pl-8">
-              <FaceSmileIcon size={80} color="#F4F4F4" />
+            <View className="flex-1 items-center h-25 w-25">
+              <Image
+                source={require("../assets/images/icons8-face-id-100.png")}
+              />
             </View>
           </View>
-          <Text className="text-[#B19356] text-base">Sign in with Face ID</Text>
+          <Text className="text-white text-base">Sign in with Face ID</Text>
         </TouchableOpacity>
       </View>
 
