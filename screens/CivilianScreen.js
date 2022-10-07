@@ -7,6 +7,7 @@ import {
   Animated,
   ScrollView,
   FlatList,
+  ImageBackground,
 } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
@@ -14,11 +15,20 @@ import {
   ArrowRightIcon,
   ChartPieIcon,
   ChevronDownIcon,
+  FireIcon,
   HeartIcon,
+  HomeIcon,
+  TruckIcon,
   UserIcon,
 } from "react-native-heroicons/outline";
 import UserCategory from "../components/RoleIcon";
 import RoleIcon from "../components/RoleIcon";
+import HeaderRow from "../components/HeaderRow";
+import { PlusCircleIcon } from "react-native-heroicons/solid";
+import CivilianRow from "../components/CivilianRow";
+import FirearmRow from "../components/FirearmRow";
+import VehicleRow from "../components/VehicleRow";
+import * as Animatable from "react-native-animatable";
 
 const CivilianScreen = () => {
   const navigation = useNavigation();
@@ -34,55 +44,53 @@ const CivilianScreen = () => {
 
   return (
     <>
-      <SafeAreaView className="bg-[#02284F] pt-5">
-        {/* Header */}
-        <View className="flex-row pb-3 items-center mx-4 space-x-2 justify-between">
-          <View className="flex-row space-x-2">
-            <Image
-              source={activeRoleIcon}
-              className="h-7 w-7 bg-gray-300 p-4 rounded-full"
-            />
-
-            <TouchableOpacity onPress={() => setIsPressed(!isPressed)}>
-              <View className="flex-1">
-                <Text className="font-bold text-gray-400 text-xs">
-                  Logged in as
-                </Text>
-                <Text className="font-bold text-xl text-white">
-                  {currentRole}
-                  <ChevronDownIcon size={20} color="#1B96D6" />
-                </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <UserIcon className="flex-1" size={35} color="#1B96D6" />
-        </View>
-      </SafeAreaView>
-
-      <ScrollView>
-        <SafeAreaView className="flex-1">
+      <HeaderRow
+        currentRole="Civilian"
+        imageLocation={activeRoleIcon}
+        icon="home"
+      />
+      <ScrollView className="">
+        <SafeAreaView className="flex-1 mb-20">
           {/* Horizontal Scroll for featured items */}
           <View className="flex-row justify-between m-4">
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              <TouchableOpacity className="relative mr-2">
+              <TouchableOpacity
+                className="relative mr-2"
+                onPress={() => navigation.navigate("CreateCivilian")}
+              >
                 <View className="bg-[#02284F] items-center h-20 w-20 rounded-lg justify-center">
-                  <UserIcon size={20} color="white" />
-                  <Text className="text-white">Civilians</Text>
-                  <Text className="text-white">23</Text>
+                  <View className="absolute top-1 right-1">
+                    <PlusCircleIcon size={20} color="white" />
+                  </View>
+                  <View>
+                    <UserIcon size={37} color="white" />
+                  </View>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity className="relative mr-2">
-                <View className="bg-[#02284F] items-center h-20 w-20 rounded-lg justify-center">
-                  <ChartPieIcon size={20} color="white" />
-                  <Text className="text-white">Vehicles</Text>
-                  <Text className="text-white">23</Text>
+              <TouchableOpacity
+                className="relative mr-2"
+                onPress={() => navigation.navigate("CreateVehicle")}
+              >
+                <View className="bg-[#025C59] items-center h-20 w-20 rounded-lg justify-center">
+                  <View className="absolute top-1 right-1">
+                    <PlusCircleIcon size={20} color="white" />
+                  </View>
+                  <View>
+                    <TruckIcon size={40} color="white" />
+                  </View>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity className="relative mr-2">
-                <View className="bg-[#02284F] items-center h-20 w-20 rounded-lg justify-center">
-                  <HeartIcon size={20} color="white" />
-                  <Text className="text-white">Firearms</Text>
-                  <Text className="text-white">23</Text>
+              <TouchableOpacity
+                className="relative mr-2"
+                onPress={() => navigation.navigate("CreateFirearm")}
+              >
+                <View className="bg-[#A83B00] items-center h-20 w-20 rounded-lg justify-center">
+                  <View className="absolute top-1 right-1">
+                    <PlusCircleIcon size={20} color="white" />
+                  </View>
+                  <View>
+                    <FireIcon size={40} color="white" />
+                  </View>
                 </View>
               </TouchableOpacity>
             </ScrollView>
@@ -101,54 +109,51 @@ const CivilianScreen = () => {
               </View>
 
               <Text className="text-xs text-gray-500 -mt-4">
-                View your current civilians
+                View your civilians
               </Text>
             </TouchableOpacity>
-            <View className="flex-row mt-2">
-              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                {/* Civilian Card */}
-                <TouchableOpacity className="relative mr-2">
-                  <View className="bg-[#02284F] items-center h-40 w-40 rounded-lg justify-center">
-                    <UserIcon size={40} color="white" />
-                    <Text className="text-white">Billy Thors</Text>
-                    <Text className="text-white">2001-01-01</Text>
-                  </View>
-                </TouchableOpacity>
-                <TouchableOpacity className="relative mr-2">
-                  <View className="bg-[#02284F] items-center h-40 w-40 rounded-lg justify-center">
-                    <UserIcon size={40} color="white" />
-                    <Text className="text-white">Brad Pitt</Text>
-                    <Text className="text-white">2001-04-23</Text>
-                  </View>
-                </TouchableOpacity>
-                <TouchableOpacity className="relative mr-2">
-                  <View className="bg-[#02284F] items-center h-40 w-40 rounded-lg justify-center">
-                    <UserIcon size={40} color="white" />
-                    <Text className="text-white">Rodger Pike</Text>
-                    <Text className="text-white">2000-07-13</Text>
-                  </View>
-                </TouchableOpacity>
-                <TouchableOpacity className="relative mr-2">
-                  <View className="bg-[#02284F] items-center h-40 w-40 rounded-lg justify-center">
-                    <UserIcon size={40} color="white" />
-                    <Text className="text-white">Hulk Hogan</Text>
-                    <Text className="text-white">2001-01-01</Text>
-                  </View>
-                </TouchableOpacity>
-                <TouchableOpacity className="relative mr-2">
-                  <View className="bg-[#02284F] items-center h-40 w-40 rounded-lg justify-center">
-                    <UserIcon size={40} color="white" />
-                    <Text className="text-white">Peter Griffin</Text>
-                    <Text className="text-white">1997-07-22</Text>
-                  </View>
-                </TouchableOpacity>
-              </ScrollView>
-            </View>
+
+            {/* List of Civilians */}
+            <CivilianRow />
+          </View>
+
+          <View className="ml-4 border-gray-500">
+            <TouchableOpacity
+              onPress={() => navigation.navigate("VehicleList")}
+            >
+              <View className="flex-row items-center justify-between pr-4">
+                <Text className="text-lg h-10 mt-2 font-bold">Vehicles</Text>
+                <ArrowRightIcon color="#02284F" />
+              </View>
+
+              <Text className="text-xs text-gray-500 -mt-4">
+                View your vehicles
+              </Text>
+            </TouchableOpacity>
+
+            {/* List of Civilians */}
+            <VehicleRow />
+          </View>
+
+          <View className="ml-4 border-gray-500">
+            <TouchableOpacity
+              onPress={() => navigation.navigate("FirearmList")}
+            >
+              <View className="flex-row items-center justify-between pr-4">
+                <Text className="text-lg h-10 mt-2 font-bold">Firearms</Text>
+                <ArrowRightIcon color="#02284F" />
+              </View>
+
+              <Text className="text-xs text-gray-500 -mt-4">
+                View your firearms
+              </Text>
+            </TouchableOpacity>
+
+            {/* List of Civilians */}
+            <FirearmRow />
           </View>
         </SafeAreaView>
       </ScrollView>
-
-      {isPressed && <RoleIcon />}
     </>
   );
 };

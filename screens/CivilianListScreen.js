@@ -2,9 +2,11 @@ import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { XCircleIcon } from "react-native-heroicons/outline";
+import HeaderRow from "../components/HeaderRow";
 
 const CivilianListScreen = () => {
   const navigation = useNavigation();
+  const activeRoleIcon = require("../assets/images/civilian-icon.png");
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -13,15 +15,16 @@ const CivilianListScreen = () => {
   }, []);
 
   return (
-    <SafeAreaView>
-      <TouchableOpacity
-        onPress={navigation.goBack}
-        className="rounded-full absolute top-3 left-1 m-4 mt-12"
-      >
-        <XCircleIcon color="#00CCBB" height={50} width={50} />
-      </TouchableOpacity>
-      <Text>CivilianListScreen</Text>
-    </SafeAreaView>
+    <>
+      <HeaderRow
+        currentRole="Civilian"
+        imageLocation={activeRoleIcon}
+        icon="back"
+      />
+      <SafeAreaView>
+        <Text>Searchable List of Civs</Text>
+      </SafeAreaView>
+    </>
   );
 };
 

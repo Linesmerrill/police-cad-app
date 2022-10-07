@@ -11,6 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import { ChevronDownIcon, UserIcon } from "react-native-heroicons/outline";
 import UserCategory from "../components/RoleIcon";
 import RoleIcon from "../components/RoleIcon";
+import HeaderRow from "../components/HeaderRow";
 
 const PoliceScreen = () => {
   const navigation = useNavigation();
@@ -26,32 +27,15 @@ const PoliceScreen = () => {
 
   return (
     <>
-      <SafeAreaView className="bg-[#02284F] pt-5">
-        {/* Header */}
-        <View className="flex-row pb-3 items-center mx-4 space-x-2 justify-between">
-          <View className="flex-row space-x-2">
-            <Image
-              source={activeRoleIcon}
-              className="h-7 w-7 bg-gray-300 p-4 rounded-full"
-            />
+      <HeaderRow
+        currentRole="Police"
+        imageLocation={activeRoleIcon}
+        icon="home"
+      />
 
-            <TouchableOpacity onPress={() => setIsPressed(!isPressed)}>
-              <View className="flex-1">
-                <Text className="font-bold text-gray-400 text-xs">
-                  Logged in as
-                </Text>
-                <Text className="font-bold text-xl text-white">
-                  {currentRole}
-                  <ChevronDownIcon size={20} color="#1B96D6" />
-                </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <UserIcon className="flex-1" size={35} color="#1B96D6" />
-        </View>
+      <SafeAreaView>
+        <Text>Police Dashboard</Text>
       </SafeAreaView>
-
-      {isPressed && <RoleIcon />}
     </>
   );
 };

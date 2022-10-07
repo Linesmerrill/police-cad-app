@@ -8,8 +8,7 @@ import {
 } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { FaceSmileIcon, ShieldCheckIcon } from "react-native-heroicons/outline";
-import TouchID from "react-native-touch-id";
+import { ShieldCheckIcon } from "react-native-heroicons/outline";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
