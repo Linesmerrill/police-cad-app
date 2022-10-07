@@ -78,7 +78,7 @@ const LoginScreen = () => {
       <View className="flex-1 items-center -mt-40">
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <View className="flex-row ">
-            <View className="flex-1 items-center h-25 w-25">
+            <View className="flex-1 items-center h-15 w-15">
               <Image
                 source={require("../assets/images/icons8-face-id-100.png")}
               />
