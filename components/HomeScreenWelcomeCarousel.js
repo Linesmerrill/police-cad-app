@@ -7,22 +7,24 @@ import {
   ScrollView,
   ImageBackground,
   StyleSheet,
+  Image,
 } from "react-native";
 import React, { useRef } from "react";
 
 const HomeScreenWelcomeCarousel = () => {
-  const images = new Array(6).fill("https://picsum.photos/1000/1000");
+  //   const images = new Array(6).fill("https://picsum.photos/1000/1000");
+  //   const activeRoleIcon = require("../assets/images/civilian-icon.png");
+  const images = [
+    require("../assets/images/community-welcome-card.png"),
+    require("../assets/images/welcome-page-civilian-card.png"),
+    require("../assets/images/welcome-page-police-card.png"),
+    require("../assets/images/welcome-page-dispatch-card.png"),
+    require("../assets/images/welcome-page-fire-ems-card.png"),
+    require("../assets/images/welcome-page-community-card.png"),
+  ];
 
   const scrollX = useRef(new Animated.Value(0)).current;
   const { width: windowWidth } = useWindowDimensions();
-  const imageText = [
-    "Welcome to Lines Police CAD! \nClick on a card below to get started",
-    "Looking to play with friends? Create or Join a community here ->",
-    "Crack down on crime in your city, hit the roads as an Officer ->",
-    "Control the operations as a Dispatcher ->",
-    "Role-play as a Civilian, don't go too easy on those officers 😜 ->",
-    "Save lives, put out fires around the city as a Fire/EMS ->",
-  ];
 
   return (
     <>
@@ -52,9 +54,14 @@ const HomeScreenWelcomeCarousel = () => {
                 style={{ width: windowWidth, height: 350 }}
                 key={imageIndex}
               >
-                <ImageBackground source={{ uri: image }} style={styles.card}>
-                  <View style={styles.textContainer}>
-                    <Text style={styles.infoText}>{imageText[imageIndex]}</Text>
+                <ImageBackground source={image} style={styles.card}>
+                  <View className="flex-row">
+                    <View className="flex-1"></View>
+                    <View className="">
+                      <Text className="text-3xl font-extrabold">
+                        {/* {imageText[imageIndex]} */}
+                      </Text>
+                    </View>
                   </View>
                 </ImageBackground>
               </View>
@@ -86,11 +93,7 @@ const HomeScreenWelcomeCarousel = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    // alignItems: "center",
-    // justifyContent: "center",
-  },
+  container: {},
   scrollContainer: {
     height: 400,
     alignItems: "center",
@@ -98,9 +101,6 @@ const styles = StyleSheet.create({
   },
   card: {
     flex: 1,
-    // marginVertical: 4,
-    // marginHorizontal: 16,
-    borderRadius: 5,
     overflow: "hidden",
     alignItems: "center",
     justifyContent: "center",
@@ -125,9 +125,9 @@ const styles = StyleSheet.create({
   },
   indicatorContainer: {
     flexDirection: "row",
-    // alignItems: "center",
-    // justifyContent: "center",
   },
 });
+
+// <a href="https://www.flaticon.com/free-icons/computer" title="computer icons">Computer icons created by Freepik - Flaticon</a>
 
 export default HomeScreenWelcomeCarousel;
