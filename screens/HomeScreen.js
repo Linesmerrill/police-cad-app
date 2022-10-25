@@ -17,6 +17,7 @@ import {
 
 import { ArrowRightIcon } from "react-native-heroicons/solid";
 import RoleIcon from "../components/RoleIcon";
+import HomeScreenWelcomeCarousel from "../components/HomeScreenWelcomeCarousel";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -32,25 +33,31 @@ const HomeScreen = () => {
 
   return (
     <>
-      <SafeAreaView className="bg-[#02284F] pt-5">
-        {/* Header */}
-        <View className="flex-row pb-3 items-center mx-4 space-x-2 justify-between">
-          <View className="flex-row space-x-2">
-            {/* <Image
+      {/* Header */}
+      <View className="flex-row items-center mx-4 space-x-2 justify-between absolute z-10 right-0 top-12 font-extrabold mt-5">
+        <View className="flex-row space-x-2">
+          {/* <Image
               source={require("../assets/icon.png")}
               className="h-9 w-12"
             /> */}
-          </View>
-          <TouchableOpacity onPress={() => navigation.navigate("Account")}>
-            <UserIcon className="flex-1" size={35} color="#1B96D6" />
-          </TouchableOpacity>
         </View>
-      </SafeAreaView>
+        <TouchableOpacity onPress={() => navigation.navigate("Account")}>
+          <UserIcon
+            className="flex-1"
+            size={35}
+            color="white"
+            strokeWidth={2}
+          />
+        </TouchableOpacity>
+      </View>
 
-      <SafeAreaView>
-        <ScrollView>
+      <ScrollView>
+        {/* Welcome Carousel */}
+        <HomeScreenWelcomeCarousel />
+
+        <SafeAreaView>
           <Text className="text-xl text-[#02284F] font-semibold m-4">
-            Welcome!
+            {/* Click on a Page to get started! */}
           </Text>
           {/* Civilian Card */}
           <TouchableOpacity
@@ -146,8 +153,8 @@ const HomeScreen = () => {
               </View>
             </View>
           </TouchableOpacity>
-        </ScrollView>
-      </SafeAreaView>
+        </SafeAreaView>
+      </ScrollView>
 
       {isPressed && <RoleIcon />}
     </>

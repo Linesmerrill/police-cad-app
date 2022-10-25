@@ -109,7 +109,7 @@ const CivilianScreen = () => {
                 <Text className="text-lg h-10 mt-2 font-bold text-white">
                   Civilians
                 </Text>
-                <ArrowRightIcon color="#02284F" />
+                <ArrowRightIcon color="white" />
               </View>
 
               <Text className="text-xs text-gray-200 -mt-4">
@@ -129,7 +129,7 @@ const CivilianScreen = () => {
                 <Text className="text-lg h-10 mt-2 font-bold text-white">
                   Vehicles
                 </Text>
-                <ArrowRightIcon color="#02284F" />
+                <ArrowRightIcon color="white" />
               </View>
 
               <Text className="text-xs text-gray-200 -mt-4">
@@ -149,7 +149,7 @@ const CivilianScreen = () => {
                 <Text className="text-lg h-10 mt-2 font-bold text-white">
                   Firearms
                 </Text>
-                <ArrowRightIcon color="#02284F" />
+                <ArrowRightIcon color="white" />
               </View>
 
               <Text className="text-xs text-gray-200 -mt-4">
