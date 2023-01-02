@@ -29,6 +29,11 @@ import CivilianRow from "../components/CivilianRow";
 import FirearmRow from "../components/FirearmRow";
 import VehicleRow from "../components/VehicleRow";
 import * as Animatable from "react-native-animatable";
+import CreateCivilianScreen from "./CreateCivilianScreen";
+import CreateVehicleScreen from "./CreateVehicleScreen";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+
+const Tab = createMaterialBottomTabNavigator();
 
 const CivilianScreen = () => {
   const navigation = useNavigation();
@@ -162,6 +167,7 @@ const CivilianScreen = () => {
           </View>
         </SafeAreaView>
       </ScrollView>
+      
     </>
   );
 };

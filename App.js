@@ -17,8 +17,21 @@ import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
 import PoliceScreen from "./screens/PoliceScreen";
 import VehicleListScreen from "./screens/VehicleListScreen";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
 const Stack = createNativeStackNavigator();
+const Tab = createMaterialBottomTabNavigator();
+
+// function Civilian() {
+//   return (
+// {
+/* <Tab.Navigator>
+        <Tab.Screen name="CreateCivilian" component={CreateCivilianScreen} />
+        <Tab.Screen name="CreateVehicle" component={CreateVehicleScreen} />
+      </Tab.Navigator> */
+// }
+//   );
+// }
 
 export default function App() {
   return (
@@ -37,7 +50,11 @@ export default function App() {
             component={CreateAccountScreen}
             options={{ presentation: "fullScreenModal", headerShown: false }}
           />
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ gestureEnabled: false }}
+          />
           <Stack.Screen name="Civilian" component={CivilianScreen} />
           <Stack.Screen
             name="CreateCivilian"
