@@ -15,6 +15,7 @@ import FireEmsScreen from "./screens/FireEmsScreen";
 import ForgotPasswordScreen from "./screens/ForgotPasswordScreen";
 import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
+import WelcomeScreen from "./screens/WelcomeScreen";
 import PoliceScreen from "./screens/PoliceScreen";
 import VehicleListScreen from "./screens/VehicleListScreen";
 
@@ -26,6 +27,7 @@ export default function App() {
       <TailwindProvider>
         <Stack.Navigator>
           {/* Screens */}
+          <Stack.Screen name="Welcome" component={WelcomeScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen
             name="ForgotPassword"
