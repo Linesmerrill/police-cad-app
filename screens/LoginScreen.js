@@ -94,7 +94,7 @@ const LoginScreen = () => {
           <View className="mt-1">
             <View className="flex-col space-x-1 pb-4">
               <View className="flex-row">
-                <View className="flex-1 mx-4 mt-6">
+                <View className="flex-1 mx-5 mr-4 mt-6">
                   <View className="bg-black p-4 rounded-lg border-solid border-2 border-gray-400">
                     <TextInput
                       placeholder="Email address"
@@ -118,7 +118,7 @@ const LoginScreen = () => {
             </View>
             <View className="flex-row">
               <TouchableOpacity
-                className="mx-4 bg-white p-4 mb-4 mr-4 rounded-full flex-1 items-center space-x-1"
+                className="mx-5 bg-white p-4 mb-4 mr-4 rounded-full flex-1 items-center space-x-1"
                 onPress={() => navigation.navigate("Home")}
               >
                 <View className="flex-row">

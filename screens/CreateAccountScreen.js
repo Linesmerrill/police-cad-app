@@ -23,7 +23,7 @@ const CreateAccountScreen = () => {
       <SafeAreaView className="flex-1">
         <View className="flex-1">
           <View className="p-5">
-            <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
               <XMarkIcon color="#B19356" size={30} />
             </TouchableOpacity>
           </View>
