@@ -35,9 +35,12 @@ import { Video, AVPlaybackStatus } from "expo-av";
 import { useLayoutEffect } from "react";
 const { width, height } = Dimensions.get("window");
 
-const LoginScreen = () => {
+const LoginScreen = ({ route }) => {
   const navigation = useNavigation();
   const opacity = useMemo(() => new Animated.Value(0), []);
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const { setUserToken } = route.params;
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -56,7 +59,7 @@ const LoginScreen = () => {
             style={[styles.backgroundViewWrapper, { opacity: opacity }]}
           >
             <Video
-              // isLooping
+              isLooping
               isMuted
               positionMillis={500}
               onLoad={() => {
@@ -66,13 +69,13 @@ const LoginScreen = () => {
                 }).start();
               }}
               resizeMode="cover"
-              // shouldPlay
-              source={require("../assets/royal-blue-bg-750.png")}
+              shouldPlay
+              source={require("../assets/images/space.mp4")}
               style={{ flex: 1 }}
             />
           </Animated.View>
           <SafeAreaView className="h-full space-x-1" style={styles.overlay}>
-            <View className="flex-row ml-2">
+            {/* <View className="flex-row ml-2">
               <TouchableOpacity
                 className="shadow-sm"
                 onPress={() => navigation.navigate("Welcome")}
@@ -83,7 +86,7 @@ const LoginScreen = () => {
                   size={40}
                 />
               </TouchableOpacity>
-            </View>
+            </View> */}
 
             <View className="flex-row justify-center">
               <Image
@@ -116,6 +119,7 @@ const LoginScreen = () => {
                         autoComplete="email"
                         color={"white"}
                         focusable
+                        onChangeText={setEmail}
                       />
                     </View>
                   </View>
@@ -130,7 +134,8 @@ const LoginScreen = () => {
                         cursorColor={"white"}
                         autoComplete="email"
                         color={"white"}
-                        secureTextEntry
+                        secureTextEntry={true}
+                        onChangeText={setPassword}
                       />
                     </View>
                   </View>
@@ -139,7 +144,8 @@ const LoginScreen = () => {
               <View className="flex-row">
                 <TouchableOpacity
                   className="mx-5 bg-white p-4 mb-4 mr-4 rounded-full flex-1 items-center space-x-1"
-                  onPress={() => navigation.navigate("Home")}
+                  // onPress={() => navigation.navigate("Home")}
+                  onPress={() => setUserToken("token")}
                 >
                   <View className="flex-row">
                     <Text className=" text-black font-bold text-md text-center">
@@ -212,6 +218,56 @@ const LoginScreen = () => {
                   </View>
                 </TouchableOpacity>
               </View>
+              <View className="flex-row justify-between m-6">
+                <View className="">
+                  <Text className="w-40 mt-2 bg-white h-0.5"></Text>
+                </View>
+
+                <Text className=" text-white">or</Text>
+                <View className="">
+                  <Text className="w-40 mt-2 bg-white h-0.5"></Text>
+                </View>
+              </View>
+
+              <View className="flex-row">
+                <TouchableOpacity
+                  className="mx-5 bg-[#030a37] p-4 mb-4 mr-5 rounded-full flex-1 items-center space-x-1"
+                  onPress={() => navigation.navigate("CreateAccount")}
+                >
+                  <View className="flex-row">
+                    <Text className=" text-white font-bold text-md text-center">
+                      Create a free account
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View className="flex mt-9 left-2 right-2 mr-2">
+              <Text className="text-gray-400">
+                By continuing to use Lines Police CAD, you agree to our{" \n"}
+                <Text
+                  style={{ textDecorationLine: "underline" }}
+                  onPress={() =>
+                    Linking.openURL(
+                      "https://en.wikipedia.org/wiki/Terms_of_service"
+                    )
+                  }
+                >
+                  Terms of Service{" "}
+                </Text>
+                and{" "}
+                <Text
+                  style={{ textDecorationLine: "underline" }}
+                  onPress={() =>
+                    Linking.openURL(
+                      "https://en.wikipedia.org/wiki/Privacy_policy"
+                    )
+                  }
+                >
+                  Privacy Policy
+                </Text>
+                {"."}
+              </Text>
             </View>
           </SafeAreaView>
         </View>

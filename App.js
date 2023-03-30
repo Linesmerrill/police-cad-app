@@ -18,17 +18,50 @@ import LoginScreen from "./screens/LoginScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import PoliceScreen from "./screens/PoliceScreen";
 import VehicleListScreen from "./screens/VehicleListScreen";
+import * as React from "react";
+import SplashScreen from "./screens/SplashScreen";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [userToken, setUserToken] = React.useState(null);
+
+  const getUserToken = async () => {
+    // testing purposes
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    try {
+      // custom logic
+      await sleep(2000);
+      const token = null;
+      setUserToken(token);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  React.useEffect(() => {
+    getUserToken();
+  }, []);
+
+  if (isLoading) {
+    // We haven't finished checking for the token yet
+    return <SplashScreen />;
+  }
   return (
     <NavigationContainer>
       <TailwindProvider>
         <Stack.Navigator>
-          {/* Screens */}
-          <Stack.Screen name="Welcome" component={WelcomeScreen} />
-          <Stack.Screen name="Login" component={LoginScreen} />
+          {userToken == null ? (
+            <Stack.Screen
+              name="Login"
+              component={LoginScreen}
+              initialParams={{ setUserToken }}
+            />
+          ) : (
+            <Stack.Screen name="Home" component={HomeScreen} />
+          )}
+
           <Stack.Screen
             name="ForgotPassword"
             component={ForgotPasswordScreen}
@@ -39,7 +72,7 @@ export default function App() {
             component={CreateAccountScreen}
             options={{ presentation: "fullScreenModal", headerShown: false }}
           />
-          <Stack.Screen name="Home" component={HomeScreen} />
+
           <Stack.Screen name="Civilian" component={CivilianScreen} />
           <Stack.Screen
             name="CreateCivilian"
@@ -63,7 +96,7 @@ export default function App() {
           <Stack.Screen name="Dispatch" component={DispatchScreen} />
           <Stack.Screen name="FireEms" component={FireEmsScreen} />
           <Stack.Screen name="Communities" component={CommunitiesScreen} />
-
+          <Stack.Screen name="SplashScreen" component={SplashScreen} />
           <Stack.Screen
             name="Account"
             component={AccountScreen}
