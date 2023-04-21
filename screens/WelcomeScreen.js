@@ -10,7 +10,7 @@ import {
   StyleSheet,
   Dimensions,
 } from "react-native";
-import React, { useLayoutEffect, useEffect, useMemo } from "react";
+import React, { useLayoutEffect, useEffect, useMemo, useState } from "react";
 import {
   BookOpenIcon,
   GlobeAltIcon,
@@ -26,6 +26,9 @@ import { Divider } from "react-native-paper";
 import TypingText from "react-native-typing-text";
 import { useNavigation } from "@react-navigation/native";
 import { Video, AVPlaybackStatus } from "expo-av";
+import * as WebBrowser from "expo-web-browser";
+import * as Google from "expo-auth-session/providers/google";
+WebBrowser.maybeCompleteAuthSession();
 const { width, height } = Dimensions.get("window");
 
 const WelcomeScreen = () => {
@@ -37,6 +40,38 @@ const WelcomeScreen = () => {
       headerShown: false,
     });
   }, []);
+
+  const [token, setToken] = useState("");
+  const [userInfo, setUserInfo] = useState(null);
+  const [request, response, promptAsync] = Google.useAuthRequest({
+    androidClientId: process.env.REACT_NATIVE_GOOGLE_ANDROID_CLIENT_ID,
+    iosClientId: process.env.REACT_NATIVE_GOOGLE_IOS_CLIENT_ID,
+    expoClientId: process.env.REACT_NATIVE_EXPO_CLIENT_ID,
+  });
+
+  useEffect(() => {
+    if (response?.type === "success") {
+      setToken(response.authentication.accessToken);
+      getUserInfo();
+      navigation.navigate("Home");
+    }
+  }, [response, token]);
+
+  const getUserInfo = async () => {
+    try {
+      const response = await fetch(
+        "https://www.googleapis.com/userinfo/v2/me",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      const user = await response.json();
+      setUserInfo(user);
+    } catch (error) {
+      // Add your own error handler here
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -97,7 +132,10 @@ const WelcomeScreen = () => {
             <View className="flex-row">
               <TouchableOpacity
                 className="mx-5 bg-[#007aff] p-4 mb-4 mr-5 rounded-full flex-1 items-center space-x-1"
-                onPress={() => navigation.navigate("Home")}
+                disabled={!request}
+                onPress={() => {
+                  promptAsync();
+                }}
               >
                 <View className="flex-row">
                   <View className="absolute -left-24 -top-1">
@@ -113,7 +151,10 @@ const WelcomeScreen = () => {
             <View className="flex-row">
               <TouchableOpacity
                 className="mx-5 bg-[#3c5997] p-4 mb-4 mr-5 rounded-full flex-1 items-center space-x-1"
-                onPress={() => navigation.navigate("Home")}
+                disabled={true} //enable facebook login
+                onPress={() => {
+                  promptAsync();
+                }}
               >
                 <View className="flex-row">
                   <View className="absolute -left-24 -top-1">
@@ -129,7 +170,10 @@ const WelcomeScreen = () => {
             <View className="flex-row">
               <TouchableOpacity
                 className="mx-5 bg-[#fff] p-4 mr-5 rounded-full flex-1 items-center space-x-1"
-                onPress={() => navigation.navigate("Home")}
+                disabled={true} //enable apple/android login
+                onPress={() => {
+                  promptAsync();
+                }}
               >
                 <View className="flex-row">
                   <View className="absolute -left-28 -top-1">
