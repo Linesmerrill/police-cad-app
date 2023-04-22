@@ -18,6 +18,8 @@ import LoginScreen from "./screens/LoginScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import PoliceScreen from "./screens/PoliceScreen";
 import VehicleListScreen from "./screens/VehicleListScreen";
+import CreateAccountScreen2 from "./screens/CreateAccountScreen2";
+import CreateAccountScreen3 from "./screens/CreateAccountScreen3";
 
 const Stack = createNativeStackNavigator();
 
@@ -39,7 +41,22 @@ export default function App() {
             component={CreateAccountScreen}
             options={{ presentation: "fullScreenModal", headerShown: false }}
           />
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen
+            name="CreateAccount2"
+            component={CreateAccountScreen2}
+            options={{ presentation: "fullScreenModal", headerShown: false }}
+          />
+          <Stack.Screen
+            name="CreateAccount3"
+            component={CreateAccountScreen3}
+            options={{ presentation: "fullScreenModal", headerShown: false }}
+          />
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            gestureEnabled={false}
+            options={{ presentation: "fullScreenModal", headerShown: false }}
+          />
           <Stack.Screen name="Civilian" component={CivilianScreen} />
           <Stack.Screen
             name="CreateCivilian"
