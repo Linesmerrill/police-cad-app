@@ -6,17 +6,25 @@ import {
   TextInput,
 } from "react-native";
 import React, { useState } from "react";
-import { ArrowLeftIcon, XMarkIcon } from "react-native-heroicons/outline";
+import {
+  ArchiveBoxIcon,
+  ArrowLeftIcon,
+  CheckBadgeIcon,
+  InformationCircleIcon,
+  XMarkIcon,
+} from "react-native-heroicons/outline";
 import { useNavigation } from "@react-navigation/native";
 import PassMeter from "react-native-passmeter";
 import TextFieldAnimated from "../components/TextFieldAnimated";
 import { StatusBar } from "expo-status-bar";
 import { Divider } from "react-native-paper";
+import Checkbox from "expo-checkbox";
 
-const CreateAccountScreen = () => {
+const CreateAccountScreen3 = () => {
   const navigation = useNavigation();
   const [emailAddress, setEmailAddress] = useState();
   const [password, setPassword] = useState("");
+  const [isChecked, setChecked] = useState(false);
   return (
     <View className="bg-[#111] flex-1">
       <SafeAreaView className="flex-1">
@@ -30,18 +38,18 @@ const CreateAccountScreen = () => {
 
             <View className="pt-5 mx-20">
               <Text className="text-white font-bold text-base">
-                Step 1 of 3
+                Step 3 of 3
               </Text>
             </View>
           </View>
           <View className="flex-row pt-2">
             <Divider className="text-white h-1" width="33%"></Divider>
-            <Divider className="bg-gray-700 h-1" width="33%"></Divider>
-            <Divider className="bg-gray-700 h-1" width="33%"></Divider>
+            <Divider className="text-white h-1" width="33%"></Divider>
+            <Divider className="text-white h-1" width="33%"></Divider>
           </View>
 
           <Text className="text-[#cdcccc] text-2xl font-bold pl-5 pt-10">
-            What's your email?
+            What's your Username?
           </Text>
           <View className="flex-1 mt-1">
             <View className="bg-[#111] rounded-lg">
@@ -51,14 +59,13 @@ const CreateAccountScreen = () => {
                 keyboardType="email-address"
               /> */}
               <TextFieldAnimated
-                label="Email address"
-                placeholder={"Email address"}
+                label="Username"
+                placeholder={"Username"}
                 className="text-white"
                 clearButtonMode="always"
                 placeholderTextColor={"gray"}
-                keyboardType="email-address"
+                keyboardType=""
                 cursorColor={"white"}
-                autoComplete="email"
                 color={"white"}
                 focusable
               />
@@ -74,17 +81,23 @@ const CreateAccountScreen = () => {
                 onChangeText={(password) => setPassword(password)}
               />
             </View> */}
-            <View className="mt-4"></View>
+            <View className="mt-4 ml-5 flex-row space-x-1">
+              <InformationCircleIcon color="gray" size={20} />
+              <Text className="text-gray-400 mt-1">
+                You can change your Username later from your Profile {"\n"}{" "}
+                settings page
+              </Text>
+            </View>
           </View>
         </View>
 
         <View className="">
           <TouchableOpacity
-            onPress={() => navigation.navigate("CreateAccount2")}
+            onPress={() => navigation.navigate("Home")}
             className="mx-5 bg-white p-4 mb-4 rounded-full flex-row items-center space-x-1"
           >
             <Text className="flex-1 text-black font-semibold text-lg text-center">
-              Next
+              Create your free account
             </Text>
           </TouchableOpacity>
         </View>
@@ -93,4 +106,4 @@ const CreateAccountScreen = () => {
   );
 };
 
-export default CreateAccountScreen;
+export default CreateAccountScreen3;

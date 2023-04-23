@@ -151,6 +151,7 @@ const LoginScreen = () => {
                         cursorColor={"white"}
                         autoComplete="email"
                         color={"white"}
+                        clearButtonMode="always"
                         focusable
                       />
                     </View>
@@ -164,8 +165,9 @@ const LoginScreen = () => {
                         placeholderTextColor={"gray"}
                         keyboardType="password"
                         cursorColor={"white"}
-                        autoComplete="email"
+                        autoComplete="password"
                         color={"white"}
+                        clearButtonMode="always"
                         secureTextEntry
                       />
                     </View>
