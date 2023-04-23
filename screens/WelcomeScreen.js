@@ -202,7 +202,7 @@ const WelcomeScreen = () => {
             <View className="flex-row">
               <TouchableOpacity
                 className="mx-5 bg-[#A62C17] p-4 mb-4 mr-5 rounded-full flex-1 items-center space-x-1"
-                onPress={() => navigation.navigate("CreateAccount")}
+                onPress={() => navigation.push("CreateAccount")}
               >
                 <View className="flex-row">
                   <Text className=" text-black font-bold text-md text-center">
