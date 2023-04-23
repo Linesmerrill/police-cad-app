@@ -39,23 +39,22 @@ export default function App() {
           <Stack.Screen
             name="CreateAccount"
             component={CreateAccountScreen}
-            options={{ presentation: "fullScreenModal", headerShown: false }}
+            options={{ headerShown: false }}
           />
           <Stack.Screen
             name="CreateAccount2"
             component={CreateAccountScreen2}
-            options={{ presentation: "fullScreenModal", headerShown: false }}
+            options={{ headerShown: false }}
           />
           <Stack.Screen
             name="CreateAccount3"
             component={CreateAccountScreen3}
-            options={{ presentation: "fullScreenModal", headerShown: false }}
+            options={{ headerShown: false }}
           />
           <Stack.Screen
             name="Home"
             component={HomeScreen}
-            gestureEnabled={false}
-            options={{ presentation: "fullScreenModal", headerShown: false }}
+            options={{ headerShown: false }}
           />
           <Stack.Screen name="Civilian" component={CivilianScreen} />
           <Stack.Screen
