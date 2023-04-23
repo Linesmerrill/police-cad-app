@@ -18,6 +18,7 @@ import {
 import { ArrowRightIcon } from "react-native-heroicons/solid";
 import RoleIcon from "../components/RoleIcon";
 import HomeScreenWelcomeCarousel from "../components/HomeScreenWelcomeCarousel";
+import { Card, Paragraph, Title } from "react-native-paper";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -32,132 +33,55 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <>
-      {/* Header */}
-      <View className="flex-row items-center mx-4 space-x-2 justify-between absolute z-10 right-0 top-12 font-extrabold mt-5">
-        <View className="flex-row space-x-2">
-          {/* <Image
-              source={require("../assets/icon.png")}
-              className="h-9 w-12"
-            /> */}
+    <ScrollView className="bg-black">
+      <SafeAreaView>
+        <View className="mb-10">
+          <Text className="text-3xl text-white">Welcome, first_name</Text>
         </View>
-        <TouchableOpacity onPress={() => navigation.navigate("Account")}>
-          <UserIcon
-            className="flex-1"
-            size={35}
-            color="white"
-            strokeWidth={2}
-          />
-        </TouchableOpacity>
-      </View>
-
-      <ScrollView>
-        {/* Welcome Carousel */}
-        <HomeScreenWelcomeCarousel />
-
-        <SafeAreaView>
-          <Text className="text-xl text-[#02284F] font-semibold m-4">
-            {/* Click on a Page to get started! */}
-          </Text>
-          {/* Civilian Card */}
-          <TouchableOpacity
-            className="shadow-sm relative"
-            onPress={() => navigation.navigate("Civilian")}
-          >
-            <View className="flex-row mb-4 mx-4 items-center">
-              <Image
-                source={require("../assets/images/civilian-home-view.png")}
-                className="rounded h-36 w-full"
-              />
-              <Text className="absolute top-2 left-2 text-lg text-white  font-bold">
-                Civilian
-              </Text>
-              <View className="absolute bottom-2 right-2 font-bold">
-                <ArrowRightCircleIcon size={28} color="white" />
-              </View>
-            </View>
+        <View className="flex-1 flex-row flex-wrap justify-around bg-black">
+          <TouchableOpacity onPress={() => navigation.navigate("Civilian")}>
+            <Card className="w-[150px] h-[150px] m-3">
+              <Card.Content>
+                <Title>Civilian</Title>
+                <Paragraph>View civilian data</Paragraph>
+              </Card.Content>
+            </Card>
           </TouchableOpacity>
-
-          {/* Police Card */}
-          <TouchableOpacity
-            className="shadow-sm relative"
-            onPress={() => navigation.navigate("Police")}
-          >
-            <View className="flex-row mb-4 mx-4 items-center">
-              <Image
-                source={require("../assets/images/police-home-view.png")}
-                className="rounded h-36 w-full"
-              />
-              <Text className="absolute top-2 left-2 text-lg text-white  font-bold">
-                Police
-              </Text>
-              <View className="absolute bottom-2 right-2 font-bold">
-                <ArrowRightCircleIcon size={28} color="white" />
-              </View>
-            </View>
+          <TouchableOpacity onPress={() => navigation.navigate("Police")}>
+            <Card className="w-[150px] h-[150px] m-3">
+              <Card.Content>
+                <Title>Police</Title>
+                <Paragraph>View police data</Paragraph>
+              </Card.Content>
+            </Card>
           </TouchableOpacity>
-
-          {/* Dispatch Card */}
-          <TouchableOpacity
-            className="shadow-sm relative"
-            onPress={() => navigation.navigate("Dispatch")}
-          >
-            <View className="flex-row mb-4 mx-4 items-center">
-              <Image
-                source={require("../assets/images/dispatch-home-view.png")}
-                className="rounded h-36 w-full"
-              />
-              <Text className="absolute top-2 left-2 text-lg text-white  font-bold">
-                Dispatch
-              </Text>
-              <View className="absolute bottom-2 right-2 font-bold">
-                <ArrowRightCircleIcon size={28} color="white" />
-              </View>
-            </View>
+          <TouchableOpacity onPress={() => navigation.navigate("Dispatch")}>
+            <Card className="w-[150px] h-[150px] m-3">
+              <Card.Content>
+                <Title>Dispatch</Title>
+                <Paragraph>View dispatch data</Paragraph>
+              </Card.Content>
+            </Card>
           </TouchableOpacity>
-
-          {/* Fire/EMS Card */}
-          <TouchableOpacity
-            className="shadow-sm relative"
-            onPress={() => navigation.navigate("FireEms")}
-          >
-            <View className="flex-row mb-4 mx-4 items-center">
-              <Image
-                source={require("../assets/images/fire-ems-home-view.png")}
-                className="rounded h-36 w-full"
-              />
-              <Text className="absolute top-2 left-2 text-lg text-white  font-bold">
-                Fire/EMS
-              </Text>
-              <View className="absolute bottom-2 right-2 font-bold">
-                <ArrowRightCircleIcon size={28} color="white" />
-              </View>
-            </View>
+          <TouchableOpacity onPress={() => navigation.navigate("FireEMS")}>
+            <Card className="w-[150px] h-[150px] m-3">
+              <Card.Content>
+                <Title>Fire/EMS</Title>
+                <Paragraph>View fire/ems data</Paragraph>
+              </Card.Content>
+            </Card>
           </TouchableOpacity>
-
-          {/* Communities Card */}
-          <TouchableOpacity
-            className="shadow-sm relative"
-            onPress={() => navigation.navigate("Communities")}
-          >
-            <View className="flex-row mb-40 mx-4 items-center">
-              <Image
-                source={require("../assets/images/community-home-view.png")}
-                className="rounded h-36 w-full"
-              />
-              <Text className="absolute top-2 left-2 text-lg text-white  font-bold">
-                Communities
-              </Text>
-              <View className="absolute bottom-2 right-2 font-bold">
-                <ArrowRightCircleIcon size={28} color="white" />
-              </View>
-            </View>
+          <TouchableOpacity onPress={() => navigation.navigate("Community")}>
+            <Card className="w-[150px] h-[150px] m-3">
+              <Card.Content>
+                <Title>Community</Title>
+                <Paragraph>View community data</Paragraph>
+              </Card.Content>
+            </Card>
           </TouchableOpacity>
-        </SafeAreaView>
-      </ScrollView>
-
-      {isPressed && <RoleIcon />}
-    </>
+        </View>
+      </SafeAreaView>
+    </ScrollView>
   );
 };
 
