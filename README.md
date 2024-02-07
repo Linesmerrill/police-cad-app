@@ -10,7 +10,7 @@ A React Native Android/iOS application built for [Lines Police CAD](https://gith
 
 ### Start it up
 
-`expo start`
+`npx expo start`
 
 ## How to Deploy Changes to Expo
 
