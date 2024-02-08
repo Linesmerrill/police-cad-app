@@ -23,8 +23,10 @@ import {
   BellAlertIcon,
   BellIcon,
   ChatBubbleLeftIcon,
+  EllipsisHorizontalIcon,
   TvIcon,
   UserGroupIcon,
+  XMarkIcon,
 } from "react-native-heroicons/solid";
 import RoleIcon from "../components/RoleIcon";
 import HomeScreenWelcomeCarousel from "../components/HomeScreenWelcomeCarousel";
@@ -339,177 +341,498 @@ const HomeScreen = () => {
         </ScrollView>
 
         {/* new section called Spotlight */}
-        <View className="flex-row justify-between p-5">
-          <Text className="text-white text-2xl font-bold">Spotlight</Text>
+        <View className="flex-row justify-between px-5 pt-5">
+          <Text className="text-white text-xl font-bold">Spotlight</Text>
           <TouchableOpacity>
             <Text className="text-gray-500 text-lg font-semibold">See All</Text>
           </TouchableOpacity>
         </View>
 
         {/* horizontal scrollable cards with large images */}
-        <ScrollView
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          className="flex-row space-x-4 p-5"
-        >
-          <View className="flex-col">
-            <Image
-              source={require("../assets/images/spotlight-1.jpg")}
-              className="w-80 h-60 rounded-3xl"
-            />
-            <Text
-              numberOfLines={1}
-              className="text-white text-lg font-semibold pt-2 pl-2"
-              position="absolute"
-              bottom={60}
-            >
-              Top Communities of 2023
-            </Text>
-            <Text
-              numberOfLines={1}
-              className="text-green-500 text-sm font-semibold"
-            >
-              1h ago
-            </Text>
-          </View>
-          <View className="flex-col">
-            <Image
-              source={require("../assets/images/spotlight-2.jpg")}
-              className="w-80 h-60 rounded-3xl"
-            />
-            <Text
-              numberOfLines={1}
-              className="text-white text-lg font-semibold pt-2 pl-2"
-              position="absolute"
-              bottom={60}
-            >
-              How to Organize your Community
-            </Text>
-            <Text
-              numberOfLines={1}
-              className="text-green-500 text-sm font-semibold"
-            >
-              12h ago
-            </Text>
-          </View>
-          <View className="flex-col">
-            <Image
-              source={require("../assets/images/spotlight-3.jpg")}
-              className="w-80 h-60 rounded-3xl"
-            />
-            <Text
-              numberOfLines={1}
-              className="text-white text-lg font-semibold pt-2 pl-2"
-              position="absolute"
-              bottom={60}
-            >
-              Community of the Month
-            </Text>
-            <Text
-              numberOfLines={1}
-              className="text-green-500 text-sm font-semibold"
-            >
-              1d ago
-            </Text>
-          </View>
-        </ScrollView>
+        <View className="p-5">
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            className="flex-row space-x-4"
+          >
+            <View className="flex-col">
+              <Image
+                source={require("../assets/images/spotlight-1.jpg")}
+                className="w-80 h-60 rounded-3xl"
+              />
+              <Text
+                numberOfLines={1}
+                className="text-white text-lg font-semibold pt-2 pl-2"
+                position="absolute"
+                bottom={60}
+              >
+                Top Communities of 2023
+              </Text>
+              <Text
+                numberOfLines={1}
+                className="text-green-500 text-sm font-semibold"
+              >
+                1h ago
+              </Text>
+            </View>
+            <View className="flex-col">
+              <Image
+                source={require("../assets/images/spotlight-2.jpg")}
+                className="w-80 h-60 rounded-3xl"
+              />
+              <Text
+                numberOfLines={1}
+                className="text-white text-lg font-semibold pt-2 pl-2"
+                position="absolute"
+                bottom={60}
+              >
+                How to Organize your Community
+              </Text>
+              <Text
+                numberOfLines={1}
+                className="text-green-500 text-sm font-semibold"
+              >
+                12h ago
+              </Text>
+            </View>
+            <View className="flex-col">
+              <Image
+                source={require("../assets/images/spotlight-3.jpg")}
+                className="w-80 h-60 rounded-3xl"
+              />
+              <Text
+                numberOfLines={1}
+                className="text-white text-lg font-semibold pt-2 pl-2"
+                position="absolute"
+                bottom={60}
+              >
+                Community of the Month
+              </Text>
+              <Text
+                numberOfLines={1}
+                className="text-green-500 text-sm font-semibold"
+              >
+                1d ago
+              </Text>
+            </View>
+          </ScrollView>
+        </View>
 
         {/* new section called discover people, with horizontal scrolling cards that contain profile pictures and names for people to add as friends */}
-        <View className="flex-row justify-between p-5">
-          <Text className="text-white text-2xl font-bold">Discover People</Text>
+        <View className="flex-row justify-between px-5 pt-5">
+          <Text className="text-white text-xl font-bold">Discover People</Text>
           <TouchableOpacity>
             <Text className="text-gray-500 text-lg font-semibold">See All</Text>
           </TouchableOpacity>
         </View>
 
         {/* horizontal scrollable cards with large images */}
-        <ScrollView
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          className="flex-row space-x-4 p-5"
-        >
-          <View className="flex-col">
-            <Image
-              source={require("../assets/images/paul-ruzzo.jpg")}
-              className="w-80 h-60 rounded-3xl"
-            />
-            <Text
-              numberOfLines={1}
-              className="text-white text-lg font-semibold pt-2 pl-2"
-              position="absolute"
-              bottom={60}
-            >
-              Paul Ruzzo
-            </Text>
-            <Text
-              numberOfLines={1}
-              className="text-gray-500 text-sm font-semibold"
-            >
-              Suggested for you
-            </Text>
-          </View>
-          <View className="flex-col">
-            <Image
-              source={require("../assets/images/wendy-king.jpg")}
-              className="w-80 h-60 rounded-3xl"
-            />
-            <Text
-              numberOfLines={1}
-              className="text-white text-lg font-semibold pt-2 pl-2"
-              position="absolute"
-              bottom={60}
-            >
-              Wendy King
-            </Text>
-            <Text
-              numberOfLines={1}
-              className="text-gray-500 text-sm font-semibold"
-            >
-              Suggested for you
-            </Text>
-          </View>
-          <View className="flex-col">
-            <Image
-              source={require("../assets/images/matt-bat.jpg")}
-              className="w-80 h-60 rounded-3xl"
-            />
-            <Text
-              numberOfLines={1}
-              className="text-white text-lg font-semibold pt-2 pl-2"
-              position="absolute"
-              bottom={60}
-            >
-              Matt Bat
-            </Text>
-            <Text
-              numberOfLines={1}
-              className="text-gray-500 text-sm font-semibold"
-            >
-              Suggested for you
-            </Text>
-          </View>
-          <View className="flex-col">
-            <Image
-              source={require("../assets/images/joan-carver.jpg")}
-              className="w-80 h-60 rounded-3xl"
-            />
-            <Text
-              numberOfLines={1}
-              className="text-white text-lg font-semibold pt-2 pl-2"
-              position="absolute"
-              bottom={60}
-            >
-              Joan Carver
-            </Text>
-            <Text
-              numberOfLines={1}
-              className="text-gray-500 text-sm font-semibold"
-            >
-              Suggested for you
-            </Text>
-          </View>
-        </ScrollView>
+        <View className="p-5">
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            className="flex-row space-x-4"
+          >
+            <View className="flex-col bg-slate-800 rounded-2xl">
+              {/* add an x in the top right corner to dismiss the current card */}
+              <View className="flex-row justify-end">
+                <TouchableOpacity>
+                  <XMarkIcon
+                    position="absolute"
+                    right={15}
+                    top={15}
+                    color={"rgb(100, 116, 139)"}
+                  ></XMarkIcon>
+                </TouchableOpacity>
+              </View>
+              <View className="flex-row justify-around ml-8 mr-8">
+                <Image
+                  source={require("../assets/images/paul-ruzzo.jpg")}
+                  className="w-20 h-20 rounded-full bg-opacity-90 m-4"
+                />
+              </View>
+              <View className="flex-row justify-around">
+                <Text
+                  numberOfLines={1}
+                  className="text-white text-md font-semibold"
+                >
+                  paul.ruzzo
+                </Text>
+              </View>
+              <View className="flex-row justify-around">
+                <Text numberOfLines={1} className="text-gray-200 text-xs pt-1">
+                  Suggested for you
+                </Text>
+              </View>
+              {/* follow button */}
+              <View className="flex-row justify-center bg-slate-500 rounded-2xl mx-3 mt-7 py-2 mb-3">
+                <TouchableOpacity>
+                  <Text className="text-white text-md font-semibold p-2">
+                    Follow
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View className="flex-col bg-slate-800 rounded-2xl">
+              {/* add an x in the top right corner to dismiss the current card */}
+              <View className="flex-row justify-end">
+                <TouchableOpacity>
+                  <XMarkIcon
+                    position="absolute"
+                    right={15}
+                    top={15}
+                    color={"rgb(100, 116, 139)"}
+                  ></XMarkIcon>
+                </TouchableOpacity>
+              </View>
+              <View className="flex-row justify-around ml-8 mr-8">
+                <Image
+                  source={require("../assets/images/wendy-king.jpg")}
+                  className="w-20 h-20 rounded-full bg-opacity-90 m-4"
+                />
+              </View>
+              <View className="flex-row justify-around">
+                <Text
+                  numberOfLines={1}
+                  className="text-white text-md font-semibold"
+                >
+                  wendy.king
+                </Text>
+              </View>
+              <View className="flex-row justify-around">
+                <Text numberOfLines={1} className="text-gray-200 text-xs pt-1">
+                  Suggested for you
+                </Text>
+              </View>
+              {/* follow button */}
+              <View className="flex-row justify-center bg-slate-500 rounded-2xl mx-3 mt-7 py-2 mb-3">
+                <TouchableOpacity>
+                  <Text className="text-white text-md font-semibold p-2">
+                    Follow
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View className="flex-col bg-slate-800 rounded-2xl">
+              {/* add an x in the top right corner to dismiss the current card */}
+              <View className="flex-row justify-end">
+                <TouchableOpacity>
+                  <XMarkIcon
+                    position="absolute"
+                    right={15}
+                    top={15}
+                    color={"rgb(100, 116, 139)"}
+                  ></XMarkIcon>
+                </TouchableOpacity>
+              </View>
+              <View className="flex-row justify-around ml-8 mr-8">
+                <Image
+                  source={require("../assets/images/matt-bat.jpg")}
+                  className="w-20 h-20 rounded-full bg-opacity-90 m-4"
+                />
+              </View>
+              <View className="flex-row justify-around">
+                <Text
+                  numberOfLines={1}
+                  className="text-white text-md font-semibold"
+                >
+                  matt.bat
+                </Text>
+              </View>
+              <View className="flex-row justify-around">
+                <Text numberOfLines={1} className="text-gray-200 text-xs pt-1">
+                  Suggested for you
+                </Text>
+              </View>
+              {/* follow button */}
+              <View className="flex-row justify-center bg-slate-500 rounded-2xl mx-3 mt-7 py-2 mb-3">
+                <TouchableOpacity>
+                  <Text className="text-white text-md font-semibold p-2">
+                    Follow
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View className="flex-col bg-slate-800 rounded-2xl">
+              {/* add an x in the top right corner to dismiss the current card */}
+              <View className="flex-row justify-end">
+                <TouchableOpacity>
+                  <XMarkIcon
+                    position="absolute"
+                    right={15}
+                    top={15}
+                    color={"rgb(100, 116, 139)"}
+                  ></XMarkIcon>
+                </TouchableOpacity>
+              </View>
+              <View className="flex-row justify-around ml-8 mr-8">
+                <Image
+                  source={require("../assets/images/joan-carver.jpg")}
+                  className="w-20 h-20 rounded-full bg-opacity-90 m-4"
+                />
+              </View>
+              <View className="flex-row justify-around">
+                <Text
+                  numberOfLines={1}
+                  className="text-white text-md font-semibold"
+                >
+                  joan.carver
+                </Text>
+              </View>
+              <View className="flex-row justify-around">
+                <Text numberOfLines={1} className="text-gray-200 text-xs pt-1">
+                  Suggested for you
+                </Text>
+              </View>
+              {/* follow button */}
+              <View className="flex-row justify-center bg-slate-500 rounded-2xl mx-3 mt-7 py-2 mb-3">
+                <TouchableOpacity>
+                  <Text className="text-white text-md font-semibold p-2">
+                    Follow
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </ScrollView>
+        </View>
+        {/* end of Discover People section */}
 
+        {/* a new horizontal scrollable section called "discover more communities for you" with a column layout of a spotlight image, name of the community and number of members. include button at bottom to Learn More */}
+        <View className="flex-row justify-between px-5 pt-5">
+          <Text className="text-white text-xl font-bold">
+            Discover more communities
+          </Text>
+          <TouchableOpacity>
+            <Text className="text-gray-500 text-lg font-semibold">See All</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* horizontal scrollable cards with large images */}
+        <View className="p-5">
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            className="flex-row space-x-4"
+          >
+            {/* add a new card that contains a spotlight image, community name and numbers of members in community */}
+            <View className="flex-col">
+              <Image
+                source={require("../assets/images/discover-community1.jpg")}
+                className="w-60 h-40 rounded-3xl"
+              />
+              <View className="flex-row justify-between">
+                <Text
+                  numberOfLines={1}
+                  className="text-white text-lg font-semibold pt-2 pl-2"
+                >
+                  San Andreas Roleplay
+                </Text>
+                <TouchableOpacity>
+                  <View className="flex-col justify-around mt-1">
+                    <EllipsisHorizontalIcon
+                      size={40}
+                      color={"#FFF"}
+                    ></EllipsisHorizontalIcon>
+                  </View>
+                </TouchableOpacity>
+              </View>
+              <View className="flew-row">
+                <Text
+                  numberOfLines={1}
+                  className="text-slate-300 text-sm pl-2 -top-2"
+                >
+                  1,879 Members
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  className="text-green-500 text-sm pl-2 -top-2"
+                >
+                  Actively Recruiting
+                </Text>
+              </View>
+              {/* button to learn more */}
+              <View className="flex-row justify-center bg-slate-500 rounded-3xl mx-3 mt-3 py-2 mb-3">
+                <TouchableOpacity>
+                  <Text className="text-white text-md font-semibold p-2">
+                    Learn More
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View className="flex-col">
+              <Image
+                source={require("../assets/images/discover-community2.jpg")}
+                className="w-60 h-40 rounded-3xl"
+              />
+              <View className="flex-row justify-between">
+                <Text
+                  numberOfLines={1}
+                  className="text-white text-lg font-semibold pt-2 pl-2"
+                >
+                  Los Santos Roleplay
+                </Text>
+                <TouchableOpacity>
+                  <View className="flex-col justify-around mt-1">
+                    <EllipsisHorizontalIcon
+                      size={40}
+                      color={"#FFF"}
+                    ></EllipsisHorizontalIcon>
+                  </View>
+                </TouchableOpacity>
+              </View>
+              <View className="flew-row">
+                <Text
+                  numberOfLines={1}
+                  className="text-slate-300 text-sm pl-2 -top-2"
+                >
+                  2,879 Members
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  className="text-green-500 text-sm pl-2 -top-2"
+                >
+                  Newly Created
+                </Text>
+              </View>
+              {/* button to learn more */}
+              <View className="flex-row justify-center bg-slate-500 rounded-3xl mx-3 mt-3 py-2 mb-3">
+                <TouchableOpacity>
+                  <Text className="text-white text-md font-semibold p-2">
+                    Learn More
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View className="flex-col">
+              <Image
+                source={require("../assets/images/discover-community3.jpg")}
+                className="w-60 h-40 rounded-3xl"
+              />
+              <View className="flex-row justify-between">
+                <Text
+                  numberOfLines={1}
+                  className="text-white text-lg font-semibold pt-2 pl-2"
+                >
+                  Liberty City Roleplay
+                </Text>
+                <TouchableOpacity>
+                  <View className="flex-col justify-around mt-1">
+                    <EllipsisHorizontalIcon
+                      size={40}
+                      color={"#FFF"}
+                    ></EllipsisHorizontalIcon>
+                  </View>
+                </TouchableOpacity>
+              </View>
+              <View className="flew-row">
+                <Text
+                  numberOfLines={1}
+                  className="text-slate-300 text-sm pl-2 -top-2"
+                >
+                  3,879 Members
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  className="text-green-500 text-sm pl-2 -top-2"
+                >
+                  Top Rated
+                </Text>
+              </View>
+              {/* button to learn more */}
+              <View className="flex-row justify-center bg-slate-500 rounded-3xl mx-3 mt-3 py-2 mb-3">
+                <TouchableOpacity>
+                  <Text className="text-white text-md font-semibold p-2">
+                    Learn More
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View>
+              <Image
+                source={require("../assets/images/discover-community4.jpg")}
+                className="w-60 h-40 rounded-3xl"
+              />
+              <View className="flex-row justify-between">
+                <Text
+                  numberOfLines={1}
+                  className="text-white text-lg font-semibold pt-2 pl-2"
+                >
+                  Vice City Roleplay
+                </Text>
+                <TouchableOpacity>
+                  <View className="flex-col justify-around mt-1">
+                    <EllipsisHorizontalIcon
+                      size={40}
+                      color={"#FFF"}
+                    ></EllipsisHorizontalIcon>
+                  </View>
+                </TouchableOpacity>
+              </View>
+              <View className="flew-row">
+                <Text
+                  numberOfLines={1}
+                  className="text-slate-300 text-sm pl-2 -top-2"
+                >
+                  4,879 Members
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  className="text-green-500 text-sm pl-2 -top-2"
+                ></Text>
+              </View>
+              {/* button to learn more */}
+              <View className="flex-row justify-center bg-slate-500 rounded-3xl mx-3 mt-3 py-2 mb-3">
+                <TouchableOpacity>
+                  <Text className="text-white text-md font-semibold p-2">
+                    Learn More
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View>
+              <Image
+                source={require("../assets/images/discover-community5.jpg")}
+                className="w-60 h-40 rounded-3xl"
+              />
+              <View className="flex-row justify-between">
+                <Text
+                  numberOfLines={1}
+                  className="text-white text-lg font-semibold pt-2 pl-2"
+                >
+                  Blaine County Roleplay
+                </Text>
+                <TouchableOpacity>
+                  <View className="flex-col justify-around mt-1">
+                    <EllipsisHorizontalIcon
+                      size={40}
+                      color={"#FFF"}
+                    ></EllipsisHorizontalIcon>
+                  </View>
+                </TouchableOpacity>
+              </View>
+              <View className="flew-row">
+                <Text
+                  numberOfLines={1}
+                  className="text-slate-300 text-sm pl-2 -top-2"
+                >
+                  5,879 Members
+                </Text>
+                <Text
+                  numberOfLines={1}
+                  className="text-green-500 text-sm pl-2 -top-2"
+                ></Text>
+              </View>
+              {/* button to learn more */}
+              <View className="flex-row justify-center bg-slate-500 rounded-3xl mx-3 mt-3 py-2 mb-3">
+                <TouchableOpacity>
+                  <Text className="text-white text-md font-semibold p-2">
+                    Learn More
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </ScrollView>
+        </View>
         {/*  */}
       </ScrollView>
     </SafeAreaView>
