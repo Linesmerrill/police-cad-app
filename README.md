@@ -4,10 +4,9 @@ A React Native Android/iOS application built for [Lines Police CAD](https://gith
 
 ## Screenshots
 
-![screenshot1](./assets/images/screenshot1.png)
-![screenshot2](./assets/images/screenshot2.png)
-![screenshot3](./assets/images/screenshot3.png)
-![screenshot4](./assets/images/screenshot4.png)
+<img src="assets/images/screenshot1.png" width="200"/>&nbsp; &nbsp; &nbsp; &nbsp;<img src="assets/images/screenshot2.png" width="200"/>&nbsp; &nbsp; &nbsp; &nbsp;<img src="assets/images/screenshot3.png" width="200"/>
+
+<img src="assets/images/screenshot4.png" width="200"/>
 
 ## How to Run
 
