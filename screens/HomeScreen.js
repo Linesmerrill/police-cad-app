@@ -88,7 +88,7 @@ const HomeScreen = () => {
             <View className="flex-row">
               {/* add rounded image of icon */}
               <Image
-                source={require("../assets/images/dispatch-icon.png")}
+                source={require("../assets/images/community-icon.jpg")}
                 className="w-10 h-10 rounded-full bg-white"
               />
               <View className="flex-col">
@@ -124,159 +124,225 @@ const HomeScreen = () => {
         </View>
 
         {/* horizontal scrollable round images of friends */}
-        <View className="flex-row space-x-4 p-5">
-          <View className="flex-col justify-around">
-            {/* add rounded image of people icon */}
-            <View className="flex-col">
-              {/* add round solid purple background around user group icon */}
-              <View className="bg-purple-500 w-16 h-16 rounded-full bg-opacity-90" />
-              <UserGroupIcon
-                className=""
-                top={16}
-                left={16}
-                size={32}
-                position="absolute"
-                color={"#FFF"}
-              />
+        <ScrollView
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          className="flex-row space-x-4"
+        >
+          <View className="flex-row space-x-4 p-5">
+            <View className="flex-col justify-around">
+              {/* add rounded image of people icon */}
+              <View className="flex-col">
+                {/* add round solid purple background around user group icon */}
+                <View className="bg-purple-500 w-16 h-16 rounded-full bg-opacity-90" />
+                <UserGroupIcon
+                  className=""
+                  top={16}
+                  left={16}
+                  size={32}
+                  position="absolute"
+                  color={"#FFF"}
+                />
+              </View>
+              {/* text saying discover people */}
+              <Text
+                numberOfLines={2}
+                className="text-white text-xs font-semibold pt-2 w-16 text-center"
+              >
+                Discover People
+              </Text>
             </View>
-            {/* text saying discover people */}
-            <Text
-              numberOfLines={2}
-              className="text-white text-xs font-semibold pt-2 w-16 text-center"
-            >
-              Discover People
-            </Text>
-          </View>
-          <View className="flex-col justify-around">
-            {/* add rounded image of people icon */}
-            <View className="flex-col">
-              {/* add round solid purple background around user group icon */}
-              <View className="bg-blue-500 w-16 h-16 rounded-full bg-opacity-90" />
-              <TvIcon
-                className=""
-                top={16}
-                left={16}
-                size={32}
-                position="absolute"
-                color={"#FFF"}
-              />
+            <View className="flex-col justify-around">
+              {/* add rounded image of people icon */}
+              <View className="flex-col">
+                {/* add round solid purple background around user group icon */}
+                <View className="bg-blue-500 w-16 h-16 rounded-full bg-opacity-90" />
+                <TvIcon
+                  className=""
+                  top={16}
+                  left={16}
+                  size={32}
+                  position="absolute"
+                  color={"#FFF"}
+                />
+              </View>
+              {/* text saying discover people */}
+              <Text
+                numberOfLines={1}
+                className="text-white text-xs font-semibold pt-2 w-15 text-center"
+              >
+                Join Party
+              </Text>
+              <Text
+                numberOfLines={1}
+                className="text-green-500 text-xs font-semibold w-15 text-center"
+              >
+                Rec Room
+              </Text>
             </View>
-            {/* text saying discover people */}
-            <Text
-              numberOfLines={1}
-              className="text-white text-xs font-semibold pt-2 w-15 text-center"
-            >
-              Join Party
-            </Text>
-            <Text
-              numberOfLines={1}
-              className="text-green-500 text-xs font-semibold w-15 text-center"
-            >
-              Rec Room
-            </Text>
-          </View>
-          <View className="flex-col justify-around">
-            {/* add rounded image of people icon */}
-            <View className="flex-col">
-              {/* add round solid purple background around user group icon */}
+            <View className="flex-col justify-around">
+              {/* add rounded image of people icon */}
+              <View className="flex-col">
+                {/* add round solid purple background around user group icon */}
 
-              {/* image of random person */}
-              <Image
-                source={require("../assets/images/paul-ruzzo.jpg")}
-                className="w-16 h-16 rounded-full bg-opacity-90"
-              />
-              <View
-                className="bg-green-500 w-3 h-3 rounded-full ml-5"
-                position="absolute"
-                bottom={3}
-                right={3}
-              />
+                {/* image of random person */}
+                <Image
+                  source={require("../assets/images/paul-ruzzo.jpg")}
+                  className="w-16 h-16 rounded-full bg-opacity-90"
+                />
+                <View
+                  className="bg-green-500 w-3 h-3 rounded-full ml-5"
+                  position="absolute"
+                  bottom={3}
+                  right={3}
+                />
+              </View>
+              {/* text saying discover people */}
+              <Text
+                numberOfLines={1}
+                className="text-white text-xs font-semibold pt-2 w-12 text-center"
+              >
+                Paul Ruzzo
+              </Text>
+              <Text
+                numberOfLines={1}
+                className="text-green-500 text-xs font-semibold w-12 text-center"
+              >
+                LPC Community
+              </Text>
             </View>
-            {/* text saying discover people */}
-            <Text
-              numberOfLines={1}
-              className="text-white text-xs font-semibold pt-2 w-12 text-center"
-            >
-              Paul Ruzzo
-            </Text>
-            <Text
-              numberOfLines={1}
-              className="text-green-500 text-xs font-semibold w-12 text-center"
-            >
-              LPC Community
-            </Text>
-          </View>
-          <View className="flex-col justify-around">
-            {/* add rounded image of people icon */}
-            <View className="flex-col">
-              {/* add round solid purple background around user group icon */}
+            <View className="flex-col justify-around">
+              {/* add rounded image of people icon */}
+              <View className="flex-col">
+                {/* add round solid purple background around user group icon */}
 
-              {/* image of random person */}
-              <Image
-                source={require("../assets/images/wendy-king.jpg")}
-                className="w-16 h-16 rounded-full bg-opacity-90"
-              />
-              <View
-                className="bg-green-500 w-3 h-3 rounded-full ml-5"
-                position="absolute"
-                bottom={3}
-                right={3}
-              />
+                {/* image of random person */}
+                <Image
+                  source={require("../assets/images/wendy-king.jpg")}
+                  className="w-16 h-16 rounded-full bg-opacity-90"
+                />
+                <View
+                  className="bg-green-500 w-3 h-3 rounded-full ml-5"
+                  position="absolute"
+                  bottom={3}
+                  right={3}
+                />
+              </View>
+              {/* text saying discover people */}
+              <Text
+                numberOfLines={1}
+                className="text-white text-xs font-semibold pt-2 w-12 text-center"
+              >
+                Wendy King
+              </Text>
+              <Text
+                numberOfLines={1}
+                className="text-green-500 text-xs font-semibold w-12 text-center"
+              >
+                Vibing
+              </Text>
             </View>
-            {/* text saying discover people */}
-            <Text
-              numberOfLines={1}
-              className="text-white text-xs font-semibold pt-2 w-12 text-center"
-            >
-              Wendy King
-            </Text>
-            <Text
-              numberOfLines={1}
-              className="text-green-500 text-xs font-semibold w-12 text-center"
-            >
-              Vibing
-            </Text>
-          </View>
-          <View className="flex-col justify-around">
-            {/* add rounded image of people icon */}
-            <View className="flex-col">
-              {/* add round solid purple background around user group icon */}
+            <View className="flex-col justify-around">
+              {/* add rounded image of people icon */}
+              <View className="flex-col">
+                {/* add round solid purple background around user group icon */}
 
-              {/* image of random person */}
-              <Image
-                source={require("../assets/images/matt-bat.jpg")}
-                className="w-16 h-16 rounded-full bg-opacity-90"
-              />
-              {/* <View
+                {/* image of random person */}
+                <Image
+                  source={require("../assets/images/matt-bat.jpg")}
+                  className="w-16 h-16 rounded-full bg-opacity-90"
+                />
+                {/* <View
                 className="bg-green-500 w-3 h-3 rounded-full ml-5"
                 position="absolute"
                 bottom={3}
                 right={3}
               /> */}
+              </View>
+              {/* text saying discover people */}
+              <Text
+                numberOfLines={1}
+                className="text-white text-xs font-semibold pt-2 w-12 text-center"
+              >
+                Matt Bat
+              </Text>
+              <Text
+                numberOfLines={1}
+                className="text-gray-500 text-xs font-semibold w-12 text-center"
+              >
+                30m ago
+              </Text>
             </View>
-            {/* text saying discover people */}
-            <Text
-              numberOfLines={1}
-              className="text-white text-xs font-semibold pt-2 w-12 text-center"
-            >
-              Matt Bat
-            </Text>
-            <Text
-              numberOfLines={1}
-              className="text-gray-500 text-xs font-semibold w-12 text-center"
-            >
-              30m ago
-            </Text>
+            <View className="flex-col justify-around">
+              {/* add rounded image of people icon */}
+              <View className="flex-col">
+                {/* add round solid purple background around user group icon */}
+
+                {/* image of random person */}
+                <Image
+                  source={require("../assets/images/joan-carver.jpg")}
+                  className="w-16 h-16 rounded-full bg-opacity-90"
+                />
+                {/* <View
+                className="bg-green-500 w-3 h-3 rounded-full ml-5"
+                position="absolute"
+                bottom={3}
+                right={3}
+              /> */}
+              </View>
+              {/* text saying discover people */}
+              <Text
+                numberOfLines={1}
+                className="text-white text-xs font-semibold pt-2 w-12 text-center"
+              >
+                Joan Carver
+              </Text>
+              <Text
+                numberOfLines={1}
+                className="text-gray-500 text-xs font-semibold w-12 text-center"
+              >
+                2d ago
+              </Text>
+            </View>
+            <View className="flex-col justify-around">
+              {/* add rounded image of people icon */}
+              <View className="flex-col">
+                {/* add round solid purple background around user group icon */}
+
+                {/* image of random person */}
+                <Image
+                  source={require("../assets/images/lilly-patten.jpg")}
+                  className="w-16 h-16 rounded-full bg-opacity-90"
+                />
+                {/* <View
+                className="bg-green-500 w-3 h-3 rounded-full ml-5"
+                position="absolute"
+                bottom={3}
+                right={3}
+              /> */}
+              </View>
+              {/* text saying discover people */}
+              <Text
+                numberOfLines={1}
+                className="text-white text-xs font-semibold pt-2 w-12 text-center"
+              >
+                Lilly Patten
+              </Text>
+              <Text
+                numberOfLines={1}
+                className="text-gray-500 text-xs font-semibold w-12 text-center"
+              >
+                30d ago
+              </Text>
+            </View>
           </View>
-        </View>
+        </ScrollView>
 
         {/* new section called Spotlight */}
         <View className="flex-row justify-between p-5">
           <Text className="text-white text-2xl font-bold">Spotlight</Text>
           <TouchableOpacity>
-            <Text className="text-green-500 text-lg font-semibold">
-              See All
-            </Text>
+            <Text className="text-gray-500 text-lg font-semibold">See All</Text>
           </TouchableOpacity>
         </View>
 
@@ -289,13 +355,15 @@ const HomeScreen = () => {
           <View className="flex-col">
             <Image
               source={require("../assets/images/spotlight-1.jpg")}
-              className="w-60 h-60 rounded-3xl"
+              className="w-80 h-60 rounded-3xl"
             />
             <Text
               numberOfLines={1}
-              className="text-white text-lg font-semibold pt-2"
+              className="text-white text-lg font-semibold pt-2 pl-2"
+              position="absolute"
+              bottom={60}
             >
-              Top Community of 2023
+              Top Communities of 2023
             </Text>
             <Text
               numberOfLines={1}
@@ -307,13 +375,137 @@ const HomeScreen = () => {
           <View className="flex-col">
             <Image
               source={require("../assets/images/spotlight-2.jpg")}
-              className="w-60 h-60 rounded-3xl"
+              className="w-80 h-60 rounded-3xl"
             />
             <Text
               numberOfLines={1}
-              className="text-white text-lg font-semibold pt-2"
+              className="text-white text-lg font-semibold pt-2 pl-2"
+              position="absolute"
+              bottom={60}
             >
               How to Organize your Community
+            </Text>
+            <Text
+              numberOfLines={1}
+              className="text-green-500 text-sm font-semibold"
+            >
+              12h ago
+            </Text>
+          </View>
+          <View className="flex-col">
+            <Image
+              source={require("../assets/images/spotlight-3.jpg")}
+              className="w-80 h-60 rounded-3xl"
+            />
+            <Text
+              numberOfLines={1}
+              className="text-white text-lg font-semibold pt-2 pl-2"
+              position="absolute"
+              bottom={60}
+            >
+              Community of the Month
+            </Text>
+            <Text
+              numberOfLines={1}
+              className="text-green-500 text-sm font-semibold"
+            >
+              1d ago
+            </Text>
+          </View>
+        </ScrollView>
+
+        {/* new section called discover people, with horizontal scrolling cards that contain profile pictures and names for people to add as friends */}
+        <View className="flex-row justify-between p-5">
+          <Text className="text-white text-2xl font-bold">Discover People</Text>
+          <TouchableOpacity>
+            <Text className="text-gray-500 text-lg font-semibold">See All</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* horizontal scrollable cards with large images */}
+        <ScrollView
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          className="flex-row space-x-4 p-5"
+        >
+          <View className="flex-col">
+            <Image
+              source={require("../assets/images/paul-ruzzo.jpg")}
+              className="w-80 h-60 rounded-3xl"
+            />
+            <Text
+              numberOfLines={1}
+              className="text-white text-lg font-semibold pt-2 pl-2"
+              position="absolute"
+              bottom={60}
+            >
+              Paul Ruzzo
+            </Text>
+            <Text
+              numberOfLines={1}
+              className="text-gray-500 text-sm font-semibold"
+            >
+              Suggested for you
+            </Text>
+          </View>
+          <View className="flex-col">
+            <Image
+              source={require("../assets/images/wendy-king.jpg")}
+              className="w-80 h-60 rounded-3xl"
+            />
+            <Text
+              numberOfLines={1}
+              className="text-white text-lg font-semibold pt-2 pl-2"
+              position="absolute"
+              bottom={60}
+            >
+              Wendy King
+            </Text>
+            <Text
+              numberOfLines={1}
+              className="text-gray-500 text-sm font-semibold"
+            >
+              Suggested for you
+            </Text>
+          </View>
+          <View className="flex-col">
+            <Image
+              source={require("../assets/images/matt-bat.jpg")}
+              className="w-80 h-60 rounded-3xl"
+            />
+            <Text
+              numberOfLines={1}
+              className="text-white text-lg font-semibold pt-2 pl-2"
+              position="absolute"
+              bottom={60}
+            >
+              Matt Bat
+            </Text>
+            <Text
+              numberOfLines={1}
+              className="text-gray-500 text-sm font-semibold"
+            >
+              Suggested for you
+            </Text>
+          </View>
+          <View className="flex-col">
+            <Image
+              source={require("../assets/images/joan-carver.jpg")}
+              className="w-80 h-60 rounded-3xl"
+            />
+            <Text
+              numberOfLines={1}
+              className="text-white text-lg font-semibold pt-2 pl-2"
+              position="absolute"
+              bottom={60}
+            >
+              Joan Carver
+            </Text>
+            <Text
+              numberOfLines={1}
+              className="text-gray-500 text-sm font-semibold"
+            >
+              Suggested for you
             </Text>
           </View>
         </ScrollView>

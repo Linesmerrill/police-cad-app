@@ -163,7 +163,7 @@ const LoginScreen = () => {
                       <TextInput
                         placeholder="Password"
                         placeholderTextColor={"gray"}
-                        keyboardType="password"
+                        keyboardType="visible-password"
                         cursorColor={"white"}
                         autoComplete="password"
                         color={"white"}
@@ -188,7 +188,7 @@ const LoginScreen = () => {
               </View>
 
               <View className="flex-row justify-center mb-4">
-                <Text className="text-white text-[15em]">
+                <Text className="text-white text-sm">
                   <Text
                     style={{
                       textDecorationLine: "underline",

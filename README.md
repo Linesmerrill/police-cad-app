@@ -24,4 +24,4 @@ A React Native Android/iOS application built for [Lines Police CAD](https://gith
 
 ## Publish
 
-`expo publish`
+`eas update`
