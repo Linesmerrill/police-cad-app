@@ -34,6 +34,7 @@ import {
   UserGroupIcon,
   RectangleGroupIcon,
   Bars3Icon,
+  MagnifyingGlassIcon,
 } from "react-native-heroicons/outline";
 import SearchScreen from "./screens/SearchScreen";
 import ChatScreen from "./screens/ChatScreen";
@@ -72,11 +73,7 @@ function HomeTabs() {
         options={{
           tabBarLabel: "Search",
           tabBarIcon: ({ color, size }) => (
-            <MagnifyingGlassCircleIcon
-              name="search"
-              color={color}
-              size={size}
-            />
+            <MagnifyingGlassIcon name="search" color={color} size={size} />
           ),
         }}
       />

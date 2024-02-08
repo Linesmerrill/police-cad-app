@@ -16,6 +16,7 @@ import {
   MagnifyingGlassIcon,
 } from "react-native-heroicons/solid";
 import { useNavigation } from "@react-navigation/native";
+import CommunityRow from "../components/CommunityRow";
 
 const SearchScreen = () => {
   const navigation = useNavigation();
@@ -77,54 +78,86 @@ const SearchScreen = () => {
 
         {/* add section called popular searches that contains a list of searched items */}
         <View className="bg-black p-5">
-          <Text className="text-white text-xl font-bold">Popular Searches</Text>
-          <View className="flex-col">
+          <Text className="text-white text-xl font-bold mb-2">
+            Popular Searches
+          </Text>
+          <View className="flex-col space-y-2">
             <View className="flex-row">
               <TouchableOpacity>
-                <Text className="text-white text-lg">
+                <Text className="text-white text-md pl-3">
                   <MagnifyingGlassIcon
                     size={20}
                     className="text-white"
                     color={"#FFF"}
                     // width={20}
                   />{" "}
-                  Food
+                  San Andreas Community
                 </Text>
               </TouchableOpacity>
             </View>
 
             <TouchableOpacity>
-              <Text className="text-white text-lg">
+              <Text className="text-white text-md pl-3">
                 <MagnifyingGlassIcon
                   size={20}
                   className="text-white"
                   color={"#FFF"}
                   // width={20}
                 />{" "}
-                Clothing
+                Max Thorton
               </Text>
             </TouchableOpacity>
             <TouchableOpacity>
-              <Text className="text-white text-lg">
+              <Text className="text-white text-md pl-3">
                 <MagnifyingGlassIcon
                   size={20}
                   className="text-white"
                   color={"#FFF"}
                   // width={20}
                 />{" "}
-                Shelter
+                Paleto Bay Official Community
               </Text>
             </TouchableOpacity>
             <TouchableOpacity>
-              <Text className="text-white text-lg">
+              <Text className="text-white text-md pl-3">
                 <MagnifyingGlassIcon
                   size={20}
                   className="text-white"
                   color={"#FFF"}
                   // width={20}
                 />{" "}
-                Jobs
+                Los Santos Community
               </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View className="bg-black p-5">
+          <Text className="text-white text-xl font-bold">
+            Communities you may like
+          </Text>
+        </View>
+        <View className="-top-5">
+          <CommunityRow />
+        </View>
+
+        <View className="flex-row justify-center">
+          <Text className="text-white text-md font-bold">
+            Not finding what you're looking for?
+          </Text>
+        </View>
+        <View className="flex-row justify-center">
+          <View className="flex-col">
+            {/* add button for search keywords */}
+            <TouchableOpacity>
+              <View className="flex-row justify-center bg-slate-500 rounded-3xl mx-3 mt-3 py-2 mb-3">
+                <View className="flex-col justify-center ml-5">
+                  <MagnifyingGlassIcon className="text-white" color={"#FFF"} />
+                </View>
+                <Text className="text-white text-md font-semibold p-2 mr-3">
+                  Search Keywords
+                </Text>
+              </View>
             </TouchableOpacity>
           </View>
         </View>
