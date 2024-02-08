@@ -60,7 +60,7 @@ const HomeScreen = () => {
         backgroundColor="transparent"
       />
       <ScrollView
-        className="bg-black mb-20"
+        className="bg-black"
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }

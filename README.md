@@ -18,10 +18,10 @@ A React Native Android/iOS application built for [Lines Police CAD](https://gith
 
 `npx expo-optimize`
 
-### Build
-
-`eas build`
-
-## Publish
+## Publish to Expo
 
 `eas update`
+
+### Build for Android and/or iOS
+
+`eas build`

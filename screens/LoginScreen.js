@@ -54,7 +54,7 @@ const LoginScreen = () => {
     if (response?.type === "success") {
       setToken(response.authentication.accessToken);
       getUserInfo();
-      navigation.navigate("Home");
+      navigation.navigate("HomeScreen");
     }
   }, [response, token]);
 
@@ -177,7 +177,7 @@ const LoginScreen = () => {
               <View className="flex-row">
                 <TouchableOpacity
                   className="mx-5 bg-white p-4 mb-4 mr-4 rounded-full flex-1 items-center space-x-1"
-                  onPress={() => navigation.navigate("Home")}
+                  onPress={() => navigation.navigate("HomeScreen")}
                 >
                   <View className="flex-row">
                     <Text className=" text-black font-bold text-md text-center">

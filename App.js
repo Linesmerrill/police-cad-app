@@ -1,5 +1,10 @@
-import { NavigationContainer, StackActions } from "@react-navigation/native";
+import {
+  NavigationContainer,
+  StackActions,
+  DarkTheme,
+} from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { TailwindProvider } from "tailwindcss-react-native";
 import AccountScreen from "./screens/AccountScreen";
 import CivilianListScreen from "./screens/CivilianListScreen";
@@ -20,12 +25,90 @@ import PoliceScreen from "./screens/PoliceScreen";
 import VehicleListScreen from "./screens/VehicleListScreen";
 import CreateAccountScreen2 from "./screens/CreateAccountScreen2";
 import CreateAccountScreen3 from "./screens/CreateAccountScreen3";
+import {
+  ChatBubbleLeftIcon,
+  EllipsisHorizontalIcon,
+  HomeIcon,
+  MagnifyingGlassCircleIcon,
+  RectangleStackIcon,
+  UserGroupIcon,
+  RectangleGroupIcon,
+  Bars3Icon,
+} from "react-native-heroicons/outline";
+import SearchScreen from "./screens/SearchScreen";
+import ChatScreen from "./screens/ChatScreen";
+import MenuScreen from "./screens/MenuScreen";
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+function HomeTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          tabBarLabel: "Home",
+          tabBarIcon: ({ color, size }) => (
+            <HomeIcon name="home" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Communities"
+        component={CommunitiesScreen}
+        options={{
+          tabBarLabel: "Communities",
+          tabBarIcon: ({ color, size }) => (
+            <RectangleGroupIcon name="communities" color={color} size={size} />
+          ),
+        }}
+      />
+      {/* add a search tab with magnifying glass icon */}
+      <Tab.Screen
+        name="Search"
+        component={SearchScreen}
+        options={{
+          tabBarLabel: "Search",
+          tabBarIcon: ({ color, size }) => (
+            <MagnifyingGlassCircleIcon
+              name="search"
+              color={color}
+              size={size}
+            />
+          ),
+        }}
+      />
+      {/* tab for chat screen */}
+      <Tab.Screen
+        name="Chats"
+        component={ChatScreen}
+        options={{
+          tabBarLabel: "Chats",
+          tabBarIcon: ({ color, size }) => (
+            <ChatBubbleLeftIcon name="chats" color={color} size={size} />
+          ),
+        }}
+      />
+      {/* tab for Menu */}
+      <Tab.Screen
+        name="Menu"
+        component={MenuScreen}
+        options={{
+          tabBarLabel: "Menu",
+          tabBarIcon: ({ color, size }) => (
+            <Bars3Icon name="menu" color={color} size={size} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={DarkTheme}>
       <TailwindProvider>
         <Stack.Navigator>
           {/* Screens */}
@@ -52,8 +135,8 @@ export default function App() {
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="Home"
-            component={HomeScreen}
+            name="HomeScreen"
+            component={HomeTabs}
             options={{ headerShown: false }}
           />
           <Stack.Screen name="Civilian" component={CivilianScreen} />

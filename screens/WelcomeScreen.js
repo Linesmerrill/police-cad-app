@@ -53,7 +53,7 @@ const WelcomeScreen = () => {
     if (response?.type === "success") {
       setToken(response.authentication.accessToken);
       getUserInfo();
-      navigation.navigate("Home");
+      navigation.navigate("HomeScreen");
     }
   }, [response, token]);
 
@@ -99,7 +99,7 @@ const WelcomeScreen = () => {
           <View className="flex-row ml-2">
             {/* <TouchableOpacity
               className="shadow-sm"
-              onPress={() => navigation.navigate("Home")}
+              onPress={() => navigation.navigate("HomeScreen")}
             >
               <XCircleIcon className="flex-1" color="white" size={40} />
             </TouchableOpacity> */}
