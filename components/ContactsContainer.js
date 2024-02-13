@@ -275,7 +275,7 @@ const ContactsContainer = () => {
         {/* end of Discover People */}
 
         {/* Following */}
-        <View>
+        <View className="mb-5">
           <View className="px-5 pb-5">
             <View className="flex-row justify-between">
               <Text className="text-white text-lg font-bold">
@@ -307,21 +307,31 @@ const ContactsContainer = () => {
                   <View className="flex-row space-x-2">
                     <View className="flex-row">
                       <CloudIcon className="w-0.5 h-0.5" color={"#FFF"} />
-                      <Text className="text-white pt-1 pl-1">Paul Ruzzo</Text>
+                      <Text
+                        className="text-white pt-1 pl-1 w-20"
+                        numberOfLines={1}
+                      >
+                        Paul Ruzzo
+                      </Text>
                     </View>
                     <View className="flex-row">
                       <CameraIcon className="w-0.5 h-0.5" color={"#FFF"} />
-                      <Text className="text-white pt-1 pl-1">RuzzoPaul</Text>
+                      <Text
+                        className="text-white pt-1 pl-1 w-30"
+                        numberOfLines={1}
+                      >
+                        RuzzoPaul
+                      </Text>
                     </View>
                   </View>
                 </View>
               </TouchableOpacity>
               <View className="flex-row space-x-2">
-                <TouchableOpacity>
+                {/* <TouchableOpacity>
                   <View className="bg-slate-500 rounded-full p-3">
                     <UserPlusIcon className="w-1 h-1" color={"#FFF"} />
                   </View>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 <TouchableOpacity>
                   <View className="bg-slate-500 rounded-full p-3">
                     <ChatBubbleLeftRightIcon
@@ -365,7 +375,7 @@ const ContactsContainer = () => {
                     <View className="flex-row">
                       <CameraIcon className="w-0.5 h-0.5" color={"#FFF"} />
                       <Text
-                        className="text-white pt-1 pl-1 w-20"
+                        className="text-white pt-1 pl-1 w-30"
                         numberOfLines={1}
                       >
                         WendyTheDancer
@@ -375,11 +385,11 @@ const ContactsContainer = () => {
                 </View>
               </TouchableOpacity>
               <View className="flex-row space-x-2">
-                <TouchableOpacity>
+                {/* <TouchableOpacity>
                   <View className="bg-slate-500 rounded-full p-3">
                     <UserPlusIcon className="w-1 h-1" color={"#FFF"} />
                   </View>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 <TouchableOpacity>
                   <View className="bg-slate-500 rounded-full p-3">
                     <ChatBubbleLeftRightIcon
@@ -433,11 +443,11 @@ const ContactsContainer = () => {
                 </View>
               </TouchableOpacity>
               <View className="flex-row space-x-2">
-                <TouchableOpacity>
+                {/* <TouchableOpacity>
                   <View className="bg-slate-500 rounded-full p-3">
                     <UserPlusIcon className="w-1 h-1" color={"#FFF"} />
                   </View>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 <TouchableOpacity>
                   <View className="bg-slate-500 rounded-full p-3">
                     <ChatBubbleLeftRightIcon
@@ -481,7 +491,7 @@ const ContactsContainer = () => {
                     <View className="flex-row">
                       <CameraIcon className="w-0.5 h-0.5" color={"#FFF"} />
                       <Text
-                        className="text-white pt-1 pl-1 w-20"
+                        className="text-white pt-1 pl-1 w-30"
                         numberOfLines={1}
                       >
                         Carver_Joan
@@ -491,11 +501,11 @@ const ContactsContainer = () => {
                 </View>
               </TouchableOpacity>
               <View className="flex-row space-x-2">
-                <TouchableOpacity>
+                {/* <TouchableOpacity>
                   <View className="bg-slate-500 rounded-full p-3">
                     <UserPlusIcon className="w-1 h-1" color={"#FFF"} />
                   </View>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 <TouchableOpacity>
                   <View className="bg-slate-500 rounded-full p-3">
                     <ChatBubbleLeftRightIcon
