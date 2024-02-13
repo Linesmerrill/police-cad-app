@@ -34,6 +34,7 @@ import { Card, Paragraph, Title } from "react-native-paper";
 import CommunityRow from "../components/CommunityRow";
 import MultiplayerRow from "../components/MultiplayerRow";
 import TrendingFreeCommunitiesRow from "../components/TrendingFreeCommunitiesRow";
+import PromotionalCardLarge from "../components/PromotionalCardLarge";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -601,39 +602,38 @@ const HomeScreen = () => {
         </View>
         {/* end of Discover People section */}
 
-        {/* a new horizontal scrollable section called "discover more communities for you" with a column layout of a spotlight image, name of the community and number of members. include button at bottom to Learn More */}
-        <View className="flex-row justify-between px-2 pt-5">
-          <Text className="text-white text-lg font-semibold">
-            Discover more communities
-          </Text>
-          <TouchableOpacity>
-            <Text className="text-gray-500 text-lg font-semibold">See All</Text>
-          </TouchableOpacity>
-        </View>
-
         <CommunityRow />
-
-        <View className="flex-row justify-between px-2 mt-9">
-          <Text className="text-white text-lg font-semibold">
-            Multiplayer communities
-          </Text>
-          <TouchableOpacity>
-            <Text className="text-gray-500 text-lg font-semibold">See All</Text>
-          </TouchableOpacity>
-        </View>
-
         <MultiplayerRow />
-
-        <View className="flex-row justify-between px-2 mt-9">
-          <Text className="text-white text-lg font-semibold">
-            Trending free communities
-          </Text>
-          <TouchableOpacity>
-            <Text className="text-gray-500 text-lg font-semibold">See All</Text>
-          </TouchableOpacity>
-        </View>
-
         <TrendingFreeCommunitiesRow />
+
+        <View className="mb-5"></View>
+
+        {/* promotional large cards */}
+        <PromotionalCardLarge />
+
+        <PromotionalCardLarge />
+
+        <PromotionalCardLarge />
+
+        <PromotionalCardLarge />
+
+        <View className=" flex-row justify-around align-middle mt-24 mb-40">
+          <View className="flex-col mb-40">
+            <Text className="text-white text-2xl font-bold">
+              New Communities await
+            </Text>
+            <Text className="text-white text-lg font-medium">
+              Get more out of your community.
+            </Text>
+            <TouchableOpacity>
+              <View className="bg-white mx-10 mt-5 rounded-xl">
+                <Text className="text-black text-md font-medium p-3 text-center">
+                  Learn More
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
