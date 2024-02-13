@@ -45,6 +45,7 @@ const CommunitiesScreen = () => {
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
+        showsVerticalScrollIndicator={false}
       >
         {/* add header bar */}
         <View className="flex-row justify-between items-center bg-black p-5">

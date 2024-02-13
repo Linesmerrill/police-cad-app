@@ -65,6 +65,7 @@ const HomeScreen = () => {
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
+        showsVerticalScrollIndicator={false}
       >
         {/* add header bar */}
         <View className="flex-row justify-between items-center bg-black p-5">
@@ -350,7 +351,7 @@ const HomeScreen = () => {
         </View>
 
         {/* horizontal scrollable cards with large images */}
-        <View className="p-5">
+        <View className="py-5">
           <ScrollView
             horizontal={true}
             showsHorizontalScrollIndicator={false}
@@ -428,7 +429,7 @@ const HomeScreen = () => {
         </View>
 
         {/* horizontal scrollable cards with large images */}
-        <View className="p-5">
+        <View className="py-5">
           <ScrollView
             horizontal={true}
             showsHorizontalScrollIndicator={false}

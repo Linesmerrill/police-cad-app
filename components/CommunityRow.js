@@ -4,7 +4,7 @@ import { EllipsisHorizontalIcon } from "react-native-heroicons/solid";
 
 const CommunityRow = () => {
   return (
-    <View className="p-5">
+    <View className="py-5">
       <ScrollView
         horizontal={true}
         showsHorizontalScrollIndicator={false}
