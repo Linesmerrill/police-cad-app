@@ -2,7 +2,7 @@ import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import { EllipsisHorizontalIcon } from "react-native-heroicons/solid";
 
-const CommunityRow = () => {
+const TrendingFreeCommunitiesRow = () => {
   return (
     <View className="pt-3">
       <ScrollView
@@ -14,7 +14,7 @@ const CommunityRow = () => {
         <View className="flex-col">
           <TouchableOpacity>
             <Image
-              source={require("../assets/images/discover-community1.jpg")}
+              source={require("../assets/images/discover-community5.jpg")}
               className="w-48 h-28 rounded-xl"
             />
             <View className="flex-row justify-between">
@@ -22,7 +22,7 @@ const CommunityRow = () => {
                 numberOfLines={1}
                 className="text-white text-md font-semibold pt-3"
               >
-                San Andreas Roleplay
+                Blaine County Roleplay
               </Text>
               <TouchableOpacity className="flex-col justify-end">
                 <View className="flex-col mt-2">
@@ -35,10 +35,10 @@ const CommunityRow = () => {
             </View>
             <View className="flew-row">
               <Text numberOfLines={1} className="text-slate-300 text-xs -top-2">
-                1,879 Members
+                5,879 Members
               </Text>
               <Text numberOfLines={1} className="text-green-500 text-sm -top-2">
-                Actively Recruiting
+                {" "}
               </Text>
             </View>
             {/* button to learn more */}
@@ -131,6 +131,45 @@ const CommunityRow = () => {
         <View className="flex-col">
           <TouchableOpacity>
             <Image
+              source={require("../assets/images/discover-community1.jpg")}
+              className="w-48 h-28 rounded-xl"
+            />
+            <View className="flex-row justify-between">
+              <Text
+                numberOfLines={1}
+                className="text-white text-md font-semibold pt-3"
+              >
+                San Andreas Roleplay
+              </Text>
+              <TouchableOpacity className="flex-col justify-end">
+                <View className="flex-col mt-2">
+                  <EllipsisHorizontalIcon
+                    size={30}
+                    color={"#FFF"}
+                  ></EllipsisHorizontalIcon>
+                </View>
+              </TouchableOpacity>
+            </View>
+            <View className="flew-row">
+              <Text numberOfLines={1} className="text-slate-300 text-xs -top-2">
+                1,879 Members
+              </Text>
+              <Text numberOfLines={1} className="text-green-500 text-sm -top-2">
+                Actively Recruiting
+              </Text>
+            </View>
+            {/* button to learn more */}
+            <View className="flex-row justify-center bg-slate-500 rounded-xl mt-2 py-1">
+              <Text className="text-white text-md font-bold p-2">
+                Learn More
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        <View className="flex-col">
+          <TouchableOpacity>
+            <Image
               source={require("../assets/images/discover-community4.jpg")}
               className="w-48 h-28 rounded-xl"
             />
@@ -166,48 +205,9 @@ const CommunityRow = () => {
             </View>
           </TouchableOpacity>
         </View>
-
-        <View className="flex-col">
-          <TouchableOpacity>
-            <Image
-              source={require("../assets/images/discover-community5.jpg")}
-              className="w-48 h-28 rounded-xl"
-            />
-            <View className="flex-row justify-between">
-              <Text
-                numberOfLines={1}
-                className="text-white text-md font-semibold pt-3"
-              >
-                Blaine County Roleplay
-              </Text>
-              <TouchableOpacity className="flex-col justify-end">
-                <View className="flex-col mt-2">
-                  <EllipsisHorizontalIcon
-                    size={30}
-                    color={"#FFF"}
-                  ></EllipsisHorizontalIcon>
-                </View>
-              </TouchableOpacity>
-            </View>
-            <View className="flew-row">
-              <Text numberOfLines={1} className="text-slate-300 text-xs -top-2">
-                5,879 Members
-              </Text>
-              <Text numberOfLines={1} className="text-green-500 text-sm -top-2">
-                {" "}
-              </Text>
-            </View>
-            {/* button to learn more */}
-            <View className="flex-row justify-center bg-slate-500 rounded-xl mt-2 py-1">
-              <Text className="text-white text-md font-bold p-2">
-                Learn More
-              </Text>
-            </View>
-          </TouchableOpacity>
-        </View>
       </ScrollView>
     </View>
   );
 };
 
-export default CommunityRow;
+export default TrendingFreeCommunitiesRow;

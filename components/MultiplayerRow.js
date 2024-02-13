@@ -2,7 +2,7 @@ import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import { EllipsisHorizontalIcon } from "react-native-heroicons/solid";
 
-const CommunityRow = () => {
+const MultiplayerRow = () => {
   return (
     <View className="pt-3">
       <ScrollView
@@ -11,84 +11,6 @@ const CommunityRow = () => {
         className="flex-row space-x-4"
       >
         {/* add a new card that contains a spotlight image, community name and numbers of members in community */}
-        <View className="flex-col">
-          <TouchableOpacity>
-            <Image
-              source={require("../assets/images/discover-community1.jpg")}
-              className="w-48 h-28 rounded-xl"
-            />
-            <View className="flex-row justify-between">
-              <Text
-                numberOfLines={1}
-                className="text-white text-md font-semibold pt-3"
-              >
-                San Andreas Roleplay
-              </Text>
-              <TouchableOpacity className="flex-col justify-end">
-                <View className="flex-col mt-2">
-                  <EllipsisHorizontalIcon
-                    size={30}
-                    color={"#FFF"}
-                  ></EllipsisHorizontalIcon>
-                </View>
-              </TouchableOpacity>
-            </View>
-            <View className="flew-row">
-              <Text numberOfLines={1} className="text-slate-300 text-xs -top-2">
-                1,879 Members
-              </Text>
-              <Text numberOfLines={1} className="text-green-500 text-sm -top-2">
-                Actively Recruiting
-              </Text>
-            </View>
-            {/* button to learn more */}
-            <View className="flex-row justify-center bg-slate-500 rounded-xl mt-2 py-1">
-              <Text className="text-white text-md font-bold p-2">
-                Learn More
-              </Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-
-        <View className="flex-col">
-          <TouchableOpacity>
-            <Image
-              source={require("../assets/images/discover-community2.jpg")}
-              className="w-48 h-28 rounded-xl"
-            />
-            <View className="flex-row justify-between">
-              <Text
-                numberOfLines={1}
-                className="text-white text-md font-semibold pt-3"
-              >
-                Los Santos Roleplay
-              </Text>
-              <TouchableOpacity className="flex-col justify-end">
-                <View className="flex-col mt-2">
-                  <EllipsisHorizontalIcon
-                    size={30}
-                    color={"#FFF"}
-                  ></EllipsisHorizontalIcon>
-                </View>
-              </TouchableOpacity>
-            </View>
-            <View className="flew-row">
-              <Text numberOfLines={1} className="text-slate-300 text-xs -top-2">
-                2,879 Members
-              </Text>
-              <Text numberOfLines={1} className="text-green-500 text-sm -top-2">
-                Newly Created
-              </Text>
-            </View>
-            {/* button to learn more */}
-            <View className="flex-row justify-center bg-slate-500 rounded-xl mt-2 py-1">
-              <Text className="text-white text-md font-bold p-2">
-                Learn More
-              </Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-
         <View className="flex-col">
           <TouchableOpacity>
             <Image
@@ -170,6 +92,84 @@ const CommunityRow = () => {
         <View className="flex-col">
           <TouchableOpacity>
             <Image
+              source={require("../assets/images/discover-community1.jpg")}
+              className="w-48 h-28 rounded-xl"
+            />
+            <View className="flex-row justify-between">
+              <Text
+                numberOfLines={1}
+                className="text-white text-md font-semibold pt-3"
+              >
+                San Andreas Roleplay
+              </Text>
+              <TouchableOpacity className="flex-col justify-end">
+                <View className="flex-col mt-2">
+                  <EllipsisHorizontalIcon
+                    size={30}
+                    color={"#FFF"}
+                  ></EllipsisHorizontalIcon>
+                </View>
+              </TouchableOpacity>
+            </View>
+            <View className="flew-row">
+              <Text numberOfLines={1} className="text-slate-300 text-xs -top-2">
+                1,879 Members
+              </Text>
+              <Text numberOfLines={1} className="text-green-500 text-sm -top-2">
+                Actively Recruiting
+              </Text>
+            </View>
+            {/* button to learn more */}
+            <View className="flex-row justify-center bg-slate-500 rounded-xl mt-2 py-1">
+              <Text className="text-white text-md font-bold p-2">
+                Learn More
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        <View className="flex-col">
+          <TouchableOpacity>
+            <Image
+              source={require("../assets/images/discover-community2.jpg")}
+              className="w-48 h-28 rounded-xl"
+            />
+            <View className="flex-row justify-between">
+              <Text
+                numberOfLines={1}
+                className="text-white text-md font-semibold pt-3"
+              >
+                Los Santos Roleplay
+              </Text>
+              <TouchableOpacity className="flex-col justify-end">
+                <View className="flex-col mt-2">
+                  <EllipsisHorizontalIcon
+                    size={30}
+                    color={"#FFF"}
+                  ></EllipsisHorizontalIcon>
+                </View>
+              </TouchableOpacity>
+            </View>
+            <View className="flew-row">
+              <Text numberOfLines={1} className="text-slate-300 text-xs -top-2">
+                2,879 Members
+              </Text>
+              <Text numberOfLines={1} className="text-green-500 text-sm -top-2">
+                Newly Created
+              </Text>
+            </View>
+            {/* button to learn more */}
+            <View className="flex-row justify-center bg-slate-500 rounded-xl mt-2 py-1">
+              <Text className="text-white text-md font-bold p-2">
+                Learn More
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        <View className="flex-col">
+          <TouchableOpacity>
+            <Image
               source={require("../assets/images/discover-community5.jpg")}
               className="w-48 h-28 rounded-xl"
             />
@@ -210,4 +210,4 @@ const CommunityRow = () => {
   );
 };
 
-export default CommunityRow;
+export default MultiplayerRow;

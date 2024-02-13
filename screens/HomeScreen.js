@@ -32,6 +32,8 @@ import RoleIcon from "../components/RoleIcon";
 import HomeScreenWelcomeCarousel from "../components/HomeScreenWelcomeCarousel";
 import { Card, Paragraph, Title } from "react-native-paper";
 import CommunityRow from "../components/CommunityRow";
+import MultiplayerRow from "../components/MultiplayerRow";
+import TrendingFreeCommunitiesRow from "../components/TrendingFreeCommunitiesRow";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -600,8 +602,8 @@ const HomeScreen = () => {
         {/* end of Discover People section */}
 
         {/* a new horizontal scrollable section called "discover more communities for you" with a column layout of a spotlight image, name of the community and number of members. include button at bottom to Learn More */}
-        <View className="flex-row justify-between px-5 pt-5">
-          <Text className="text-white text-xl font-bold">
+        <View className="flex-row justify-between px-2 pt-5">
+          <Text className="text-white text-lg font-semibold">
             Discover more communities
           </Text>
           <TouchableOpacity>
@@ -610,6 +612,28 @@ const HomeScreen = () => {
         </View>
 
         <CommunityRow />
+
+        <View className="flex-row justify-between px-2 mt-9">
+          <Text className="text-white text-lg font-semibold">
+            Multiplayer communities
+          </Text>
+          <TouchableOpacity>
+            <Text className="text-gray-500 text-lg font-semibold">See All</Text>
+          </TouchableOpacity>
+        </View>
+
+        <MultiplayerRow />
+
+        <View className="flex-row justify-between px-2 mt-9">
+          <Text className="text-white text-lg font-semibold">
+            Trending free communities
+          </Text>
+          <TouchableOpacity>
+            <Text className="text-gray-500 text-lg font-semibold">See All</Text>
+          </TouchableOpacity>
+        </View>
+
+        <TrendingFreeCommunitiesRow />
       </ScrollView>
     </SafeAreaView>
   );
