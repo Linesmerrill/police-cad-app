@@ -617,8 +617,8 @@ const HomeScreen = () => {
 
         <PromotionalCardLarge />
 
-        <View className=" flex-row justify-around align-middle mt-24 mb-40">
-          <View className="flex-col mb-40">
+        <View className=" flex-row justify-around align-middle mt-24 mb-24">
+          <View className="flex-col">
             <Text className="text-white text-2xl font-bold">
               New Communities await
             </Text>
