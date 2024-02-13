@@ -133,7 +133,7 @@ const HomeScreen = () => {
           className="flex-row space-x-4"
         >
           <View className="flex-row space-x-4 p-5">
-            <View className="flex-col justify-around">
+            <View className="flex-col justify-around w-16">
               {/* add rounded image of people icon */}
               <View className="flex-col">
                 {/* add round solid purple background around user group icon */}
@@ -155,7 +155,7 @@ const HomeScreen = () => {
                 Discover People
               </Text>
             </View>
-            <View className="flex-col justify-around">
+            <View className="flex-col justify-around w-16">
               {/* add rounded image of people icon */}
               <View className="flex-col">
                 {/* add round solid purple background around user group icon */}
@@ -172,18 +172,18 @@ const HomeScreen = () => {
               {/* text saying discover people */}
               <Text
                 numberOfLines={1}
-                className="text-white text-xs font-semibold pt-2 w-15 text-center"
+                className="text-white text-xs font-semibold pt-2 w-full text-center"
               >
                 Join Party
               </Text>
               <Text
                 numberOfLines={1}
-                className="text-green-500 text-xs font-semibold w-15 text-center"
+                className="text-green-500 text-xs font-semibold w-full text-center"
               >
                 Rec Room
               </Text>
             </View>
-            <View className="flex-col justify-around">
+            <View className="flex-col justify-around w-16">
               {/* add rounded image of people icon */}
               <View className="flex-col">
                 {/* add round solid purple background around user group icon */}
@@ -203,18 +203,18 @@ const HomeScreen = () => {
               {/* text saying discover people */}
               <Text
                 numberOfLines={1}
-                className="text-white text-xs font-semibold pt-2 w-12 text-center"
+                className="text-white text-xs font-semibold pt-2 w-full text-center"
               >
                 Paul Ruzzo
               </Text>
               <Text
                 numberOfLines={1}
-                className="text-green-500 text-xs font-semibold w-12 text-center"
+                className="text-green-500 text-xs font-semibold w-full text-center"
               >
                 LPC Community
               </Text>
             </View>
-            <View className="flex-col justify-around">
+            <View className="flex-col justify-around w-16">
               {/* add rounded image of people icon */}
               <View className="flex-col">
                 {/* add round solid purple background around user group icon */}
@@ -234,18 +234,18 @@ const HomeScreen = () => {
               {/* text saying discover people */}
               <Text
                 numberOfLines={1}
-                className="text-white text-xs font-semibold pt-2 w-12 text-center"
+                className="text-white text-xs font-semibold pt-2 w-full text-center"
               >
                 Wendy King
               </Text>
               <Text
                 numberOfLines={1}
-                className="text-green-500 text-xs font-semibold w-12 text-center"
+                className="text-green-500 text-xs font-semibold w-full text-center"
               >
                 Vibing
               </Text>
             </View>
-            <View className="flex-col justify-around">
+            <View className="flex-col justify-around w-16">
               {/* add rounded image of people icon */}
               <View className="flex-col">
                 {/* add round solid purple background around user group icon */}
@@ -265,18 +265,18 @@ const HomeScreen = () => {
               {/* text saying discover people */}
               <Text
                 numberOfLines={1}
-                className="text-white text-xs font-semibold pt-2 w-12 text-center"
+                className="text-white text-xs font-semibold pt-2 w-full text-center"
               >
                 Matt Bat
               </Text>
               <Text
                 numberOfLines={1}
-                className="text-gray-500 text-xs font-semibold w-12 text-center"
+                className="text-gray-500 text-xs font-semibold w-full text-center"
               >
                 30m ago
               </Text>
             </View>
-            <View className="flex-col justify-around">
+            <View className="flex-col justify-around w-16">
               {/* add rounded image of people icon */}
               <View className="flex-col">
                 {/* add round solid purple background around user group icon */}
@@ -296,18 +296,18 @@ const HomeScreen = () => {
               {/* text saying discover people */}
               <Text
                 numberOfLines={1}
-                className="text-white text-xs font-semibold pt-2 w-12 text-center"
+                className="text-white text-xs font-semibold pt-2 w-full text-center"
               >
                 Joan Carver
               </Text>
               <Text
                 numberOfLines={1}
-                className="text-gray-500 text-xs font-semibold w-12 text-center"
+                className="text-gray-500 text-xs font-semibold w-full text-center"
               >
                 2d ago
               </Text>
             </View>
-            <View className="flex-col justify-around">
+            <View className="flex-col justify-around w-16">
               {/* add rounded image of people icon */}
               <View className="flex-col">
                 {/* add round solid purple background around user group icon */}
@@ -327,13 +327,13 @@ const HomeScreen = () => {
               {/* text saying discover people */}
               <Text
                 numberOfLines={1}
-                className="text-white text-xs font-semibold pt-2 w-12 text-center"
+                className="text-white text-xs font-semibold pt-2 w-full text-center"
               >
                 Lilly Patten
               </Text>
               <Text
                 numberOfLines={1}
-                className="text-gray-500 text-xs font-semibold w-12 text-center"
+                className="text-gray-500 text-xs font-semibold w-full text-center"
               >
                 30d ago
               </Text>

@@ -67,16 +67,21 @@ const SearchScreen = () => {
 
         {/* search bar that can accept input */}
         <View className="bg-black p-5">
-          <View className="bg-gray-800 rounded-full p-3">
+          <View className="flex-row bg-gray-800 rounded-full p-3 space-x-2">
+            <MagnifyingGlassIcon
+              size={20}
+              className="text-white"
+              color={"#FFF"}
+            />
             <TextInput
               style={{ color: "white" }}
-              placeholder="Search"
-              placeholderTextColor="white"
+              placeholder="Search communities, people, and more"
+              placeholderTextColor="gray"
             />
           </View>
         </View>
 
-        {/* add section called popular searches that contains a list of searched items */}
+        {/* popular searches */}
         <View className="bg-black p-5">
           <Text className="text-white text-xl font-bold mb-2">
             Popular Searches
@@ -132,6 +137,7 @@ const SearchScreen = () => {
           </View>
         </View>
 
+        {/* communities you may like */}
         <View className="bg-black p-5">
           <Text className="text-white text-xl font-bold">
             Communities you may like
@@ -141,6 +147,7 @@ const SearchScreen = () => {
           <CommunityRow />
         </View>
 
+        {/* not finding what you're looking for? */}
         <View className="flex-row justify-center">
           <Text className="text-white text-md font-bold">
             Not finding what you're looking for?
@@ -148,7 +155,6 @@ const SearchScreen = () => {
         </View>
         <View className="flex-row justify-center">
           <View className="flex-col">
-            {/* add button for search keywords */}
             <TouchableOpacity>
               <View className="flex-row justify-center bg-slate-500 rounded-3xl mx-3 mt-3 py-2 mb-3">
                 <View className="flex-col justify-center ml-5">
