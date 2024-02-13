@@ -35,7 +35,15 @@ import {
   RectangleGroupIcon,
   Bars3Icon,
   MagnifyingGlassIcon,
+  ChatBubbleLeftRightIcon,
 } from "react-native-heroicons/outline";
+import {
+  HomeIcon as HomeIconSolid,
+  RectangleGroupIcon as RectangleGroupIconSolid,
+  MagnifyingGlassIcon as MagnifyingGlassIconSolid,
+  ChatBubbleLeftRightIcon as ChatBubbleLeftRightIconSolid,
+  Bars3Icon as Bars3IconSolid,
+} from "react-native-heroicons/solid";
 import SearchScreen from "./screens/SearchScreen";
 import ChatScreen from "./screens/ChatScreen";
 import MenuScreen from "./screens/MenuScreen";
@@ -51,9 +59,13 @@ function HomeTabs() {
         component={HomeScreen}
         options={{
           tabBarLabel: "Home",
-          tabBarIcon: ({ color, size }) => (
-            <HomeIcon name="home" color={color} size={size} />
-          ),
+          tabBarIcon: ({ focused, color, size }) =>
+            focused ? (
+              <HomeIconSolid name="home-solid" color={color} size={size} />
+            ) : (
+              <HomeIcon name="home-outline" color={color} size={size} />
+            ),
+          tabBarActiveTintColor: "#FFF",
         }}
       />
       <Tab.Screen
@@ -61,9 +73,21 @@ function HomeTabs() {
         component={CommunitiesScreen}
         options={{
           tabBarLabel: "Communities",
-          tabBarIcon: ({ color, size }) => (
-            <RectangleGroupIcon name="communities" color={color} size={size} />
-          ),
+          tabBarIcon: ({ focused, color, size }) =>
+            focused ? (
+              <RectangleGroupIconSolid
+                name="communities-solid"
+                color={color}
+                size={size}
+              />
+            ) : (
+              <RectangleGroupIcon
+                name="communities-outline"
+                color={color}
+                size={size}
+              />
+            ),
+          tabBarActiveTintColor: "#FFF",
         }}
       />
       {/* add a search tab with magnifying glass icon */}
@@ -72,9 +96,21 @@ function HomeTabs() {
         component={SearchScreen}
         options={{
           tabBarLabel: "Search",
-          tabBarIcon: ({ color, size }) => (
-            <MagnifyingGlassIcon name="search" color={color} size={size} />
-          ),
+          tabBarIcon: ({ focused, color, size }) =>
+            focused ? (
+              <MagnifyingGlassIconSolid
+                name="search-solid"
+                color={color}
+                size={size}
+              />
+            ) : (
+              <MagnifyingGlassIcon
+                name="search-outline"
+                color={color}
+                size={size}
+              />
+            ),
+          tabBarActiveTintColor: "#FFF",
         }}
       />
       {/* tab for chat screen */}
@@ -83,9 +119,21 @@ function HomeTabs() {
         component={ChatScreen}
         options={{
           tabBarLabel: "Chats",
-          tabBarIcon: ({ color, size }) => (
-            <ChatBubbleLeftIcon name="chats" color={color} size={size} />
-          ),
+          tabBarIcon: ({ focused, color, size }) =>
+            focused ? (
+              <ChatBubbleLeftRightIconSolid
+                name="chats-solid"
+                color={color}
+                size={size}
+              />
+            ) : (
+              <ChatBubbleLeftRightIcon
+                name="chats-outline"
+                color={color}
+                size={size}
+              />
+            ),
+          tabBarActiveTintColor: "#FFF",
         }}
       />
       {/* tab for Menu */}
@@ -94,9 +142,13 @@ function HomeTabs() {
         component={MenuScreen}
         options={{
           tabBarLabel: "Menu",
-          tabBarIcon: ({ color, size }) => (
-            <Bars3Icon name="menu" color={color} size={size} />
-          ),
+          tabBarIcon: ({ focused, color, size }) =>
+            focused ? (
+              <Bars3IconSolid name="menu-solid" color={color} size={size} />
+            ) : (
+              <Bars3Icon name="menu-outline" color={color} size={size} />
+            ),
+          tabBarActiveTintColor: "#FFF",
         }}
       />
     </Tab.Navigator>
