@@ -128,6 +128,17 @@ function HomeTabs() {
         component={ChatScreen}
         options={{
           tabBarLabel: "Chats",
+          tabBarBadge: "7",
+          tabBarBadgeStyle: {
+            fontSize: 10,
+            fontWeight: "bold",
+            backgroundColor: "red",
+            minWidth: 14,
+            minHeight: 14,
+            maxWidth: 14,
+            maxHeight: 14,
+            borderRadius: 7,
+          },
           tabBarIcon: ({ focused, color, size }) =>
             focused ? (
               <ChatBubbleLeftRightIconSolid
@@ -151,6 +162,15 @@ function HomeTabs() {
         component={MenuScreen}
         options={{
           tabBarLabel: "Menu",
+          tabBarBadge: "",
+          tabBarBadgeStyle: {
+            backgroundColor: "red",
+            minWidth: 14,
+            minHeight: 14,
+            maxWidth: 14,
+            maxHeight: 14,
+            borderRadius: 7,
+          },
           tabBarIcon: ({ focused, color, size }) =>
             focused ? (
               <Bars3IconSolid name="menu-solid" color={color} size={size} />
@@ -190,8 +210,18 @@ function CadTabs() {
         component={CivilianScreen}
         options={{
           tabBarLabel: "Civilian",
+          tabBarBadge: "",
+          tabBarBadgeStyle: {
+            backgroundColor: "green",
+            minWidth: 14,
+            minHeight: 14,
+            maxWidth: 14,
+            maxHeight: 14,
+            borderRadius: 7,
+          },
           tabBarIcon: ({ focused, color, size }) =>
             focused ? (
+              // add a green dot to the icon to indicate that there is a new message
               <UserIconSolid name="user-solid" color={color} size={size} />
             ) : (
               <UserIcon name="user-outline" color={color} size={size} />
@@ -240,6 +270,15 @@ function CadTabs() {
         component={MenuScreen}
         options={{
           tabBarLabel: "Menu",
+          tabBarBadge: "",
+          tabBarBadgeStyle: {
+            backgroundColor: "red",
+            minWidth: 14,
+            minHeight: 14,
+            maxWidth: 14,
+            maxHeight: 14,
+            borderRadius: 7,
+          },
           tabBarIcon: ({ focused, color, size }) =>
             focused ? (
               <Bars3IconSolid name="menu-solid" color={color} size={size} />
