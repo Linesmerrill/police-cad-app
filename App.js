@@ -15,6 +15,7 @@ import CreateCivilianScreen from "./screens/CreateCivilianScreen";
 import CreateFirearmScreen from "./screens/CreateFirearmScreen";
 import CreateVehicleScreen from "./screens/CreateVehicleScreen";
 import DispatchScreen from "./screens/DispatchScreen";
+import CommunityHomeScreen from "./screens/CommunityHomeScreen";
 import FirearmListScreen from "./screens/FirearmListScreen";
 import FireEmsScreen from "./screens/FireEmsScreen";
 import ForgotPasswordScreen from "./screens/ForgotPasswordScreen";
@@ -36,6 +37,10 @@ import {
   Bars3Icon,
   MagnifyingGlassIcon,
   ChatBubbleLeftRightIcon,
+  HomeModernIcon,
+  UserIcon,
+  StarIcon,
+  ComputerDesktopIcon,
 } from "react-native-heroicons/outline";
 import {
   HomeIcon as HomeIconSolid,
@@ -43,6 +48,10 @@ import {
   MagnifyingGlassIcon as MagnifyingGlassIconSolid,
   ChatBubbleLeftRightIcon as ChatBubbleLeftRightIconSolid,
   Bars3Icon as Bars3IconSolid,
+  HomeModernIcon as HomeModernIconSolid,
+  UserIcon as UserIconSolid,
+  StarIcon as StarIconSolid,
+  ComputerDesktopIcon as ComputerDesktopIconSolid,
 } from "react-native-heroicons/solid";
 import SearchScreen from "./screens/SearchScreen";
 import ChatScreen from "./screens/ChatScreen";
@@ -155,6 +164,95 @@ function HomeTabs() {
   );
 }
 
+function CadTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen
+        name="Community"
+        component={CommunityHomeScreen}
+        options={{
+          tabBarLabel: "Community",
+          tabBarIcon: ({ focused, color, size }) =>
+            focused ? (
+              <HomeModernIconSolid
+                name="home-solid"
+                color={color}
+                size={size}
+              />
+            ) : (
+              <HomeModernIcon name="home-outline" color={color} size={size} />
+            ),
+          tabBarActiveTintColor: "#FFF",
+        }}
+      />
+      <Tab.Screen
+        name="Civilian"
+        component={CivilianScreen}
+        options={{
+          tabBarLabel: "Civilian",
+          tabBarIcon: ({ focused, color, size }) =>
+            focused ? (
+              <UserIconSolid name="user-solid" color={color} size={size} />
+            ) : (
+              <UserIcon name="user-outline" color={color} size={size} />
+            ),
+          tabBarActiveTintColor: "#FFF",
+        }}
+      />
+      <Tab.Screen
+        name="Police"
+        component={PoliceScreen}
+        options={{
+          tabBarLabel: "Police",
+          tabBarIcon: ({ focused, color, size }) =>
+            focused ? (
+              <StarIconSolid name="star-solid" color={color} size={size} />
+            ) : (
+              <StarIcon name="star-outline" color={color} size={size} />
+            ),
+          tabBarActiveTintColor: "#FFF",
+        }}
+      />
+      <Tab.Screen
+        name="Dispatch"
+        component={DispatchScreen}
+        options={{
+          tabBarLabel: "Dispatch",
+          tabBarIcon: ({ focused, color, size }) =>
+            focused ? (
+              <ComputerDesktopIconSolid
+                name="computer-solid"
+                color={color}
+                size={size}
+              />
+            ) : (
+              <ComputerDesktopIcon
+                name="computer-outline"
+                color={color}
+                size={size}
+              />
+            ),
+          tabBarActiveTintColor: "#FFF",
+        }}
+      />
+      <Tab.Screen
+        name="Menu"
+        component={MenuScreen}
+        options={{
+          tabBarLabel: "Menu",
+          tabBarIcon: ({ focused, color, size }) =>
+            focused ? (
+              <Bars3IconSolid name="menu-solid" color={color} size={size} />
+            ) : (
+              <Bars3Icon name="menu-outline" color={color} size={size} />
+            ),
+          tabBarActiveTintColor: "#FFF",
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
+
 export default function App() {
   return (
     <NavigationContainer theme={DarkTheme}>
@@ -211,6 +309,11 @@ export default function App() {
           <Stack.Screen name="Dispatch" component={DispatchScreen} />
           <Stack.Screen name="FireEms" component={FireEmsScreen} />
           <Stack.Screen name="Communities" component={CommunitiesScreen} />
+          <Stack.Screen
+            name="CommunityHome"
+            component={CadTabs}
+            options={{ headerShown: false }}
+          />
 
           <Stack.Screen
             name="Account"

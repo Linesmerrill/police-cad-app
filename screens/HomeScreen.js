@@ -89,7 +89,7 @@ const HomeScreen = () => {
         <View className="justify-between flex-row bg-slate-700 bg-opacity-90 rounded-3xl p-3">
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("Dispatch");
+              navigation.navigate("CommunityHome");
             }}
           >
             <View className="flex-row">
