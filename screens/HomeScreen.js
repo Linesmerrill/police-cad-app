@@ -63,6 +63,21 @@ const HomeScreen = () => {
         barStyle="light-content"
         backgroundColor="transparent"
       />
+
+      {/* add header bar */}
+      <View className="flex-row justify-between items-center bg-black p-5">
+        <View className="flex-row items-center">
+          <Text className="text-white text-2xl font-bold">Jump Back In</Text>
+        </View>
+        <View className="flex-row space-x-4">
+          <TouchableOpacity>
+            <BellIcon className="text-white" color={"#FFF"} />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <ChatBubbleLeftIcon className="text-white" color={"#FFF"} />
+          </TouchableOpacity>
+        </View>
+      </View>
       <ScrollView
         className="bg-black"
         refreshControl={
@@ -70,21 +85,6 @@ const HomeScreen = () => {
         }
         showsVerticalScrollIndicator={false}
       >
-        {/* add header bar */}
-        <View className="flex-row justify-between items-center bg-black p-5">
-          <View className="flex-row items-center">
-            <Text className="text-white text-2xl font-bold">Jump Back In</Text>
-          </View>
-          <View className="flex-row space-x-4">
-            <TouchableOpacity>
-              <BellIcon className="text-white" color={"#FFF"} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <ChatBubbleLeftIcon className="text-white" color={"#FFF"} />
-            </TouchableOpacity>
-          </View>
-        </View>
-
         {/* currently active community card with button to get started */}
         <View className="justify-between flex-row bg-slate-700 bg-opacity-90 rounded-3xl p-3">
           <TouchableOpacity

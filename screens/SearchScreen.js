@@ -44,43 +44,43 @@ const SearchScreen = () => {
         barStyle="light-content"
         backgroundColor="transparent"
       />
+
+      {/* add header bar */}
+      <View className="flex-row justify-between items-center bg-black p-5">
+        <View className="flex-row items-center">
+          <Text className="text-white text-2xl font-bold">Search</Text>
+        </View>
+        <View className="flex-row space-x-4">
+          <TouchableOpacity>
+            <BellIcon className="text-white" color={"#FFF"} />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <ChatBubbleLeftIcon className="text-white" color={"#FFF"} />
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      {/* search bar that can accept input */}
+      <View className="bg-black p-5">
+        <View className="flex-row bg-gray-800 rounded-full p-3 space-x-2">
+          <MagnifyingGlassIcon
+            size={20}
+            className="text-white"
+            color={"#FFF"}
+          />
+          <TextInput
+            style={{ color: "white" }}
+            placeholder="Search communities, people, and more"
+            placeholderTextColor="gray"
+          />
+        </View>
+      </View>
       <ScrollView
         className="bg-black"
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
       >
-        {/* add header bar */}
-        <View className="flex-row justify-between items-center bg-black p-5">
-          <View className="flex-row items-center">
-            <Text className="text-white text-2xl font-bold">Search</Text>
-          </View>
-          <View className="flex-row space-x-4">
-            <TouchableOpacity>
-              <BellIcon className="text-white" color={"#FFF"} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <ChatBubbleLeftIcon className="text-white" color={"#FFF"} />
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        {/* search bar that can accept input */}
-        <View className="bg-black p-5">
-          <View className="flex-row bg-gray-800 rounded-full p-3 space-x-2">
-            <MagnifyingGlassIcon
-              size={20}
-              className="text-white"
-              color={"#FFF"}
-            />
-            <TextInput
-              style={{ color: "white" }}
-              placeholder="Search communities, people, and more"
-              placeholderTextColor="gray"
-            />
-          </View>
-        </View>
-
         {/* popular searches */}
         <View className="bg-black p-5">
           <Text className="text-white text-xl font-bold mb-2">

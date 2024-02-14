@@ -12,6 +12,7 @@ import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { BellIcon, ChatBubbleLeftIcon } from "react-native-heroicons/solid";
 import CommunityRow from "../components/CommunityRow";
+import YourCommunitiesRow from "../components/YourCommunitiesRow";
 
 const CommunitiesScreen = () => {
   const navigation = useNavigation();
@@ -40,6 +41,21 @@ const CommunitiesScreen = () => {
         barStyle="light-content"
         backgroundColor="transparent"
       />
+
+      {/* add header bar */}
+      <View className="flex-row justify-between items-center bg-black p-5">
+        <View className="flex-row items-center">
+          <Text className="text-white text-2xl font-bold">Communities</Text>
+        </View>
+        <View className="flex-row space-x-4">
+          <TouchableOpacity>
+            <BellIcon className="text-white" color={"#FFF"} />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <ChatBubbleLeftIcon className="text-white" color={"#FFF"} />
+          </TouchableOpacity>
+        </View>
+      </View>
       <ScrollView
         className="bg-black"
         refreshControl={
@@ -47,37 +63,7 @@ const CommunitiesScreen = () => {
         }
         showsVerticalScrollIndicator={false}
       >
-        {/* add header bar */}
-        <View className="flex-row justify-between items-center bg-black p-5">
-          <View className="flex-row items-center">
-            <Text className="text-white text-2xl font-bold">Communities</Text>
-          </View>
-          <View className="flex-row space-x-4">
-            <TouchableOpacity>
-              <BellIcon className="text-white" color={"#FFF"} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <ChatBubbleLeftIcon className="text-white" color={"#FFF"} />
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        {/* community section */}
-        <View className="flex-row justify-between px-5 pt-5">
-          <Text className="text-white text-xl font-bold">Your communities</Text>
-          <TouchableOpacity>
-            <Text className="text-gray-500 text-lg font-semibold">See All</Text>
-          </TouchableOpacity>
-        </View>
-        <CommunityRow />
-        <View className="flex-row justify-between px-5 pt-5">
-          <Text className="text-white text-xl font-bold">
-            Discover more communities
-          </Text>
-          <TouchableOpacity>
-            <Text className="text-gray-500 text-lg font-semibold">See All</Text>
-          </TouchableOpacity>
-        </View>
+        <YourCommunitiesRow />
         <CommunityRow />
       </ScrollView>
     </SafeAreaView>

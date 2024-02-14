@@ -6,7 +6,7 @@ const PromotionalCardLarge = () => {
   return (
     <View className="m-1 mt-5">
       <TouchableOpacity>
-        <View className="flex-row bg-slate-600 p-3 space-x-3 pb-5 rounded-t-xl">
+        <View className="flex-row bg-slate-800 p-3 space-x-3 pb-5 rounded-t-xl">
           <Image
             source={require("../assets/images/discover-community5.jpg")}
             className="w-10 h-10 rounded-xl mt-1"
@@ -32,7 +32,7 @@ const PromotionalCardLarge = () => {
           source={require("../assets/images/discover-community5.jpg")}
         />
 
-        <View className="flex-col bg-slate-600 rounded-b-xl">
+        <View className="flex-col bg-slate-800 rounded-b-xl">
           <Text className="text-white text-md font-bold pt-6 pl-3">
             Blaine County Roleplay Now Hiring Officers
           </Text>
