@@ -53,13 +53,13 @@ const SearchPeopleScreen = () => {
       {/* search bar that can accept input */}
       <View className="bg-black flex-row space-x-4">
         {/* back button left chevron with circle gray background */}
-        <View className="flex-row bg-slate-800 rounded-full p-3 items-center">
-          <TouchableOpacity
-            className=""
-            onPress={() => {
-              navigation.navigate("Chat");
-            }}
-          >
+        <TouchableOpacity
+          className=""
+          onPress={() => {
+            navigation.navigate("Chat");
+          }}
+        >
+          <View className="flex-row bg-slate-800 rounded-full p-3 items-center">
             <View className="flex-row items-center">
               <ChevronLeftIcon
                 size={20}
@@ -67,8 +67,8 @@ const SearchPeopleScreen = () => {
                 color={"#FFF"}
               />
             </View>
-          </TouchableOpacity>
-        </View>
+          </View>
+        </TouchableOpacity>
         <View className="flex-row bg-gray-800 rounded-full p-3 space-x-2">
           <MagnifyingGlassIcon
             size={20}
