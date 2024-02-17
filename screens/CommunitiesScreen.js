@@ -13,6 +13,7 @@ import { useNavigation } from "@react-navigation/native";
 import { BellIcon, ChatBubbleLeftIcon } from "react-native-heroicons/solid";
 import CommunityRow from "../components/CommunityRow";
 import YourCommunitiesRow from "../components/YourCommunitiesRow";
+import BellChatContainer from "../components/BellChatContainer";
 
 const CommunitiesScreen = () => {
   const navigation = useNavigation();
@@ -48,12 +49,7 @@ const CommunitiesScreen = () => {
           <Text className="text-white text-2xl font-bold">Communities</Text>
         </View>
         <View className="flex-row space-x-4">
-          <TouchableOpacity>
-            <BellIcon className="text-white" color={"#FFF"} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <ChatBubbleLeftIcon className="text-white" color={"#FFF"} />
-          </TouchableOpacity>
+          <BellChatContainer />
         </View>
       </View>
       <ScrollView

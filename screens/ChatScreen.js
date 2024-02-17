@@ -63,7 +63,7 @@ const ChatScreen = () => {
           <Text className="text-white text-2xl font-bold">People</Text>
         </View>
         <View className="flex-row space-x-4">
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("SearchPeople")}>
             <MagnifyingGlassIcon
               className="text-white"
               stroke={"#FFF"}

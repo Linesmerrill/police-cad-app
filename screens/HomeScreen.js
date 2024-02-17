@@ -35,6 +35,7 @@ import CommunityRow from "../components/CommunityRow";
 import MultiplayerRow from "../components/MultiplayerRow";
 import TrendingFreeCommunitiesRow from "../components/TrendingFreeCommunitiesRow";
 import PromotionalCardLarge from "../components/PromotionalCardLarge";
+import BellChatContainer from "../components/BellChatContainer";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -69,14 +70,7 @@ const HomeScreen = () => {
         <View className="flex-row items-center">
           <Text className="text-white text-2xl font-bold">Jump Back In</Text>
         </View>
-        <View className="flex-row space-x-4">
-          <TouchableOpacity>
-            <BellIcon className="text-white" color={"#FFF"} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <ChatBubbleLeftIcon className="text-white" color={"#FFF"} />
-          </TouchableOpacity>
-        </View>
+        <BellChatContainer />
       </View>
       <ScrollView
         className="bg-black"

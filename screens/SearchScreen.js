@@ -17,6 +17,7 @@ import {
 } from "react-native-heroicons/solid";
 import { useNavigation } from "@react-navigation/native";
 import CommunityRow from "../components/CommunityRow";
+import BellChatContainer from "../components/BellChatContainer";
 
 const SearchScreen = () => {
   const navigation = useNavigation();
@@ -51,12 +52,7 @@ const SearchScreen = () => {
           <Text className="text-white text-2xl font-bold">Search</Text>
         </View>
         <View className="flex-row space-x-4">
-          <TouchableOpacity>
-            <BellIcon className="text-white" color={"#FFF"} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <ChatBubbleLeftIcon className="text-white" color={"#FFF"} />
-          </TouchableOpacity>
+          <BellChatContainer />
         </View>
       </View>
 

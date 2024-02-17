@@ -56,9 +56,19 @@ import {
 import SearchScreen from "./screens/SearchScreen";
 import ChatScreen from "./screens/ChatScreen";
 import MenuScreen from "./screens/MenuScreen";
+import SearchPeopleScreen from "./screens/SearchPeopleScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+
+function SearchStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Chat" component={ChatScreen} />
+      <Stack.Screen name="SearchPeople" component={SearchPeopleScreen} />
+    </Stack.Navigator>
+  );
+}
 
 function HomeTabs() {
   return (
@@ -99,7 +109,6 @@ function HomeTabs() {
           tabBarActiveTintColor: "#FFF",
         }}
       />
-      {/* add a search tab with magnifying glass icon */}
       <Tab.Screen
         name="Search"
         component={SearchScreen}
@@ -122,23 +131,13 @@ function HomeTabs() {
           tabBarActiveTintColor: "#FFF",
         }}
       />
-      {/* tab for chat screen */}
       <Tab.Screen
         name="Chats"
-        component={ChatScreen}
+        component={SearchStack}
         options={{
+          headerShown: false,
           tabBarLabel: "Chats",
-          tabBarBadge: "7",
-          tabBarBadgeStyle: {
-            fontSize: 10,
-            fontWeight: "bold",
-            backgroundColor: "red",
-            minWidth: 14,
-            minHeight: 14,
-            maxWidth: 14,
-            maxHeight: 14,
-            borderRadius: 7,
-          },
+          tabBarBadge: "4",
           tabBarIcon: ({ focused, color, size }) =>
             focused ? (
               <ChatBubbleLeftRightIconSolid
@@ -163,14 +162,6 @@ function HomeTabs() {
         options={{
           tabBarLabel: "Menu",
           tabBarBadge: "",
-          tabBarBadgeStyle: {
-            backgroundColor: "red",
-            minWidth: 14,
-            minHeight: 14,
-            maxWidth: 14,
-            maxHeight: 14,
-            borderRadius: 7,
-          },
           tabBarIcon: ({ focused, color, size }) =>
             focused ? (
               <Bars3IconSolid name="menu-solid" color={color} size={size} />
@@ -348,6 +339,7 @@ export default function App() {
           <Stack.Screen name="Dispatch" component={DispatchScreen} />
           <Stack.Screen name="FireEms" component={FireEmsScreen} />
           <Stack.Screen name="Communities" component={CommunitiesScreen} />
+
           <Stack.Screen
             name="CommunityHome"
             component={CadTabs}
