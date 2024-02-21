@@ -39,6 +39,7 @@ import MultiplayerRow from "../components/MultiplayerRow";
 import TrendingFreeCommunitiesRow from "../components/TrendingFreeCommunitiesRow";
 import PromotionalCardLarge from "../components/PromotionalCardLarge";
 import BellChatContainer from "../components/BellChatContainer";
+import MenuScreen from "./MenuScreen";
 
 const CommunityHomeScreen = () => {
   const navigation = useNavigation();

@@ -41,6 +41,7 @@ import {
   UserIcon,
   StarIcon,
   ComputerDesktopIcon,
+  MapIcon,
 } from "react-native-heroicons/outline";
 import {
   HomeIcon as HomeIconSolid,
@@ -52,16 +53,21 @@ import {
   UserIcon as UserIconSolid,
   StarIcon as StarIconSolid,
   ComputerDesktopIcon as ComputerDesktopIconSolid,
+  RectangleStackIcon as RectangleStackSolidIcon,
+  MapIcon as MapIconSolid,
 } from "react-native-heroicons/solid";
 import SearchScreen from "./screens/SearchScreen";
 import ChatScreen from "./screens/ChatScreen";
 import MenuScreen from "./screens/MenuScreen";
 import SearchPeopleScreen from "./screens/SearchPeopleScreen";
+import NotificationScreen from "./screens/NotificationScreen";
+import DepartmentsScreen from "./screens/DepartmentsScreen";
+import MapScreen from "./screens/MapScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function SearchStack() {
+function ChatStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Chat" component={ChatScreen} />
@@ -70,14 +76,42 @@ function SearchStack() {
   );
 }
 
+function HomeStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Notifications" component={NotificationScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function CommunitiesStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Communities" component={CommunitiesScreen} />
+      <Stack.Screen name="Notifications" component={NotificationScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function SearchStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Search" component={SearchScreen} />
+      <Stack.Screen name="Notifications" component={NotificationScreen} />
+    </Stack.Navigator>
+  );
+}
+
 function HomeTabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Home"
-        component={HomeScreen}
+        name="HomeStack"
+        component={HomeStack}
         options={{
           tabBarLabel: "Home",
+          headerShown: false,
           tabBarIcon: ({ focused, color, size }) =>
             focused ? (
               <HomeIconSolid name="home-solid" color={color} size={size} />
@@ -88,10 +122,11 @@ function HomeTabs() {
         }}
       />
       <Tab.Screen
-        name="Communities"
-        component={CommunitiesScreen}
+        name="CommunitiesStack"
+        component={CommunitiesStack}
         options={{
           tabBarLabel: "Communities",
+          headerShown: false,
           tabBarIcon: ({ focused, color, size }) =>
             focused ? (
               <RectangleGroupIconSolid
@@ -110,10 +145,11 @@ function HomeTabs() {
         }}
       />
       <Tab.Screen
-        name="Search"
-        component={SearchScreen}
+        name="SearchStack"
+        component={SearchStack}
         options={{
           tabBarLabel: "Search",
+          headerShown: false,
           tabBarIcon: ({ focused, color, size }) =>
             focused ? (
               <MagnifyingGlassIconSolid
@@ -133,7 +169,7 @@ function HomeTabs() {
       />
       <Tab.Screen
         name="Chats"
-        component={SearchStack}
+        component={ChatStack}
         options={{
           headerShown: false,
           tabBarLabel: "Chats",
@@ -175,14 +211,42 @@ function HomeTabs() {
   );
 }
 
+function CommunityStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Community" component={CommunityHomeScreen} />
+      <Stack.Screen name="Notifications" component={NotificationScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function DepartmentsStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Departments" component={DepartmentsScreen} />
+      <Stack.Screen name="Notifications" component={NotificationScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function MapStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Map" component={MapScreen} />
+      <Stack.Screen name="Notifications" component={NotificationScreen} />
+    </Stack.Navigator>
+  );
+}
+
 function CadTabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Community"
-        component={CommunityHomeScreen}
+        name="CommunityStack"
+        component={CommunityStack}
         options={{
           tabBarLabel: "Community",
+          headerShown: false,
           tabBarIcon: ({ focused, color, size }) =>
             focused ? (
               <HomeModernIconSolid
@@ -197,61 +261,39 @@ function CadTabs() {
         }}
       />
       <Tab.Screen
-        name="Civilian"
-        component={CivilianScreen}
+        name="DepartmentsStack"
+        component={DepartmentsStack}
         options={{
-          tabBarLabel: "Civilian",
-          tabBarBadge: "",
-          tabBarBadgeStyle: {
-            backgroundColor: "green",
-            minWidth: 14,
-            minHeight: 14,
-            maxWidth: 14,
-            maxHeight: 14,
-            borderRadius: 7,
-          },
+          tabBarLabel: "Departments",
+          headerShown: false,
           tabBarIcon: ({ focused, color, size }) =>
             focused ? (
-              // add a green dot to the icon to indicate that there is a new message
-              <UserIconSolid name="user-solid" color={color} size={size} />
+              <RectangleStackSolidIcon
+                name="rectangle-stack-solid"
+                color={color}
+                size={size}
+              />
             ) : (
-              <UserIcon name="user-outline" color={color} size={size} />
+              <RectangleStackIcon
+                name="rectangle-stack-outline"
+                color={color}
+                size={size}
+              />
             ),
           tabBarActiveTintColor: "#FFF",
         }}
       />
       <Tab.Screen
-        name="Police"
-        component={PoliceScreen}
+        name="MapStack"
+        component={MapStack}
         options={{
-          tabBarLabel: "Police",
+          tabBarLabel: "Map",
+          headerShown: false,
           tabBarIcon: ({ focused, color, size }) =>
             focused ? (
-              <StarIconSolid name="star-solid" color={color} size={size} />
+              <MapIconSolid name="map-solid" color={color} size={size} />
             ) : (
-              <StarIcon name="star-outline" color={color} size={size} />
-            ),
-          tabBarActiveTintColor: "#FFF",
-        }}
-      />
-      <Tab.Screen
-        name="Dispatch"
-        component={DispatchScreen}
-        options={{
-          tabBarLabel: "Dispatch",
-          tabBarIcon: ({ focused, color, size }) =>
-            focused ? (
-              <ComputerDesktopIconSolid
-                name="computer-solid"
-                color={color}
-                size={size}
-              />
-            ) : (
-              <ComputerDesktopIcon
-                name="computer-outline"
-                color={color}
-                size={size}
-              />
+              <MapIcon name="map-outline" color={color} size={size} />
             ),
           tabBarActiveTintColor: "#FFF",
         }}
