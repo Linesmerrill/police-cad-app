@@ -18,6 +18,9 @@ import {
   ChatBubbleLeftRightIcon,
   CheckCircleIcon,
   ChevronLeftIcon,
+  Cog6ToothIcon,
+  Cog8ToothIcon,
+  EllipsisVerticalIcon,
   HomeIcon,
   HomeModernIcon,
   IdentificationIcon,
@@ -61,21 +64,36 @@ const NotificationScreen = () => {
         backgroundColor="transparent"
       />
 
-      {/* add header bar */}
-      <View className="flex-row justify-between items-center bg-black p-5">
-        <View className="flex-row items-center">
+      {/* back button left chevron with circle gray background */}
+      <View className="flex-row justify-between">
+        <View className="flex-row">
           <TouchableOpacity
-            className="flex-row"
-            onPress={() => navigation.goBack()}
+            className=""
+            onPress={() => {
+              navigation.goBack();
+            }}
           >
-            <ChevronLeftIcon className="text-white" color={"#FFF"} />
-            <HomeIcon className="text-white" color={"#FFF"} />
+            <View className="flex-row bg-slate-800 rounded-full p-3 items-center">
+              <View className="flex-row items-center">
+                <ChevronLeftIcon
+                  size={20}
+                  className="text-white"
+                  color={"#FFF"}
+                />
+              </View>
+            </View>
           </TouchableOpacity>
-          <Text className="text-white text-2xl font-bold"></Text>
+          <View className="justify-center">
+            <Text className="text-white text-2xl font-bold ml-4">
+              Notifications
+            </Text>
+          </View>
         </View>
-        <View className="flex-row space-x-4">
-          {/* <BellChatContainer /> */}
-        </View>
+        <TouchableOpacity className="justify-center">
+          <View className="mr-4">
+            <Cog8ToothIcon color={"#FFF"} size={28} />
+          </View>
+        </TouchableOpacity>
       </View>
       <ScrollView
         className="bg-black"
@@ -83,7 +101,58 @@ const NotificationScreen = () => {
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
         showsVerticalScrollIndicator={false}
-      ></ScrollView>
+      >
+        <View className="mt-4">
+          <TouchableOpacity>
+            <View className="flex-row bg-gray-700 justify-between rounded-xl p-5">
+              <View className="space-y-1 ml-5">
+                <Text className="text-gray-400">LINES POLICE CAD</Text>
+                <Text className="text-white">
+                  All Call! Lookout for person in Gray hoodie! 🚨
+                </Text>
+                <Text className="text-gray-400 text-xs">3 hours ago</Text>
+              </View>
+              <TouchableOpacity className="justify-center">
+                <View>
+                  <EllipsisVerticalIcon color={"#FFF"} size={36} />
+                </View>
+              </TouchableOpacity>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity className="mt-3">
+            <View className="flex-row bg-gray-700 justify-between rounded-xl p-5">
+              <View className="space-y-1 ml-5">
+                <Text className="text-gray-400">LOS SANTOS RP</Text>
+                <Text className="text-white">
+                  Upcoming Event! Join us for a fun night! 🎉
+                </Text>
+                <Text className="text-gray-400 text-xs">12 hours ago</Text>
+              </View>
+              <TouchableOpacity className="justify-center">
+                <View>
+                  <EllipsisVerticalIcon color={"#FFF"} size={36} />
+                </View>
+              </TouchableOpacity>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity className="mt-3">
+            <View className="flex-row bg-gray-700 justify-between rounded-xl p-5">
+              <View className="space-y-1 ml-5">
+                <Text className="text-gray-400">LINES POLICE CAD</Text>
+                <Text className="text-white">
+                  New update! Please update your CAD! ⭐️
+                </Text>
+                <Text className="text-gray-400 text-xs">24 hours ago</Text>
+              </View>
+              <TouchableOpacity className="justify-center">
+                <View>
+                  <EllipsisVerticalIcon color={"#FFF"} size={36} />
+                </View>
+              </TouchableOpacity>
+            </View>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -93,6 +162,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     backgroundColor: "black",
+    margin: 2,
   },
 });
 
