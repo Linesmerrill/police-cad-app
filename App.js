@@ -42,6 +42,10 @@ import {
   StarIcon,
   ComputerDesktopIcon,
   MapIcon,
+  UserPlusIcon,
+  PhoneIcon,
+  TruckIcon,
+  Squares2X2Icon,
 } from "react-native-heroicons/outline";
 import {
   HomeIcon as HomeIconSolid,
@@ -55,6 +59,10 @@ import {
   ComputerDesktopIcon as ComputerDesktopIconSolid,
   RectangleStackIcon as RectangleStackSolidIcon,
   MapIcon as MapIconSolid,
+  UserPlusIcon as UserPlusSolidIcon,
+  PhoneIcon as PhoneSolidIcon,
+  TruckIcon as TruckSolidIcon,
+  Squares2X2Icon as Squares2X2SolidIcon,
 } from "react-native-heroicons/solid";
 import SearchScreen from "./screens/SearchScreen";
 import ChatScreen from "./screens/ChatScreen";
@@ -63,6 +71,10 @@ import SearchPeopleScreen from "./screens/SearchPeopleScreen";
 import NotificationScreen from "./screens/NotificationScreen";
 import DepartmentsScreen from "./screens/DepartmentsScreen";
 import MapScreen from "./screens/MapScreen";
+import AddCivilianScreen from "./screens/AddCivilianScreen";
+import Call911Screen from "./screens/Call911Screen";
+import VehicleScreen from "./screens/VehicleScreen";
+import FirearmScreen from "./screens/FirearmScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -325,6 +337,108 @@ function CadTabs() {
   );
 }
 
+function CivilianTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen
+        name="Civilian"
+        component={CivilianScreen}
+        options={{
+          tabBarLabel: "Civilian",
+          headerShown: false,
+          tabBarIcon: ({ focused, color, size }) =>
+            focused ? (
+              <UserIconSolid name="user-solid" color={color} size={size} />
+            ) : (
+              <UserIcon name="user-outline" color={color} size={size} />
+            ),
+          tabBarActiveTintColor: "#FFF",
+        }}
+      />
+      <Tab.Screen
+        name="Vehicle"
+        component={VehicleScreen}
+        options={{
+          tabBarLabel: "Vehicles",
+          headerShown: false,
+          tabBarIcon: ({ focused, color, size }) =>
+            focused ? (
+              <TruckSolidIcon name="star-solid" color={color} size={size} />
+            ) : (
+              <TruckIcon name="star-outline" color={color} size={size} />
+            ),
+          tabBarActiveTintColor: "#FFF",
+        }}
+      />
+      <Tab.Screen
+        name="Firearm"
+        component={FirearmScreen}
+        options={{
+          tabBarLabel: "Firearms",
+          headerShown: false,
+          tabBarIcon: ({ focused, color, size }) =>
+            focused ? (
+              <Squares2X2SolidIcon
+                name="star-solid"
+                color={color}
+                size={size}
+              />
+            ) : (
+              <Squares2X2Icon name="star-outline" color={color} size={size} />
+            ),
+          tabBarActiveTintColor: "#FFF",
+        }}
+      />
+      <Tab.Screen
+        name="Call911"
+        component={Call911Screen}
+        options={{
+          tabBarLabel: "911",
+          headerShown: false,
+          tabBarIcon: ({ focused, color, size }) =>
+            focused ? (
+              <PhoneSolidIcon
+                name="computer-desktop-solid"
+                color={color}
+                size={size}
+              />
+            ) : (
+              <PhoneIcon
+                name="computer-desktop-outline"
+                color={color}
+                size={size}
+              />
+            ),
+          tabBarActiveTintColor: "#FFF",
+        }}
+      />
+      <Tab.Screen
+        name="Menu"
+        component={MenuScreen}
+        options={{
+          tabBarLabel: "Menu",
+          headerShown: false,
+          tabBarIcon: ({ focused, color, size }) =>
+            focused ? (
+              <Bars3IconSolid
+                name="rectangle-group-solid"
+                color={color}
+                size={size}
+              />
+            ) : (
+              <Bars3Icon
+                name="rectangle-group-outline"
+                color={color}
+                size={size}
+              />
+            ),
+          tabBarActiveTintColor: "#FFF",
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
+
 export default function App() {
   return (
     <NavigationContainer theme={DarkTheme}>
@@ -358,12 +472,12 @@ export default function App() {
             component={HomeTabs}
             options={{ headerShown: false }}
           />
-          <Stack.Screen name="Civilian" component={CivilianScreen} />
           <Stack.Screen
-            name="CreateCivilian"
-            component={CreateCivilianScreen}
-            options={{ presentation: "fullScreenModal", headerShown: false }}
+            name="Civilian"
+            component={CivilianTabs}
+            options={{ headerShown: false }}
           />
+
           <Stack.Screen
             name="CreateVehicle"
             component={CreateVehicleScreen}

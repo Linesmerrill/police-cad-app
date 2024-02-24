@@ -1,56 +1,156 @@
-import { View, Text, ScrollView, TouchableOpacity } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native";
 import React from "react";
-import { FireIcon } from "react-native-heroicons/outline";
+import { TruckIcon } from "react-native-heroicons/outline";
 
 const FirearmRow = () => {
   return (
-    <View className="flex-row mt-2">
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {/* Civilian Card */}
-        <TouchableOpacity className="relative mr-2">
-          <View className="bg-[#A83B00] items-center h-40 w-40 rounded-lg justify-center opacity-90">
-            <FireIcon size={40} color="white" />
-            <Text className="text-white font-semibold pt-1">9EQFRRW0</Text>
-            <Text className="text-white">Pistol</Text>
-            <Text className="text-white pt-1">Hulk Hogan</Text>
-            <Text className="text-white">2001-01-01</Text>
-          </View>
+    <View className="m-2">
+      {/* horizontal scrollable cards of firearms */}
+      <View className="flex-row justify-between mb-4">
+        <Text className="text-xl font-bold text-white">Firearms</Text>
+        <TouchableOpacity>
+          <Text className="text-lg font-bold text-gray-500"> View all</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="relative mr-2">
-          <View className="bg-[#A83B00] items-center h-40 w-40 rounded-lg justify-center opacity-90">
-            <FireIcon size={40} color="white" />
-            <Text className="text-white font-semibold pt-1">QBF2MP3G</Text>
-            <Text className="text-white">Pistol</Text>
-            <Text className="text-white pt-1">Brad Pitt</Text>
-            <Text className="text-white">2001-04-23</Text>
+      </View>
+      <ScrollView
+        className="space-x-5"
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+      >
+        <View className="flex-row space-x-4">
+          <View className="flex-col">
+            <TouchableOpacity>
+              <Image
+                source={require("../assets/images/gradient-bg5.jpg")}
+                className="w-28 h-28 rounded-full"
+              />
+              <View className="flex-row justify-around">
+                <Text
+                  numberOfLines={1}
+                  className="text-white text-md font-semibold pt-3"
+                >
+                  AK-47
+                </Text>
+              </View>
+              <View className="flex-row justify-around">
+                <Text numberOfLines={1} className="text-slate-300 text-xs">
+                  Phil Collins
+                </Text>
+              </View>
+
+              {/* button to learn more */}
+              <View className="flex-row justify-center bg-slate-500 rounded-xl mt-2 py-1">
+                <Text className="text-white text-md font-bold p-2">View</Text>
+              </View>
+            </TouchableOpacity>
           </View>
-        </TouchableOpacity>
-        <TouchableOpacity className="relative mr-2">
-          <View className="bg-[#A83B00] items-center h-40 w-40 rounded-lg justify-center opacity-90">
-            <FireIcon size={40} color="white" />
-            <Text className="text-white font-semibold pt-1">KC02DT8B</Text>
-            <Text className="text-white">Pistol</Text>
-            <Text className="text-white pt-1">N/A</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity className="relative mr-2">
-          <View className="bg-[#A83B00] items-center h-40 w-40 rounded-lg justify-center opacity-90">
-            <FireIcon size={40} color="white" />
-            <Text className="text-white font-semibold pt-1">HSH8ST26</Text>
-            <Text className="text-white">Pistol</Text>
-            <Text className="text-white pt-1">Test Test2</Text>
-            <Text className="text-white">2002-02-02</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity className="relative mr-2">
-          <View className="bg-[#A83B00] items-center h-40 w-40 rounded-lg justify-center opacity-90">
-            <FireIcon size={40} color="white" />
-            <Text className="text-white font-semibold pt-1">518FTZ7D</Text>
-            <Text className="text-white">Pistol</Text>
-            <Text className="text-white">N/A</Text>
-          </View>
-        </TouchableOpacity>
+        </View>
+        <View className="flex-col">
+          <TouchableOpacity>
+            <Image
+              source={require("../assets/images/gradient-bg4.jpg")}
+              className="w-28 h-28 rounded-full"
+            />
+            <View className="flex-row justify-around">
+              <Text
+                numberOfLines={1}
+                className="text-white text-md font-semibold pt-3"
+              >
+                M16
+              </Text>
+            </View>
+            <View className="flex-row justify-around">
+              <Text numberOfLines={1} className="text-slate-300 text-xs">
+                Rich Price
+              </Text>
+            </View>
+
+            {/* button to learn more */}
+            <View className="flex-row justify-center bg-slate-500 rounded-xl mt-2 py-1">
+              <Text className="text-white text-md font-bold p-2">View</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View className="flex-col">
+          <TouchableOpacity>
+            <Image
+              source={require("../assets/images/gradient-bg3.jpg")}
+              className="w-28 h-28 rounded-full"
+            />
+            <View className="flex-row justify-around">
+              <Text
+                numberOfLines={1}
+                className="text-white text-md font-semibold pt-3"
+              >
+                911 Pistol
+              </Text>
+            </View>
+            <View className="flex-row justify-around">
+              <Text numberOfLines={1} className="text-slate-300 text-xs">
+                John Doe
+              </Text>
+            </View>
+
+            {/* button to learn more */}
+            <View className="flex-row justify-center bg-slate-500 rounded-xl mt-2 py-1">
+              <Text className="text-white text-md font-bold p-2">View</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View className="flex-col">
+          <TouchableOpacity>
+            <Image
+              source={require("../assets/images/gradient-bg2.jpg")}
+              className="w-28 h-28 rounded-full"
+            />
+            <View className="flex-row justify-around">
+              <Text
+                numberOfLines={1}
+                className="text-white text-md font-semibold pt-3"
+              >
+                Shotgun
+              </Text>
+            </View>
+            <View className="flex-row justify-around">
+              <Text numberOfLines={1} className="text-slate-300 text-xs">
+                Jane Doe
+              </Text>
+            </View>
+
+            {/* button to learn more */}
+            <View className="flex-row justify-center bg-slate-500 rounded-xl mt-2 py-1">
+              <Text className="text-white text-md font-bold p-2">View</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View className="flex-col">
+          <TouchableOpacity>
+            <Image
+              source={require("../assets/images/gradient-bg1.jpg")}
+              className="w-28 h-28 rounded-full"
+            />
+            <View className="flex-row justify-around">
+              <Text
+                numberOfLines={1}
+                className="text-white text-md font-semibold pt-3"
+              >
+                Sniper Rifle
+              </Text>
+            </View>
+            <View className="flex-row justify-around">
+              <Text numberOfLines={1} className="text-slate-300 text-xs">
+                Matt Smith
+              </Text>
+            </View>
+
+            {/* button to learn more */}
+            <View className="flex-row justify-center bg-slate-500 rounded-xl mt-2 py-1">
+              <Text className="text-white text-md font-bold p-2">View</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
+      {/* end of horizontal scrollable cards of civilians */}
     </View>
   );
 };

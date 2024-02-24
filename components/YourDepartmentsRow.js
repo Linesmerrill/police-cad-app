@@ -1,8 +1,10 @@
 import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import { EllipsisHorizontalIcon } from "react-native-heroicons/solid";
+import { useNavigation } from "@react-navigation/native";
 
 const YourDepartmentsRow = () => {
+  const navigation = useNavigation();
   return (
     <>
       <View className="flex-row justify-between px-2 mt-9">
@@ -21,7 +23,7 @@ const YourDepartmentsRow = () => {
         >
           {/* add a new card that contains a spotlight image, community name and numbers of members in community */}
           <View className="flex-col">
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate("Civilian")}>
               <Image
                 source={require("../assets/images/gradient-bg1.jpg")}
                 className="w-48 h-28 rounded-xl"

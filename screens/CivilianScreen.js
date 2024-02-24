@@ -6,35 +6,57 @@ import {
   TouchableOpacity,
   Animated,
   ScrollView,
-  FlatList,
-  ImageBackground,
+  RefreshControl,
+  StyleSheet,
+  StatusBar,
 } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
-  ArrowRightIcon,
-  ChartPieIcon,
+  ArrowRightCircleIcon,
   ChevronDownIcon,
-  FireIcon,
-  HeartIcon,
-  HomeIcon,
-  TruckIcon,
   UserIcon,
 } from "react-native-heroicons/outline";
-import UserCategory from "../components/RoleIcon";
+
+import {
+  ArrowRightIcon,
+  BellAlertIcon,
+  BellIcon,
+  ChatBubbleLeftIcon,
+  ChevronLeftIcon,
+  EllipsisHorizontalIcon,
+  HomeIcon,
+  PlusCircleIcon,
+  PlusSmallIcon,
+  ShareIcon,
+  TvIcon,
+  UserGroupIcon,
+  XMarkIcon,
+} from "react-native-heroicons/solid";
 import RoleIcon from "../components/RoleIcon";
-import HeaderRow from "../components/HeaderRow";
-import { PlusCircleIcon } from "react-native-heroicons/solid";
-import CivilianRow from "../components/CivilianRow";
-import FirearmRow from "../components/FirearmRow";
-import VehicleRow from "../components/VehicleRow";
-import * as Animatable from "react-native-animatable";
+import HomeScreenWelcomeCarousel from "../components/HomeScreenWelcomeCarousel";
+import { Card, Paragraph, Title } from "react-native-paper";
+import CommunityRow from "../components/CommunityRow";
+import MultiplayerRow from "../components/MultiplayerRow";
+import TrendingFreeCommunitiesRow from "../components/TrendingFreeCommunitiesRow";
+import PromotionalCardLarge from "../components/PromotionalCardLarge";
+import BellChatContainer from "../components/BellChatContainer";
+import MenuScreen from "./MenuScreen";
+import StatsRow from "../components/VehicleStatsRow";
 
 const CivilianScreen = () => {
   const navigation = useNavigation();
-  const activeRoleIcon = require("../assets/images/civilian-icon.png");
+  const civilianUser = require("../assets/images/civilian-icon.png");
   const [isPressed, setIsPressed] = useState(false);
   const [currentRole, setCurrentRole] = useState("Civilian");
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 1000);
+  }, []);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -43,127 +65,213 @@ const CivilianScreen = () => {
   }, []);
 
   return (
-    <>
-      <HeaderRow
-        currentRole="Civilian"
-        imageLocation={activeRoleIcon}
-        icon="home"
+    <SafeAreaView style={styles.container}>
+      <StatusBar
+        animated={true}
+        barStyle="light-content"
+        backgroundColor="transparent"
       />
-      <ScrollView className="bg-black">
-        <SafeAreaView className="flex-1 mb-20">
-          {/* Horizontal Scroll for featured items */}
-          <View className="flex-row justify-between m-4">
-            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              <TouchableOpacity
-                className="relative mr-2"
-                onPress={() => navigation.navigate("CreateCivilian")}
-              >
-                <View className="bg-[#02284F] items-center h-20 w-20 rounded-lg justify-center">
-                  <View className="absolute top-1 right-1">
-                    <PlusCircleIcon size={20} color="white" />
+
+      {/* add header bar */}
+      <View className="flex-row justify-between items-center bg-black p-5">
+        <View className="flex-row items-center">
+          <TouchableOpacity
+            className="flex-row"
+            onPress={() => navigation.goBack()}
+          >
+            <ChevronLeftIcon className="text-white" color={"#FFF"} />
+            <HomeIcon className="text-white" color={"#FFF"} />
+          </TouchableOpacity>
+          <Text className="text-white text-2xl font-bold"></Text>
+        </View>
+        <View className="flex-row space-x-4">
+          <BellChatContainer />
+        </View>
+      </View>
+
+      <ScrollView
+        className="bg-black"
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+        showsVerticalScrollIndicator={false}
+      >
+        <StatsRow
+          stats={{
+            stat1: "124",
+            text1: "Civilians",
+            stat2: "$20k+",
+            text2: "Fines",
+            stat3: "140+",
+            text3: "Warrants",
+          }}
+        />
+        <View className="m-2">
+          {/* horizontal scrollable cards of civilians */}
+          <View className="flex-row justify-between mb-4">
+            <Text className="text-xl font-bold text-white">Civilians</Text>
+            <TouchableOpacity>
+              <Text className="text-lg font-bold text-gray-500"> View all</Text>
+            </TouchableOpacity>
+          </View>
+          <ScrollView
+            className="space-x-5"
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+          >
+            <View className="flex-row space-x-4">
+              <View className="flex-col">
+                <TouchableOpacity>
+                  <Image
+                    source={require("../assets/images/gradient-bg1.jpg")}
+                    className="w-28 h-28 rounded-full"
+                  />
+                  <View className="flex-row justify-around">
+                    <Text
+                      numberOfLines={1}
+                      className="text-white text-md font-semibold pt-3"
+                    >
+                      Rodger Pike
+                    </Text>
                   </View>
-                  <View>
-                    <UserIcon size={37} color="white" />
+                  <View className="flex-row justify-around">
+                    <Text numberOfLines={1} className="text-slate-300 text-xs">
+                      DOB: 12/12/1980
+                    </Text>
                   </View>
+
+                  {/* button to learn more */}
+                  <View className="flex-row justify-center bg-slate-500 rounded-xl mt-2 py-1">
+                    <Text className="text-white text-md font-bold p-2">
+                      View
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View className="flex-col">
+              <TouchableOpacity>
+                <Image
+                  source={require("../assets/images/gradient-bg2.jpg")}
+                  className="w-28 h-28 rounded-full"
+                />
+                <View className="flex-row justify-around">
+                  <Text
+                    numberOfLines={1}
+                    className="text-white text-md font-semibold pt-3"
+                  >
+                    Phil Collins
+                  </Text>
+                </View>
+                <View className="flex-row justify-around">
+                  <Text numberOfLines={1} className="text-slate-300 text-xs">
+                    DOB: 1/1/1980
+                  </Text>
+                </View>
+
+                {/* button to learn more */}
+                <View className="flex-row justify-center bg-slate-500 rounded-xl mt-2 py-1">
+                  <Text className="text-white text-md font-bold p-2">View</Text>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity
-                className="relative mr-2"
-                onPress={() => navigation.navigate("CreateVehicle")}
-              >
-                <View className="bg-[#025C59] items-center h-20 w-20 rounded-lg justify-center">
-                  <View className="absolute top-1 right-1">
-                    <PlusCircleIcon size={20} color="white" />
-                  </View>
-                  <View>
-                    <TruckIcon size={40} color="white" />
-                  </View>
+            </View>
+            <View className="flex-col">
+              <TouchableOpacity>
+                <Image
+                  source={require("../assets/images/gradient-bg6.jpg")}
+                  className="w-28 h-28 rounded-full"
+                />
+                <View className="flex-row justify-around">
+                  <Text
+                    numberOfLines={1}
+                    className="text-white text-md font-semibold pt-3"
+                  >
+                    John Doe
+                  </Text>
+                </View>
+                <View className="flex-row justify-around">
+                  <Text numberOfLines={1} className="text-slate-300 text-xs">
+                    DOB: 12/12/1980
+                  </Text>
+                </View>
+
+                {/* button to learn more */}
+                <View className="flex-row justify-center bg-slate-500 rounded-xl mt-2 py-1">
+                  <Text className="text-white text-md font-bold p-2">View</Text>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity
-                className="relative mr-2"
-                onPress={() => navigation.navigate("CreateFirearm")}
-              >
-                <View className="bg-[#A83B00] items-center h-20 w-20 rounded-lg justify-center">
-                  <View className="absolute top-1 right-1">
-                    <PlusCircleIcon size={20} color="white" />
-                  </View>
-                  <View>
-                    <FireIcon size={40} color="white" />
-                  </View>
+            </View>
+            <View className="flex-col">
+              <TouchableOpacity>
+                <Image
+                  source={require("../assets/images/gradient-bg4.jpg")}
+                  className="w-28 h-28 rounded-full"
+                />
+                <View className="flex-row justify-around">
+                  <Text
+                    numberOfLines={1}
+                    className="text-white text-md font-semibold pt-3"
+                  >
+                    Jane Doe
+                  </Text>
+                </View>
+                <View className="flex-row justify-around">
+                  <Text numberOfLines={1} className="text-slate-300 text-xs">
+                    DOB: 6/9/1990
+                  </Text>
+                </View>
+
+                {/* button to learn more */}
+                <View className="flex-row justify-center bg-slate-500 rounded-xl mt-2 py-1">
+                  <Text className="text-white text-md font-bold p-2">View</Text>
                 </View>
               </TouchableOpacity>
-            </ScrollView>
-          </View>
-          <View className="ml-4 border-b border-gray-500">
-            <Text className="text-xl font-bold text-white">
-              Civilian Dashboard
-            </Text>
-          </View>
+            </View>
+            <View className="flex-col">
+              <TouchableOpacity>
+                <Image
+                  source={require("../assets/images/gradient-bg5.jpg")}
+                  className="w-28 h-28 rounded-full"
+                />
+                <View className="flex-row justify-around">
+                  <Text
+                    numberOfLines={1}
+                    className="text-white text-md font-semibold pt-3"
+                  >
+                    Matt Smith
+                  </Text>
+                </View>
+                <View className="flex-row justify-around">
+                  <Text numberOfLines={1} className="text-slate-300 text-xs">
+                    DOB: 4/4/1980
+                  </Text>
+                </View>
 
-          <View className="ml-4 border-gray-500">
-            <TouchableOpacity
-              onPress={() => navigation.navigate("CivilianList")}
-            >
-              <View className="flex-row items-center justify-between pr-4">
-                <Text className="text-lg h-10 mt-2 font-bold text-white">
-                  Civilians
-                </Text>
-                <ArrowRightIcon color="white" />
-              </View>
-
-              <Text className="text-xs text-gray-200 -mt-4">
-                View your civilians
-              </Text>
-            </TouchableOpacity>
-
-            {/* List of Civilians */}
-            <CivilianRow />
-          </View>
-
-          <View className="ml-4">
-            <TouchableOpacity
-              onPress={() => navigation.navigate("VehicleList")}
-            >
-              <View className="flex-row items-center justify-between pr-4">
-                <Text className="text-lg h-10 mt-2 font-bold text-white">
-                  Vehicles
-                </Text>
-                <ArrowRightIcon color="white" />
-              </View>
-
-              <Text className="text-xs text-gray-200 -mt-4">
-                View your vehicles
-              </Text>
-            </TouchableOpacity>
-
-            {/* List of Civilians */}
-            <VehicleRow />
-          </View>
-
-          <View className="ml-4 border-gray-500">
-            <TouchableOpacity
-              onPress={() => navigation.navigate("FirearmList")}
-            >
-              <View className="flex-row items-center justify-between pr-4">
-                <Text className="text-lg h-10 mt-2 font-bold text-white">
-                  Firearms
-                </Text>
-                <ArrowRightIcon color="white" />
-              </View>
-
-              <Text className="text-xs text-gray-200 -mt-4">
-                View your firearms
-              </Text>
-            </TouchableOpacity>
-
-            {/* List of Civilians */}
-            <FirearmRow />
-          </View>
-        </SafeAreaView>
+                {/* button to learn more */}
+                <View className="flex-row justify-center bg-slate-500 rounded-xl mt-2 py-1">
+                  <Text className="text-white text-md font-bold p-2">View</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
+          {/* end of horizontal scrollable cards of civilians */}
+        </View>
       </ScrollView>
-    </>
+      <TouchableOpacity>
+        <View className="absolute bottom-3 right-3">
+          <PlusCircleIcon className="text-white" size={60} color={"#FFF"} />
+        </View>
+      </TouchableOpacity>
+    </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    backgroundColor: "black",
+  },
+});
 
 export default CivilianScreen;
