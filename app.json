@@ -44,9 +44,6 @@
     "plugins": [
       "expo-font"
     ],
-    "runtimeVersion": {
-      "policy": "nativeVersion",
-      "nativeVersion": "46.0.0"
-      }
+    "runtimeVersion": "exposdk:50.0.6"
   }
 }
