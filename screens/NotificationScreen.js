@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { useActionSheet } from "@expo/react-native-action-sheet";
 import {
   BellIcon,
   ChatBubbleLeftIcon,
@@ -40,6 +41,44 @@ const NotificationScreen = () => {
   const [refreshing, setRefreshing] = React.useState(false);
   const [isEnabled, setIsEnabled] = useState(false);
   const [currentChat, setChats] = useState(true);
+
+  const { showActionSheetWithOptions } = useActionSheet();
+
+  const onPressNotification = () => {
+    const options = [
+      "View",
+      "Manage Notification Settings",
+      "Unsubscribe",
+      "Cancel",
+    ];
+    const destructiveButtonIndex = 2;
+    const cancelButtonIndex = 3;
+
+    showActionSheetWithOptions(
+      {
+        options,
+        cancelButtonIndex,
+        destructiveButtonIndex,
+      },
+      (selectedIndex) => {
+        switch (selectedIndex) {
+          case 0:
+            // View
+            break;
+          case 1:
+            // Manage Notifications Settings
+            break;
+
+          case destructiveButtonIndex:
+            // Unsubscribe
+            break;
+
+          case cancelButtonIndex:
+          // Canceled
+        }
+      }
+    );
+  };
 
   const activeChats = () => setChats(true);
   const activeContacts = () => setChats(false);
@@ -112,7 +151,10 @@ const NotificationScreen = () => {
                 </Text>
                 <Text className="text-gray-400 text-xs">3 hours ago</Text>
               </View>
-              <TouchableOpacity className="justify-center">
+              <TouchableOpacity
+                onPress={onPressNotification}
+                className="justify-center"
+              >
                 <View>
                   <EllipsisVerticalIcon color={"#FFF"} size={36} />
                 </View>
@@ -128,7 +170,29 @@ const NotificationScreen = () => {
                 </Text>
                 <Text className="text-gray-400 text-xs">12 hours ago</Text>
               </View>
-              <TouchableOpacity className="justify-center">
+              <TouchableOpacity
+                onPress={onPressNotification}
+                className="justify-center"
+              >
+                <View>
+                  <EllipsisVerticalIcon color={"#FFF"} size={36} />
+                </View>
+              </TouchableOpacity>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity className="mt-3">
+            <View className="flex-row  justify-between rounded-xl p-5">
+              <View className="space-y-1 ml-5">
+                <Text className="text-gray-400">BLAINE COUNTY RP</Text>
+                <Text className="text-white">
+                  Thanks for joining us! We hope you had fun! 🎉
+                </Text>
+                <Text className="text-gray-400 text-xs">24 hours ago</Text>
+              </View>
+              <TouchableOpacity
+                onPress={onPressNotification}
+                className="justify-center"
+              >
                 <View>
                   <EllipsisVerticalIcon color={"#FFF"} size={36} />
                 </View>
@@ -144,7 +208,10 @@ const NotificationScreen = () => {
                 </Text>
                 <Text className="text-gray-400 text-xs">24 hours ago</Text>
               </View>
-              <TouchableOpacity className="justify-center">
+              <TouchableOpacity
+                onPress={onPressNotification}
+                className="justify-center"
+              >
                 <View>
                   <EllipsisVerticalIcon color={"#FFF"} size={36} />
                 </View>

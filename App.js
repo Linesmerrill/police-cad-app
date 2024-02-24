@@ -75,6 +75,7 @@ import AddCivilianScreen from "./screens/AddCivilianScreen";
 import Call911Screen from "./screens/Call911Screen";
 import VehicleScreen from "./screens/VehicleScreen";
 import FirearmScreen from "./screens/FirearmScreen";
+import { ActionSheetProvider } from "@expo/react-native-action-sheet";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -527,74 +528,76 @@ function CivilianTabs() {
 
 export default function App() {
   return (
-    <NavigationContainer theme={DarkTheme}>
-      <TailwindProvider>
-        <Stack.Navigator>
-          {/* Screens */}
-          <Stack.Screen name="Welcome" component={WelcomeScreen} />
-          <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen
-            name="ForgotPassword"
-            component={ForgotPasswordScreen}
-            options={{ presentation: "fullScreenModal", headerShown: false }}
-          />
-          <Stack.Screen
-            name="CreateAccount"
-            component={CreateAccountScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="CreateAccount2"
-            component={CreateAccountScreen2}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="CreateAccount3"
-            component={CreateAccountScreen3}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="HomeScreen"
-            component={HomeTabs}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="CivilianScreen"
-            component={CivilianTabs}
-            options={{ headerShown: false }}
-          />
+    <ActionSheetProvider>
+      <NavigationContainer theme={DarkTheme}>
+        <TailwindProvider>
+          <Stack.Navigator>
+            {/* Screens */}
+            <Stack.Screen name="Welcome" component={WelcomeScreen} />
+            <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen
+              name="ForgotPassword"
+              component={ForgotPasswordScreen}
+              options={{ presentation: "fullScreenModal", headerShown: false }}
+            />
+            <Stack.Screen
+              name="CreateAccount"
+              component={CreateAccountScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="CreateAccount2"
+              component={CreateAccountScreen2}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="CreateAccount3"
+              component={CreateAccountScreen3}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="HomeScreen"
+              component={HomeTabs}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="CivilianScreen"
+              component={CivilianTabs}
+              options={{ headerShown: false }}
+            />
 
-          <Stack.Screen
-            name="CreateVehicle"
-            component={CreateVehicleScreen}
-            options={{ presentation: "fullScreenModal", headerShown: false }}
-          />
-          <Stack.Screen
-            name="CreateFirearm"
-            component={CreateFirearmScreen}
-            options={{ presentation: "fullScreenModal", headerShown: false }}
-          />
-          <Stack.Screen name="CivilianList" component={CivilianListScreen} />
-          <Stack.Screen name="VehicleList" component={VehicleListScreen} />
-          <Stack.Screen name="FirearmList" component={FirearmListScreen} />
-          <Stack.Screen name="Police" component={PoliceScreen} />
-          <Stack.Screen name="Dispatch" component={DispatchScreen} />
-          <Stack.Screen name="FireEms" component={FireEmsScreen} />
-          <Stack.Screen name="Communities" component={CommunitiesScreen} />
+            <Stack.Screen
+              name="CreateVehicle"
+              component={CreateVehicleScreen}
+              options={{ presentation: "fullScreenModal", headerShown: false }}
+            />
+            <Stack.Screen
+              name="CreateFirearm"
+              component={CreateFirearmScreen}
+              options={{ presentation: "fullScreenModal", headerShown: false }}
+            />
+            <Stack.Screen name="CivilianList" component={CivilianListScreen} />
+            <Stack.Screen name="VehicleList" component={VehicleListScreen} />
+            <Stack.Screen name="FirearmList" component={FirearmListScreen} />
+            <Stack.Screen name="Police" component={PoliceScreen} />
+            <Stack.Screen name="Dispatch" component={DispatchScreen} />
+            <Stack.Screen name="FireEms" component={FireEmsScreen} />
+            <Stack.Screen name="Communities" component={CommunitiesScreen} />
 
-          <Stack.Screen
-            name="CommunityHome"
-            component={CadTabs}
-            options={{ headerShown: false }}
-          />
+            <Stack.Screen
+              name="CommunityHome"
+              component={CadTabs}
+              options={{ headerShown: false }}
+            />
 
-          <Stack.Screen
-            name="Account"
-            component={AccountScreen}
-            options={{ presentation: "fullScreenModal", headerShown: false }}
-          />
-        </Stack.Navigator>
-      </TailwindProvider>
-    </NavigationContainer>
+            <Stack.Screen
+              name="Account"
+              component={AccountScreen}
+              options={{ presentation: "fullScreenModal", headerShown: false }}
+            />
+          </Stack.Navigator>
+        </TailwindProvider>
+      </NavigationContainer>
+    </ActionSheetProvider>
   );
 }
