@@ -21,14 +21,17 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.linesmerrill.policecadapp"
+      "bundleIdentifier": "com.linesmerrill.policecadapp",
+      "buildNumber": "1"
+
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#02284F"
       },
-      "package": "com.linesmerrill.policecadapp"
+      "package": "com.linesmerrill.policecadapp",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -42,7 +45,8 @@
       "expo-font"
     ],
     "runtimeVersion": {
-      "policy": "1.0.0"
-    }
+      "policy": "nativeVersion",
+      "nativeVersion": "46.0.0"
+      }
   }
 }
