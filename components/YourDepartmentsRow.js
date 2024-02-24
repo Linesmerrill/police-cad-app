@@ -23,7 +23,9 @@ const YourDepartmentsRow = () => {
         >
           {/* add a new card that contains a spotlight image, community name and numbers of members in community */}
           <View className="flex-col">
-            <TouchableOpacity onPress={() => navigation.navigate("Civilian")}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("CivilianScreen")}
+            >
               <Image
                 source={require("../assets/images/gradient-bg1.jpg")}
                 className="w-48 h-28 rounded-xl"

@@ -82,7 +82,11 @@ const Tab = createBottomTabNavigator();
 function ChatStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Chat" component={ChatScreen} />
+      <Stack.Screen
+        name="Chats"
+        component={ChatScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen name="SearchPeople" component={SearchPeopleScreen} />
     </Stack.Navigator>
   );
@@ -92,7 +96,16 @@ function HomeStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Notifications" component={NotificationScreen} />
+      <Stack.Screen
+        name="Notifications"
+        component={NotificationScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={ChatStack}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 }
@@ -101,7 +114,12 @@ function CommunitiesStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Communities" component={CommunitiesScreen} />
-      <Stack.Screen name="Notifications" component={NotificationScreen} />
+      <Stack.Screen
+        name="Notifications"
+        component={NotificationScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen name="Chat" component={ChatStack} />
     </Stack.Navigator>
   );
 }
@@ -110,7 +128,16 @@ function SearchStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Search" component={SearchScreen} />
-      <Stack.Screen name="Notifications" component={NotificationScreen} />
+      <Stack.Screen
+        name="Notifications"
+        component={NotificationScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={ChatStack}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 }
@@ -179,36 +206,13 @@ function HomeTabs() {
           tabBarActiveTintColor: "#FFF",
         }}
       />
-      <Tab.Screen
-        name="Chats"
-        component={ChatStack}
-        options={{
-          headerShown: false,
-          tabBarLabel: "Chats",
-          tabBarBadge: "4",
-          tabBarIcon: ({ focused, color, size }) =>
-            focused ? (
-              <ChatBubbleLeftRightIconSolid
-                name="chats-solid"
-                color={color}
-                size={size}
-              />
-            ) : (
-              <ChatBubbleLeftRightIcon
-                name="chats-outline"
-                color={color}
-                size={size}
-              />
-            ),
-          tabBarActiveTintColor: "#FFF",
-        }}
-      />
       {/* tab for Menu */}
       <Tab.Screen
         name="Menu"
         component={MenuScreen}
         options={{
           tabBarLabel: "Menu",
+          headerShown: false,
           tabBarBadge: "",
           tabBarIcon: ({ focused, color, size }) =>
             focused ? (
@@ -227,7 +231,16 @@ function CommunityStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Community" component={CommunityHomeScreen} />
-      <Stack.Screen name="Notifications" component={NotificationScreen} />
+      <Stack.Screen
+        name="Notifications"
+        component={NotificationScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={ChatStack}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 }
@@ -236,7 +249,16 @@ function DepartmentsStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Departments" component={DepartmentsScreen} />
-      <Stack.Screen name="Notifications" component={NotificationScreen} />
+      <Stack.Screen
+        name="Notifications"
+        component={NotificationScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={ChatStack}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 }
@@ -245,7 +267,16 @@ function MapStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Map" component={MapScreen} />
-      <Stack.Screen name="Notifications" component={NotificationScreen} />
+      <Stack.Screen
+        name="Notifications"
+        component={NotificationScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={ChatStack}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 }
@@ -315,6 +346,7 @@ function CadTabs() {
         component={MenuScreen}
         options={{
           tabBarLabel: "Menu",
+          headerShown: false,
           tabBarBadge: "",
           tabBarBadgeStyle: {
             backgroundColor: "red",
@@ -337,12 +369,66 @@ function CadTabs() {
   );
 }
 
+function CivilianStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Civilian" component={CivilianScreen} />
+      <Stack.Screen
+        name="Notifications"
+        component={NotificationScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={ChatStack}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function VehicleStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Vehicle" component={VehicleScreen} />
+      <Stack.Screen
+        name="Notifications"
+        component={NotificationScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={ChatStack}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function FirearmStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Firearm" component={FirearmScreen} />
+      <Stack.Screen
+        name="Notifications"
+        component={NotificationScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={ChatStack}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  );
+}
+
 function CivilianTabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Civilian"
-        component={CivilianScreen}
+        name="CivilianStack"
+        component={CivilianStack}
         options={{
           tabBarLabel: "Civilian",
           headerShown: false,
@@ -356,8 +442,8 @@ function CivilianTabs() {
         }}
       />
       <Tab.Screen
-        name="Vehicle"
-        component={VehicleScreen}
+        name="VehicleStack"
+        component={VehicleStack}
         options={{
           tabBarLabel: "Vehicles",
           headerShown: false,
@@ -371,8 +457,8 @@ function CivilianTabs() {
         }}
       />
       <Tab.Screen
-        name="Firearm"
-        component={FirearmScreen}
+        name="FirearmStack"
+        component={FirearmStack}
         options={{
           tabBarLabel: "Firearms",
           headerShown: false,
@@ -473,7 +559,7 @@ export default function App() {
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="Civilian"
+            name="CivilianScreen"
             component={CivilianTabs}
             options={{ headerShown: false }}
           />

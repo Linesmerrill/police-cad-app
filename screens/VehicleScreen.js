@@ -26,6 +26,7 @@ import {
   ChevronLeftIcon,
   EllipsisHorizontalIcon,
   HomeIcon,
+  HomeModernIcon,
   PlusCircleIcon,
   PlusSmallIcon,
   ShareIcon,
@@ -79,10 +80,10 @@ const VehicleScreen = () => {
         <View className="flex-row items-center">
           <TouchableOpacity
             className="flex-row"
-            onPress={() => navigation.goBack()}
+            onPress={() => navigation.navigate("Community")}
           >
             <ChevronLeftIcon className="text-white" color={"#FFF"} />
-            <HomeIcon className="text-white" color={"#FFF"} />
+            <HomeModernIcon className="text-white" color={"#FFF"} />
           </TouchableOpacity>
           <Text className="text-white text-2xl font-bold"></Text>
         </View>

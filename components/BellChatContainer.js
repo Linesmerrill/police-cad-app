@@ -16,7 +16,7 @@ const BellChatContainer = () => {
           </Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("Chats")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Chat")}>
         <ChatBubbleLeftIcon className="text-white" color={"#FFF"} />
         {/* add notification red bubble to top corner */}
         <View className="bg-red-500 w-4 h-4 rounded-full absolute -top-1 -right-1">

@@ -56,7 +56,7 @@ const SearchPeopleScreen = () => {
         <TouchableOpacity
           className=""
           onPress={() => {
-            navigation.navigate("Chat");
+            navigation.goBack();
           }}
         >
           <View className="flex-row bg-slate-800 rounded-full p-3 items-center">

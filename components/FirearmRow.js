@@ -22,7 +22,7 @@ const FirearmRow = () => {
             <TouchableOpacity>
               <Image
                 source={require("../assets/images/gradient-bg5.jpg")}
-                className="w-28 h-28 rounded-full"
+                className="w-28 h-28 rounded-lg"
               />
               <View className="flex-row justify-around">
                 <Text
@@ -39,7 +39,7 @@ const FirearmRow = () => {
               </View>
 
               {/* button to learn more */}
-              <View className="flex-row justify-center bg-slate-500 rounded-xl mt-2 py-1">
+              <View className="flex-row justify-center bg-slate-500 rounded-lg mt-2 py-1">
                 <Text className="text-white text-md font-bold p-2">View</Text>
               </View>
             </TouchableOpacity>
@@ -49,7 +49,7 @@ const FirearmRow = () => {
           <TouchableOpacity>
             <Image
               source={require("../assets/images/gradient-bg4.jpg")}
-              className="w-28 h-28 rounded-full"
+              className="w-28 h-28 rounded-lg"
             />
             <View className="flex-row justify-around">
               <Text
@@ -75,7 +75,7 @@ const FirearmRow = () => {
           <TouchableOpacity>
             <Image
               source={require("../assets/images/gradient-bg3.jpg")}
-              className="w-28 h-28 rounded-full"
+              className="w-28 h-28 rounded-lg"
             />
             <View className="flex-row justify-around">
               <Text
@@ -101,7 +101,7 @@ const FirearmRow = () => {
           <TouchableOpacity>
             <Image
               source={require("../assets/images/gradient-bg2.jpg")}
-              className="w-28 h-28 rounded-full"
+              className="w-28 h-28 rounded-lg"
             />
             <View className="flex-row justify-around">
               <Text
@@ -127,7 +127,7 @@ const FirearmRow = () => {
           <TouchableOpacity>
             <Image
               source={require("../assets/images/gradient-bg1.jpg")}
-              className="w-28 h-28 rounded-full"
+              className="w-28 h-28 rounded-lg"
             />
             <View className="flex-row justify-around">
               <Text

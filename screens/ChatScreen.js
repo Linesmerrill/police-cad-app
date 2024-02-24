@@ -17,6 +17,9 @@ import {
   ChatBubbleLeftIcon,
   ChatBubbleLeftRightIcon,
   CheckCircleIcon,
+  ChevronLeftIcon,
+  HomeIcon,
+  HomeModernIcon,
   IdentificationIcon,
   MagnifyingGlassIcon,
   PencilSquareIcon,
@@ -24,6 +27,7 @@ import {
 } from "react-native-heroicons/solid";
 import ChatsContainer from "../components/ChatsContainer";
 import ContactsContainer from "../components/ContactsContainer";
+import BellChatContainer from "../components/BellChatContainer";
 
 const ChatScreen = () => {
   const navigation = useNavigation();
@@ -56,6 +60,23 @@ const ChatScreen = () => {
         barStyle="light-content"
         backgroundColor="transparent"
       />
+
+      {/* add header bar */}
+      <View className="flex-row justify-between items-center bg-black p-5">
+        <View className="flex-row items-center">
+          <TouchableOpacity
+            className="flex-row"
+            onPress={() => navigation.goBack()}
+          >
+            <ChevronLeftIcon className="text-white" color={"#FFF"} />
+            <HomeIcon className="text-white" color={"#FFF"} />
+          </TouchableOpacity>
+          <Text className="text-white text-2xl font-bold"></Text>
+        </View>
+        <View className="flex-row space-x-4">
+          {/* <BellChatContainer /> */}
+        </View>
+      </View>
 
       {/* add header bar */}
       <View className="flex-row justify-between items-center bg-black p-5">
