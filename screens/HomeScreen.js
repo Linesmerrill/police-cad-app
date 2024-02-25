@@ -6,6 +6,9 @@ import {
   TouchableOpacity,
   Animated,
   ScrollView,
+  RefreshControl,
+  StyleSheet,
+  StatusBar,
 } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
@@ -15,15 +18,49 @@ import {
   UserIcon,
 } from "react-native-heroicons/outline";
 
-import { ArrowRightIcon } from "react-native-heroicons/solid";
+import {
+  ArrowRightIcon,
+  BellAlertIcon,
+  BellIcon,
+  ChatBubbleLeftIcon,
+  EllipsisHorizontalIcon,
+  TvIcon,
+  UserGroupIcon,
+  XMarkIcon,
+} from "react-native-heroicons/solid";
 import RoleIcon from "../components/RoleIcon";
 import HomeScreenWelcomeCarousel from "../components/HomeScreenWelcomeCarousel";
+import { Card, Paragraph, Title } from "react-native-paper";
+import CommunityRow from "../components/CommunityRow";
+import MultiplayerRow from "../components/MultiplayerRow";
+import TrendingFreeCommunitiesRow from "../components/TrendingFreeCommunitiesRow";
+import PromotionalCardLarge from "../components/PromotionalCardLarge";
+import BellChatContainer from "../components/BellChatContainer";
+import FriendsOnlineRow from "../components/FriendsOnlineRow";
+import SpotlightRow from "../components/SpotlightRow";
+import DiscoverPeopleRow from "../components/DiscoverPeopleRow";
+import LastAccessedCommunityRow from "../components/LastAccessedCommunityRow";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
   const civilianUser = require("../assets/images/civilian-icon.png");
   const [isPressed, setIsPressed] = useState(false);
   const [currentRole, setCurrentRole] = useState("Civilian");
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const communityDetails = {
+    communityImage:
+      "https://images.unsplash.com/photo-1608889175157-718b6205a50d?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    communityName: "Lines Police CAD Community",
+    LastAccessedInHours: 2,
+  };
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 1000);
+  }, []);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -32,133 +69,98 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <>
-      {/* Header */}
-      <View className="flex-row items-center mx-4 space-x-2 justify-between absolute z-10 right-0 top-12 font-extrabold mt-5">
-        <View className="flex-row space-x-2">
-          {/* <Image
-              source={require("../assets/icon.png")}
-              className="h-9 w-12"
-            /> */}
+    <SafeAreaView style={styles.container}>
+      <StatusBar
+        animated={true}
+        barStyle="light-content"
+        backgroundColor="transparent"
+      />
+
+      {/* add header bar */}
+      <View className="flex-row justify-between items-center bg-black p-5">
+        <View className="flex-row items-center">
+          <Text className="text-white text-2xl font-bold">Jump Back In</Text>
         </View>
-        <TouchableOpacity onPress={() => navigation.navigate("Account")}>
-          <UserIcon
-            className="flex-1"
-            size={35}
-            color="white"
-            strokeWidth={2}
-          />
-        </TouchableOpacity>
+        <BellChatContainer />
       </View>
+      <ScrollView
+        className="bg-black"
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+        showsVerticalScrollIndicator={false}
+      >
+        {/* currently active community card with button to get started */}
+        <LastAccessedCommunityRow communityDetails={communityDetails} />
 
-      <ScrollView>
-        {/* Welcome Carousel */}
-        <HomeScreenWelcomeCarousel />
+        {/* horizontal scrollable round images of friends */}
+        <FriendsOnlineRow />
 
-        <SafeAreaView>
-          <Text className="text-xl text-[#02284F] font-semibold m-4">
-            {/* Click on a Page to get started! */}
-          </Text>
-          {/* Civilian Card */}
-          <TouchableOpacity
-            className="shadow-sm relative"
-            onPress={() => navigation.navigate("Civilian")}
-          >
-            <View className="flex-row mb-4 mx-4 items-center">
-              <Image
-                source={require("../assets/images/civilian-home-view.png")}
-                className="rounded h-36 w-full"
-              />
-              <Text className="absolute top-2 left-2 text-lg text-white  font-bold">
-                Civilian
-              </Text>
-              <View className="absolute bottom-2 right-2 font-bold">
-                <ArrowRightCircleIcon size={28} color="white" />
-              </View>
-            </View>
+        {/* new section called Spotlight */}
+        <View className="flex-row justify-between px-5 pt-5">
+          <Text className="text-white text-xl font-bold">Spotlight</Text>
+          <TouchableOpacity>
+            <Text className="text-gray-500 text-lg font-semibold">See All</Text>
           </TouchableOpacity>
+        </View>
 
-          {/* Police Card */}
-          <TouchableOpacity
-            className="shadow-sm relative"
-            onPress={() => navigation.navigate("Police")}
-          >
-            <View className="flex-row mb-4 mx-4 items-center">
-              <Image
-                source={require("../assets/images/police-home-view.png")}
-                className="rounded h-36 w-full"
-              />
-              <Text className="absolute top-2 left-2 text-lg text-white  font-bold">
-                Police
-              </Text>
-              <View className="absolute bottom-2 right-2 font-bold">
-                <ArrowRightCircleIcon size={28} color="white" />
-              </View>
-            </View>
-          </TouchableOpacity>
+        {/* horizontal scrollable cards with large images */}
+        <SpotlightRow />
 
-          {/* Dispatch Card */}
-          <TouchableOpacity
-            className="shadow-sm relative"
-            onPress={() => navigation.navigate("Dispatch")}
-          >
-            <View className="flex-row mb-4 mx-4 items-center">
-              <Image
-                source={require("../assets/images/dispatch-home-view.png")}
-                className="rounded h-36 w-full"
-              />
-              <Text className="absolute top-2 left-2 text-lg text-white  font-bold">
-                Dispatch
-              </Text>
-              <View className="absolute bottom-2 right-2 font-bold">
-                <ArrowRightCircleIcon size={28} color="white" />
-              </View>
-            </View>
+        {/* new section called discover people, with horizontal scrolling cards that contain profile pictures and names for people to add as friends */}
+        <View className="flex-row justify-between px-5 pt-5">
+          <Text className="text-white text-xl font-bold">Discover People</Text>
+          <TouchableOpacity>
+            <Text className="text-gray-500 text-lg font-semibold">See All</Text>
           </TouchableOpacity>
+        </View>
 
-          {/* Fire/EMS Card */}
-          <TouchableOpacity
-            className="shadow-sm relative"
-            onPress={() => navigation.navigate("FireEms")}
-          >
-            <View className="flex-row mb-4 mx-4 items-center">
-              <Image
-                source={require("../assets/images/fire-ems-home-view.png")}
-                className="rounded h-36 w-full"
-              />
-              <Text className="absolute top-2 left-2 text-lg text-white  font-bold">
-                Fire/EMS
-              </Text>
-              <View className="absolute bottom-2 right-2 font-bold">
-                <ArrowRightCircleIcon size={28} color="white" />
-              </View>
-            </View>
-          </TouchableOpacity>
+        {/* horizontal scrollable cards with large images */}
+        <DiscoverPeopleRow />
 
-          {/* Communities Card */}
-          <TouchableOpacity
-            className="shadow-sm relative"
-            onPress={() => navigation.navigate("Communities")}
-          >
-            <View className="flex-row mb-40 mx-4 items-center">
-              <Image
-                source={require("../assets/images/community-home-view.png")}
-                className="rounded h-36 w-full"
-              />
-              <Text className="absolute top-2 left-2 text-lg text-white  font-bold">
-                Communities
-              </Text>
-              <View className="absolute bottom-2 right-2 font-bold">
-                <ArrowRightCircleIcon size={28} color="white" />
+        <CommunityRow />
+        <MultiplayerRow />
+        <TrendingFreeCommunitiesRow />
+
+        <View className="mb-5"></View>
+
+        {/* promotional large cards */}
+        <PromotionalCardLarge />
+
+        <PromotionalCardLarge />
+
+        <PromotionalCardLarge />
+
+        <PromotionalCardLarge />
+
+        <View className=" flex-row justify-around align-middle mt-24 mb-24">
+          <View className="flex-col">
+            <Text className="text-white text-2xl font-bold">
+              New Communities await
+            </Text>
+            <Text className="text-white text-lg font-medium">
+              Get more out of your community.
+            </Text>
+            <TouchableOpacity>
+              <View className="bg-white mx-10 mt-5 rounded-xl">
+                <Text className="text-black text-md font-medium p-3 text-center">
+                  Learn More
+                </Text>
               </View>
-            </View>
-          </TouchableOpacity>
-        </SafeAreaView>
+            </TouchableOpacity>
+          </View>
+        </View>
       </ScrollView>
-
-      {isPressed && <RoleIcon />}
-    </>
+    </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    backgroundColor: "black",
+  },
+});
 
 export default HomeScreen;

@@ -13,21 +13,25 @@
       "backgroundColor": "#02284F"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/153dea78-50b6-4d85-9b27-e38f4cd575fa"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.linesmerrill.policecadapp"
+      "bundleIdentifier": "com.linesmerrill.policecadapp",
+      "buildNumber": "1"
+
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#02284F"
       },
-      "package": "com.linesmerrill.policecadapp"
+      "package": "com.linesmerrill.policecadapp",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -36,6 +40,10 @@
       "eas": {
         "projectId": "153dea78-50b6-4d85-9b27-e38f4cd575fa"
       }
-    }
+    },
+    "plugins": [
+      "expo-font"
+    ],
+    "runtimeVersion": "exposdk:50.0.6"
   }
 }
