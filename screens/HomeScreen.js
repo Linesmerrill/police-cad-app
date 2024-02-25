@@ -39,6 +39,7 @@ import BellChatContainer from "../components/BellChatContainer";
 import FriendsOnlineRow from "../components/FriendsOnlineRow";
 import SpotlightRow from "../components/SpotlightRow";
 import DiscoverPeopleRow from "../components/DiscoverPeopleRow";
+import LastAccessedCommunityRow from "../components/LastAccessedCommunityRow";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -46,6 +47,13 @@ const HomeScreen = () => {
   const [isPressed, setIsPressed] = useState(false);
   const [currentRole, setCurrentRole] = useState("Civilian");
   const [refreshing, setRefreshing] = React.useState(false);
+
+  const communityDetails = {
+    communityImage:
+      "https://images.unsplash.com/photo-1608889175157-718b6205a50d?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    communityName: "Lines Police CAD Community",
+    LastAccessedInHours: 2,
+  };
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
@@ -83,49 +91,7 @@ const HomeScreen = () => {
         showsVerticalScrollIndicator={false}
       >
         {/* currently active community card with button to get started */}
-        <View className="justify-between flex-row bg-slate-700 bg-opacity-90 rounded-3xl p-3">
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate("CommunityHome");
-            }}
-          >
-            <View className="flex-row">
-              {/* add rounded image of icon */}
-              <Image
-                source={require("../assets/images/community-icon.jpg")}
-                className="w-10 h-10 rounded-full bg-white"
-              />
-              <View className="flex-col">
-                <Text
-                  className="text-white text-lg font-semibold pl-5"
-                  numberOfLines={1}
-                  ellipsizeMode="tail"
-                >
-                  Lines Police CAD Community
-                </Text>
-                <View className="flex-row justify-start">
-                  {/* green dot icon */}
-                  <View className="bg-green-500 w-3 h-3 rounded-full ml-5" />
-                  {/* last accessed text */}
-                  <Text className="text-green-500 text-sm pl-2 -top-1">
-                    Last Accessed 2h ago
-                  </Text>
-                </View>
-              </View>
-              <View className="flex-row bg-slate-500 rounded-3xl ml-4 justify-between">
-                <Text className="text-white text-base font-semibold pt-2.5 pl-3 mr-2">
-                  Join
-                </Text>
-                <View className="m-2.5 ml-1">
-                  <ArrowRightIcon
-                    className="w-10 h-10 text-white font-semibold"
-                    color={"#FFF"}
-                  />
-                </View>
-              </View>
-            </View>
-          </TouchableOpacity>
-        </View>
+        <LastAccessedCommunityRow communityDetails={communityDetails} />
 
         {/* horizontal scrollable round images of friends */}
         <FriendsOnlineRow />
