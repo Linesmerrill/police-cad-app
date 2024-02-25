@@ -1,6 +1,9 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
-import { ShareIcon } from "react-native-heroicons/outline";
+import {
+  ArrowTopRightOnSquareIcon,
+  ShareIcon,
+} from "react-native-heroicons/solid";
 
 const PromotionalCardLarge = () => {
   return (
@@ -24,7 +27,7 @@ const PromotionalCardLarge = () => {
             </View>
           </View>
           <TouchableOpacity className="absolute right-5 top-6">
-            <ShareIcon size={25} color={"#FFF"} />
+            <ArrowTopRightOnSquareIcon size={25} color={"#FFF"} />
           </TouchableOpacity>
         </View>
         <Image
