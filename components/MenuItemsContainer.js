@@ -8,8 +8,12 @@ import {
   HeartIcon,
 } from "react-native-heroicons/solid";
 import {
+  ArrowLongRightIcon,
+  ArrowRightOnRectangleIcon,
   BanknotesIcon,
+  InformationCircleIcon,
   QuestionMarkCircleIcon,
+  ShieldExclamationIcon,
   WalletIcon,
 } from "react-native-heroicons/outline";
 
@@ -113,6 +117,57 @@ const MenuItemsContainer = () => {
             </View>
           </TouchableOpacity>
         </View>
+        <View className="flex-row mt-6">
+          <TouchableOpacity className="flex-row justify-between w-full">
+            <View className="flex-row">
+              <View className="justify-center">
+                <ShieldExclamationIcon size={25} color={"#FFF"} />
+              </View>
+              <View className="flex-col pl-4">
+                <Text className="text-white text-sm font-bold">
+                  Legal and Privacy
+                </Text>
+                {/* <Text className="text-slate-300 text-xs">
+                  Payment methods, gift cards, and more
+                </Text> */}
+              </View>
+            </View>
+            <View className="justify-center pr-2">
+              <ChevronRightIcon size={20} color={"#FFF"} />
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View className="flex-row mt-6 justify-between w-full">
+          {/* <TouchableOpacity className=""> */}
+          <View className="flex-row">
+            <View className="justify-center">
+              <InformationCircleIcon size={25} color={"#FFF"} />
+            </View>
+            <View className="flex-col pl-4">
+              <Text className="text-white text-sm font-bold">Version</Text>
+              <Text className="text-slate-300 text-xs">1.0.0.0.0</Text>
+            </View>
+          </View>
+          {/* <View className="justify-center pr-2">
+              <ChevronRightIcon size={20} color={"#FFF"} />
+            </View> */}
+          {/* </TouchableOpacity> */}
+        </View>
+      </View>
+      {/* sign out button at the bottom */}
+      <View>
+        <TouchableOpacity className="flex-row bg-gray-500 mt-6 rounded-lg justify-center">
+          <View className="flex-col items-center p-3">
+            <View className="flex-row space-x-2 items-center">
+              <ArrowRightOnRectangleIcon
+                className=""
+                size={25}
+                color={"#FFF"}
+              />
+              <Text className="text-white text-sm font-semibold">Sign Out</Text>
+            </View>
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

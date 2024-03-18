@@ -7,7 +7,7 @@ const TrendingFreeCommunitiesRow = () => {
     <>
       <View className="flex-row justify-between px-2 mt-9">
         <Text className="text-white text-lg font-semibold">
-          Trending free communities
+          Trending communities
         </Text>
         <TouchableOpacity>
           <Text className="text-gray-500 text-lg font-semibold">See All</Text>

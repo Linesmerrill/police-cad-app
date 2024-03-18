@@ -110,7 +110,7 @@ const CivilianScreen = () => {
         <View className="m-2">
           {/* horizontal scrollable cards of civilians */}
           <View className="flex-row justify-between mb-4">
-            <Text className="text-xl font-bold text-white">Civilians</Text>
+            <Text className="text-xl font-bold text-white">Your Civilians</Text>
             <TouchableOpacity>
               <Text className="text-lg font-bold text-gray-500"> View all</Text>
             </TouchableOpacity>
