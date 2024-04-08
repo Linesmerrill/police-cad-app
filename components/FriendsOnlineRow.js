@@ -1,8 +1,24 @@
 import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import React from "react";
+import axios from "axios";
 import { TvIcon, UserGroupIcon } from "react-native-heroicons/solid";
 
 const FriendsOnlineRow = () => {
+  axios.get("https://api.example.com/data").catch((error) => {
+    if (error.response) {
+      // Server responded with a status other than 200 range
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) {
+      // Request was made but no response was received
+      console.log(error.request);
+    } else {
+      // Error occurred in setting up the request
+      console.error("Error", error.message);
+    }
+  });
+
   return (
     <ScrollView
       horizontal={true}
