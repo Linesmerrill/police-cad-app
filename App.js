@@ -9,6 +9,7 @@ import { TailwindProvider } from "tailwindcss-react-native";
 import AccountScreen from "./screens/AccountScreen";
 import CivilianListScreen from "./screens/CivilianListScreen";
 import CivilianScreen from "./screens/CivilianScreen";
+import CivilianDetailsScreen from "./screens/CivilianDetailsScreen";
 import CommunitiesScreen from "./screens/CommunitiesScreen";
 import CreateAccountScreen from "./screens/CreateAccountScreen";
 import CreateCivilianScreen from "./screens/CreateCivilianScreen";
@@ -374,6 +375,7 @@ function CivilianStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Civilian" component={CivilianScreen} />
+      <Stack.Screen name="CivilianDetails" component={CivilianDetailsScreen} />
       <Stack.Screen
         name="Notifications"
         component={NotificationScreen}
@@ -562,6 +564,11 @@ export default function App() {
             />
             <Stack.Screen
               name="CivilianScreen"
+              component={CivilianTabs}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="CivilianDetailsScreen"
               component={CivilianTabs}
               options={{ headerShown: false }}
             />

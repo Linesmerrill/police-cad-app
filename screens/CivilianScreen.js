@@ -122,7 +122,9 @@ const CivilianScreen = () => {
           >
             <View className="flex-row space-x-4">
               <View className="flex-col">
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("CivilianDetails")}
+                >
                   <Image
                     source={require("../assets/images/gradient-bg1.jpg")}
                     className="w-28 h-28 rounded-full"

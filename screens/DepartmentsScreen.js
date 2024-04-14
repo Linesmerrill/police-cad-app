@@ -80,6 +80,8 @@ const DepartmentsScreen = () => {
           <BellChatContainer />
         </View>
       </View>
+
+      {/* content */}
       <ScrollView
         className="bg-black"
         refreshControl={

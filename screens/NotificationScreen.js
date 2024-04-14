@@ -35,7 +35,6 @@ import BellChatContainer from "../components/BellChatContainer";
 
 const NotificationScreen = () => {
   const navigation = useNavigation();
-  const civilianUser = require("../assets/images/civilian-icon.png");
   const [isPressed, setIsPressed] = useState(false);
   const [currentRole, setCurrentRole] = useState("Civilian");
   const [refreshing, setRefreshing] = React.useState(false);
