@@ -11,6 +11,7 @@
   "dependencies": {
     "@expo-google-fonts/bangers": "^0.2.2",
     "@expo-google-fonts/dev": "^0.2.2",
+    "@expo/config-plugins": "~8.0.0",
     "@expo/metro-runtime": "~3.2.1",
     "@expo/react-native-action-sheet": "^4.0.1",
     "@react-navigation/bottom-tabs": "^6.5.12",
@@ -32,6 +33,9 @@
     "expo-status-bar": "~1.12.1",
     "expo-updates": "~0.25.14",
     "expo-web-browser": "~13.0.3",
+    "metro": "^0.80.9",
+    "metro-config": "^0.80.9",
+    "metro-resolver": "^0.80.9",
     "nativewind": "^2.0.11",
     "react": "18.2.0",
     "react-currency-formatter": "^1.1.0",
