@@ -54,7 +54,7 @@ const LoginScreen = () => {
     if (response?.type === "success") {
       setToken(response.authentication.accessToken);
       getUserInfo();
-      navigation.navigate("Home");
+      navigation.navigate("HomeScreen");
     }
   }, [response, token]);
 
@@ -124,7 +124,7 @@ const LoginScreen = () => {
             <View className="flex-row justify-center">
               <Image
                 className="w-20 h-20"
-                source={require("../assets/favicon.png")}
+                source={require("../assets/lines-police-cad-discord-logo-2024.png")}
               />
             </View>
 
@@ -163,7 +163,7 @@ const LoginScreen = () => {
                       <TextInput
                         placeholder="Password"
                         placeholderTextColor={"gray"}
-                        keyboardType="password"
+                        keyboardType="visible-password"
                         cursorColor={"white"}
                         autoComplete="password"
                         color={"white"}
@@ -177,7 +177,7 @@ const LoginScreen = () => {
               <View className="flex-row">
                 <TouchableOpacity
                   className="mx-5 bg-white p-4 mb-4 mr-4 rounded-full flex-1 items-center space-x-1"
-                  onPress={() => navigation.navigate("Home")}
+                  onPress={() => navigation.navigate("HomeScreen")}
                 >
                   <View className="flex-row">
                     <Text className=" text-black font-bold text-md text-center">
@@ -188,7 +188,7 @@ const LoginScreen = () => {
               </View>
 
               <View className="flex-row justify-center mb-4">
-                <Text className="text-white text-[15em]">
+                <Text className="text-white text-sm">
                   <Text
                     style={{
                       textDecorationLine: "underline",

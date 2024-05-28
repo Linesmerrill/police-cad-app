@@ -2,6 +2,12 @@
 
 A React Native Android/iOS application built for [Lines Police CAD](https://github.com/Linesmerrill/police-cad)
 
+## Screenshots
+
+<img src="assets/images/screenshot1.png" width="200"/>&nbsp; &nbsp; &nbsp; &nbsp;<img src="assets/images/screenshot2.png" width="200"/>&nbsp; &nbsp; &nbsp; &nbsp;<img src="assets/images/screenshot3.png" width="200"/>
+
+<img src="assets/images/screenshot4.png" width="200"/>
+
 ## How to Run
 
 ### Install Dependencies
@@ -10,7 +16,7 @@ A React Native Android/iOS application built for [Lines Police CAD](https://gith
 
 ### Start it up
 
-`expo start`
+`npx expo start`
 
 ## How to Deploy Changes to Expo
 
@@ -18,10 +24,10 @@ A React Native Android/iOS application built for [Lines Police CAD](https://gith
 
 `npx expo-optimize`
 
-### Build
+## Publish to Expo
+
+`eas update`
+
+### Build for Android and/or iOS
 
 `eas build`
-
-## Publish
-
-`expo publish`

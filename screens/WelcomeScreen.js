@@ -53,7 +53,7 @@ const WelcomeScreen = () => {
     if (response?.type === "success") {
       setToken(response.authentication.accessToken);
       getUserInfo();
-      navigation.navigate("Home");
+      navigation.navigate("HomeScreen");
     }
   }, [response, token]);
 
@@ -99,7 +99,7 @@ const WelcomeScreen = () => {
           <View className="flex-row ml-2">
             {/* <TouchableOpacity
               className="shadow-sm"
-              onPress={() => navigation.navigate("Home")}
+              onPress={() => navigation.navigate("HomeScreen")}
             >
               <XCircleIcon className="flex-1" color="white" size={40} />
             </TouchableOpacity> */}
@@ -108,7 +108,7 @@ const WelcomeScreen = () => {
           <View className="flex-row justify-center mt-6">
             <Image
               className=" w-24 h-24"
-              source={require("../assets/favicon.png")}
+              source={require("../assets/lines-police-cad-discord-logo-2024.png")}
             />
           </View>
 
@@ -201,7 +201,7 @@ const WelcomeScreen = () => {
 
             <View className="flex-row">
               <TouchableOpacity
-                className="mx-5 bg-[#A62C17] p-4 mb-4 mr-5 rounded-full flex-1 items-center space-x-1"
+                className="mx-5 bg-[#13cb10] p-4 mb-4 mr-5 rounded-full flex-1 items-center space-x-1"
                 onPress={() => navigation.push("CreateAccount")}
               >
                 <View className="flex-row">

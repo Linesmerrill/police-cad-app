@@ -93,7 +93,7 @@ const CreateAccountScreen3 = () => {
 
         <View className="">
           <TouchableOpacity
-            onPress={() => navigation.navigate("Home")}
+            onPress={() => navigation.navigate("HomeScreen")}
             className="mx-5 bg-white p-4 mb-4 rounded-full flex-row items-center space-x-1"
           >
             <Text className="flex-1 text-black font-semibold text-lg text-center">
