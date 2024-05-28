@@ -21,17 +21,14 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.linesmerrill.policecadapp",
-      "buildNumber": "1"
-
+      "bundleIdentifier": "com.linesmerrill.policecadapp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#02284F"
       },
-      "package": "com.linesmerrill.policecadapp",
-      "versionCode": 1
+      "package": "com.linesmerrill.policecadapp"
     },
     "web": {
       "favicon": "./assets/favicon.ico"
