@@ -31,3 +31,7 @@ A React Native Android/iOS application built for [Lines Police CAD](https://gith
 ### Build for Android and/or iOS
 
 `eas build`
+
+### Submit to the App store and Google Play store
+
+`eas submit`
