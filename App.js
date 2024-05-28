@@ -27,6 +27,8 @@ import PoliceScreen from "./screens/PoliceScreen";
 import VehicleListScreen from "./screens/VehicleListScreen";
 import CreateAccountScreen2 from "./screens/CreateAccountScreen2";
 import CreateAccountScreen3 from "./screens/CreateAccountScreen3";
+import SplashScreen from "./screens/SplashScreen";
+import React, { useEffect, useState } from "react";
 import {
   ChatBubbleLeftIcon,
   EllipsisHorizontalIcon,
@@ -529,6 +531,19 @@ function CivilianTabs() {
 }
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <SplashScreen />;
+  }
   return (
     <ActionSheetProvider>
       <NavigationContainer theme={DarkTheme}>
