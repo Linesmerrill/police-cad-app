@@ -107,7 +107,7 @@ const WelcomeScreen = () => {
 
           <View className="flex-row justify-center mt-6">
             <Image
-              className="w-24 h-24"
+              className="w-40 h-40"
               source={require("../assets/lines-police-cad-discord-logo-2024.png")}
             />
           </View>

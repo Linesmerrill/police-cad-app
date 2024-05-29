@@ -122,7 +122,7 @@ const LoginScreen = () => {
 
             <View className="flex-row justify-center">
               <Image
-                className="w-20 h-20"
+                className="w-40 h-40"
                 source={require("../assets/lines-police-cad-discord-logo-2024.png")}
               />
             </View>
