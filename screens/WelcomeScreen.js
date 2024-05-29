@@ -96,14 +96,7 @@ const WelcomeScreen = () => {
           />
         </Animated.View>
         <SafeAreaView className="h-full space-x-1" style={styles.overlay}>
-          <View className="flex-row ml-2">
-            {/* <TouchableOpacity
-              className="shadow-sm"
-              onPress={() => navigation.navigate("HomeScreen")}
-            >
-              <XCircleIcon className="flex-1" color="white" size={40} />
-            </TouchableOpacity> */}
-          </View>
+          <View className="flex-row ml-2"></View>
 
           <View className="flex-row justify-center mt-6">
             <Image
@@ -131,14 +124,10 @@ const WelcomeScreen = () => {
                 loop={false}
               />
             </View>
-
-            {/* <Text className="text-4xl font-semibold text-white">
-              chargers you love
-            </Text> */}
           </View>
 
           <View className="mt-5">
-            <View className="flex-row">
+            {/* <View className="flex-row">
               <TouchableOpacity
                 className="mx-5 bg-[#007aff] p-4 mb-4 mr-5 rounded-full flex-1 items-center space-x-1"
                 disabled={!request}
@@ -155,9 +144,9 @@ const WelcomeScreen = () => {
                   </Text>
                 </View>
               </TouchableOpacity>
-            </View>
+            </View> */}
 
-            <View className="flex-row">
+            {/* <View className="flex-row">
               <TouchableOpacity
                 className="mx-5 bg-[#3c5997] p-4 mb-4 mr-5 rounded-full flex-1 items-center space-x-1"
                 disabled={true} //enable facebook login
@@ -174,9 +163,9 @@ const WelcomeScreen = () => {
                   </Text>
                 </View>
               </TouchableOpacity>
-            </View>
+            </View> */}
 
-            <View className="flex-row">
+            {/* <View className="flex-row">
               <TouchableOpacity
                 className="mx-5 bg-[#fff] p-4 mr-5 rounded-full flex-1 items-center space-x-1"
                 disabled={true} //enable apple/android login
@@ -193,11 +182,9 @@ const WelcomeScreen = () => {
                   </Text>
                 </View>
               </TouchableOpacity>
-            </View>
-            {/* <View className="flex-row w-full">
-              <Divider className="text-white text-lg h-[0.9]" />
             </View> */}
-            <View className="flex-row justify-between m-6">
+
+            {/* <View className="flex-row justify-between m-6">
               <View className="">
                 <Text className="w-40 mt-2 bg-white h-0.5"></Text>
               </View>
@@ -206,7 +193,7 @@ const WelcomeScreen = () => {
               <View className="">
                 <Text className="w-40 mt-2 bg-white h-0.5"></Text>
               </View>
-            </View>
+            </View> */}
 
             <View className="flex-row">
               <TouchableOpacity
@@ -221,43 +208,48 @@ const WelcomeScreen = () => {
               </TouchableOpacity>
             </View>
           </View>
-          <View className="flex-row justify-center mt-2">
-            <Text className="text-white text-lg">
-              Already have an account?{" "}
-              <Text
-                style={{ textDecorationLine: "underline", fontWeight: "bold" }}
-                onPress={() => navigation.navigate("Login")}
-              >
-                Log in
+          <View className="flex-col h-1/3 justify-between">
+            <View className="flex-row justify-center mt-2">
+              <Text className="text-white text-lg">
+                Already have an account?{" "}
+                <Text
+                  style={{
+                    textDecorationLine: "underline",
+                    fontWeight: "bold",
+                  }}
+                  onPress={() => navigation.navigate("Login")}
+                >
+                  Log in
+                </Text>
               </Text>
-            </Text>
-          </View>
-          <View className="flex mt-9 left-2 right-2 mr-2">
-            <Text className="text-gray-400">
-              By continuing to use Lines Police CAD, you agree to our{" \n"}
-              <Text
-                style={{ textDecorationLine: "underline" }}
-                onPress={() =>
-                  Linking.openURL(
-                    "https://en.wikipedia.org/wiki/Terms_of_service"
-                  )
-                }
-              >
-                Terms of Service{" "}
+            </View>
+            <View className="flex-row m-2">
+              <Text className="text-gray-400">
+                By continuing to use Lines Police CAD, you agree to our{" \n"}
+                <Text
+                  style={{ textDecorationLine: "underline" }}
+                  onPress={() =>
+                    Linking.openURL(
+                      "https://www.linespolice-cad.com/terms-and-conditions"
+                    )
+                  }
+                >
+                  Terms of Service{" "}
+                </Text>
+                and{" "}
+                <Text
+                  style={{ textDecorationLine: "underline" }}
+                  onPress={() =>
+                    Linking.openURL(
+                      "https://www.linespolice-cad.com/privacy-policy"
+                    )
+                  }
+                >
+                  Privacy Policy
+                </Text>
+                {"."}
               </Text>
-              and{" "}
-              <Text
-                style={{ textDecorationLine: "underline" }}
-                onPress={() =>
-                  Linking.openURL(
-                    "https://en.wikipedia.org/wiki/Privacy_policy"
-                  )
-                }
-              >
-                Privacy Policy
-              </Text>
-              {"."}
-            </Text>
+            </View>
           </View>
         </SafeAreaView>
       </View>

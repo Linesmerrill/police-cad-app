@@ -17,8 +17,10 @@ import {
 import React, { useEffect, useMemo, useState } from "react";
 import {
   ArrowLeftCircleIcon,
+  ArrowLeftIcon,
   BackwardIcon,
   BookOpenIcon,
+  ChevronLeftIcon,
   GlobeAltIcon,
   XCircleIcon,
   XMarkIcon,
@@ -87,36 +89,23 @@ const LoginScreen = () => {
     >
       <View style={styles.container}>
         <View style={styles.background}>
-          <Animated.View
-            style={[styles.backgroundViewWrapper, { opacity: opacity }]}
-          >
-            <Video
-              // isLooping
-              isMuted
-              positionMillis={500}
-              onLoad={() => {
-                Animated.timing(opacity, {
-                  toValue: 1,
-                  useNativeDriver: true,
-                }).start();
-              }}
-              resizeMode="cover"
-              // shouldPlay
-              source={require("../assets/royal-blue-bg-750.png")}
-              style={{ flex: 1 }}
-            />
-          </Animated.View>
           <SafeAreaView className="h-full space-x-1" style={styles.overlay}>
             <View className="flex-row ml-2">
               <TouchableOpacity
-                className="shadow-sm"
-                onPress={() => navigation.navigate("Welcome")}
+                className=""
+                onPress={() => {
+                  navigation.goBack();
+                }}
               >
-                <ArrowLeftCircleIcon
-                  className="flex-1"
-                  color="white"
-                  size={40}
-                />
+                <View className="flex-row bg-slate-800 rounded-full p-3 items-center">
+                  <View className="flex-row items-center">
+                    <ChevronLeftIcon
+                      size={20}
+                      className="text-white"
+                      color={"#FFF"}
+                    />
+                  </View>
+                </View>
               </TouchableOpacity>
             </View>
 
@@ -175,7 +164,7 @@ const LoginScreen = () => {
               </View>
               <View className="flex-row">
                 <TouchableOpacity
-                  className="mx-5 bg-white p-4 mb-4 mr-4 rounded-full flex-1 items-center space-x-1"
+                  className="mx-5 bg-white p-4 mb-4 mt-6 mr-4 rounded-full flex-1 items-center space-x-1"
                   onPress={() => navigation.navigate("HomeScreen")}
                 >
                   <View className="flex-row">
@@ -186,7 +175,7 @@ const LoginScreen = () => {
                 </TouchableOpacity>
               </View>
 
-              <View className="flex-row justify-center mb-4">
+              <View className="flex-row justify-center mb-4 mt-6">
                 <Text className="text-white text-sm">
                   <Text
                     style={{
@@ -195,14 +184,14 @@ const LoginScreen = () => {
                     }}
                     onPress={() => navigation.navigate("ForgotPassword")}
                   >
-                    Forgot your password?
+                    Forgot password
                   </Text>
                 </Text>
               </View>
             </View>
 
             <View className="mt-1">
-              <View className="flex-row">
+              {/* <View className="flex-row">
                 <TouchableOpacity
                   className="mx-5 bg-[#007aff] p-4 mb-4 mr-5 rounded-full flex-1 items-center space-x-1"
                   disabled={!request}
@@ -219,9 +208,9 @@ const LoginScreen = () => {
                     </Text>
                   </View>
                 </TouchableOpacity>
-              </View>
+              </View> */}
 
-              <View className="flex-row">
+              {/* <View className="flex-row">
                 <TouchableOpacity
                   className="mx-5 bg-[#3c5997] p-4 mb-4 mr-5 rounded-full flex-1 items-center space-x-1"
                   disabled={true} //enable facebook login
@@ -238,9 +227,9 @@ const LoginScreen = () => {
                     </Text>
                   </View>
                 </TouchableOpacity>
-              </View>
+              </View> */}
 
-              <View className="flex-row">
+              {/* <View className="flex-row">
                 <TouchableOpacity
                   className="mx-5 bg-[#fff] p-4 mr-5 rounded-full flex-1 items-center space-x-1"
                   disabled={true} //enable apple/android login
@@ -257,7 +246,7 @@ const LoginScreen = () => {
                     </Text>
                   </View>
                 </TouchableOpacity>
-              </View>
+              </View> */}
             </View>
           </SafeAreaView>
         </View>

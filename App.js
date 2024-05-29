@@ -555,7 +555,6 @@ export default function App() {
             <Stack.Screen
               name="ForgotPassword"
               component={ForgotPasswordScreen}
-              options={{ presentation: "fullScreenModal", headerShown: false }}
             />
             <Stack.Screen
               name="CreateAccount"
