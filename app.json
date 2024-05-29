@@ -21,7 +21,10 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.linesmerrill.policecadapp"
+      "bundleIdentifier": "com.linesmerrill.policecadapp",
+      "config": {
+        "usesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
