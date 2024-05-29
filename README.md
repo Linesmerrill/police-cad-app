@@ -32,6 +32,10 @@ A React Native Android/iOS application built for [Lines Police CAD](https://gith
 
 `eas build`
 
+#### To create a Development Build
+
+`eas build --profile development`
+
 ### Submit to the App store and Google Play store
 
 `eas submit`
