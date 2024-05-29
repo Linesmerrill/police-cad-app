@@ -1,38 +1,19 @@
 import {
   View,
   Text,
-  Button,
   SafeAreaView,
   Image,
   TouchableOpacity,
-  Linking,
   Animated,
   StyleSheet,
   Dimensions,
   TextInput,
-  ScrollView,
   Keyboard,
   TouchableWithoutFeedback,
 } from "react-native";
 import React, { useEffect, useMemo, useState } from "react";
-import {
-  ArrowLeftCircleIcon,
-  ArrowLeftIcon,
-  BackwardIcon,
-  BookOpenIcon,
-  ChevronLeftIcon,
-  GlobeAltIcon,
-  XCircleIcon,
-  XMarkIcon,
-} from "react-native-heroicons/solid";
-import {
-  PhoneIcon,
-  PhoneXMarkIcon,
-  RocketLaunchIcon,
-} from "react-native-heroicons/outline";
-import { Divider } from "react-native-paper";
+import { ChevronLeftIcon } from "react-native-heroicons/solid";
 import { useNavigation } from "@react-navigation/native";
-import { Video, AVPlaybackStatus } from "expo-av";
 import { useLayoutEffect } from "react";
 const { width, height } = Dimensions.get("window");
 import * as WebBrowser from "expo-web-browser";

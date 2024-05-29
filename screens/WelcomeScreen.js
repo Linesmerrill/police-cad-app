@@ -1,7 +1,6 @@
 import {
   View,
   Text,
-  Button,
   SafeAreaView,
   Image,
   TouchableOpacity,
@@ -11,18 +10,6 @@ import {
   Dimensions,
 } from "react-native";
 import React, { useLayoutEffect, useEffect, useMemo, useState } from "react";
-import {
-  BookOpenIcon,
-  GlobeAltIcon,
-  XCircleIcon,
-  XMarkIcon,
-} from "react-native-heroicons/solid";
-import {
-  PhoneIcon,
-  PhoneXMarkIcon,
-  RocketLaunchIcon,
-} from "react-native-heroicons/outline";
-import { Divider } from "react-native-paper";
 import { TypeAnimation } from "react-native-type-animation";
 import { useNavigation } from "@react-navigation/native";
 import { Video, AVPlaybackStatus } from "expo-av";
