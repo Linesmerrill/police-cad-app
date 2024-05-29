@@ -29,7 +29,6 @@ import {
   RocketLaunchIcon,
 } from "react-native-heroicons/outline";
 import { Divider } from "react-native-paper";
-import TypingText from "react-native-typing-text";
 import { useNavigation } from "@react-navigation/native";
 import { Video, AVPlaybackStatus } from "expo-av";
 import { useLayoutEffect } from "react";

@@ -23,7 +23,7 @@ import {
   RocketLaunchIcon,
 } from "react-native-heroicons/outline";
 import { Divider } from "react-native-paper";
-import TypingText from "react-native-typing-text";
+import { TypeAnimation } from "react-native-type-animation";
 import { useNavigation } from "@react-navigation/native";
 import { Video, AVPlaybackStatus } from "expo-av";
 import * as WebBrowser from "expo-web-browser";
@@ -107,19 +107,28 @@ const WelcomeScreen = () => {
 
           <View className="flex-row justify-center mt-6">
             <Image
-              className=" w-24 h-24"
+              className="w-24 h-24"
               source={require("../assets/lines-police-cad-discord-logo-2024.png")}
             />
           </View>
 
           <View className="mt-40 flex-col p-4 ">
             <View className="flex-row">
-              <TypingText
-                text="Lines Police CAD"
-                color="white"
-                textSize={36}
-                typingAnimationDuration={120}
-                blinkingCursorAnimationDuration={9999999999}
+              <TypeAnimation
+                sequence={[
+                  { text: "" },
+                  { text: "Lines" },
+                  { text: "Lines Police" },
+                  { text: "Lines Police CAD" },
+                ]}
+                style={{
+                  color: "white",
+
+                  fontSize: 36,
+                }}
+                initialDelay={250}
+                delayBetweenSequence={300}
+                loop={false}
               />
             </View>
 
