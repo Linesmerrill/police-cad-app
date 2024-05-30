@@ -10,7 +10,7 @@ import {
   StyleSheet,
   StatusBar,
 } from "react-native";
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
   ArrowRightCircleIcon,
@@ -40,6 +40,8 @@ import FriendsOnlineRow from "../components/FriendsOnlineRow";
 import SpotlightRow from "../components/SpotlightRow";
 import DiscoverPeopleRow from "../components/DiscoverPeopleRow";
 import LastAccessedCommunityRow from "../components/LastAccessedCommunityRow";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { fetchProtectedData, logout } from "../services/api";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -67,6 +69,22 @@ const HomeScreen = () => {
       headerShown: false,
     });
   }, []);
+
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetchProtectedData();
+      setMessage(result.success ? result.data : result.message);
+    };
+
+    fetchData();
+  }, []);
+
+  const handleLogout = async () => {
+    await logout();
+    navigation.navigate("Login");
+  };
 
   return (
     <SafeAreaView style={styles.container}>

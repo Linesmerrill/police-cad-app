@@ -12,19 +12,42 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import React, { useEffect, useMemo, useState } from "react";
-import { ChevronLeftIcon } from "react-native-heroicons/solid";
+import {
+  ChevronLeftIcon,
+  ExclamationCircleIcon,
+} from "react-native-heroicons/solid";
 import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
 const { width, height } = Dimensions.get("window");
 import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
 WebBrowser.maybeCompleteAuthSession();
+import base64 from "react-native-base64";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { login } from "../services/api";
 
 const LoginScreen = () => {
   const [token, setToken] = useState("");
   const [userInfo, setUserInfo] = useState(null);
   const navigation = useNavigation();
   const opacity = useMemo(() => new Animated.Value(0), []);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleLogin = async () => {
+    if (email === "" || password === "") {
+      setMessage("Please fill in both fields");
+      return;
+    }
+
+    const result = await login(email, password);
+    setMessage(result.message);
+
+    if (result.success) {
+      navigation.navigate("HomeScreen");
+    }
+  };
 
   const [request, response, promptAsync] = Google.useAuthRequest({
     androidClientId: process.env.REACT_NATIVE_GOOGLE_ANDROID_CLIENT_ID,
@@ -121,7 +144,10 @@ const LoginScreen = () => {
                         autoComplete="email"
                         color={"white"}
                         clearButtonMode="always"
+                        autoCapitalize="none"
                         focusable
+                        value={email}
+                        onChangeText={setEmail}
                       />
                     </View>
                   </View>
@@ -138,6 +164,8 @@ const LoginScreen = () => {
                         color={"white"}
                         clearButtonMode="always"
                         secureTextEntry
+                        value={password}
+                        onChangeText={setPassword}
                       />
                     </View>
                   </View>
@@ -146,7 +174,7 @@ const LoginScreen = () => {
               <View className="flex-row">
                 <TouchableOpacity
                   className="mx-5 bg-white p-4 mb-4 mt-6 mr-4 rounded-full flex-1 items-center space-x-1"
-                  onPress={() => navigation.navigate("HomeScreen")}
+                  onPress={handleLogin}
                 >
                   <View className="flex-row">
                     <Text className=" text-black font-bold text-md text-center">
@@ -168,6 +196,16 @@ const LoginScreen = () => {
                     Forgot password
                   </Text>
                 </Text>
+              </View>
+              <View className="flex-row justify-center">
+                {message ? (
+                  <>
+                    <ExclamationCircleIcon size={35} color={"red"} />
+                    <Text className="text-red-600 font-bold text-lg pl-2 pt-1">
+                      {message}
+                    </Text>
+                  </>
+                ) : null}
               </View>
             </View>
 
