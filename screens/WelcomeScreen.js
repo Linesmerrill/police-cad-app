@@ -96,19 +96,17 @@ const WelcomeScreen = () => {
             <View className="flex-row">
               <TypeAnimation
                 sequence={[
-                  { text: "" },
-                  { text: "Lines" },
-                  { text: "Lines Police" },
                   { text: "Lines Police CAD" },
+                  { text: "Adventure Awaits" },
                 ]}
                 style={{
                   color: "white",
-
+                  fontWeight: "bold",
                   fontSize: 36,
                 }}
-                initialDelay={250}
-                delayBetweenSequence={300}
-                loop={false}
+                initialDelay={100}
+                delayBetweenSequence={6000}
+                loop={true}
               />
             </View>
           </View>
