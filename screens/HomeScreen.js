@@ -81,11 +81,6 @@ const HomeScreen = () => {
     fetchData();
   }, []);
 
-  const handleLogout = async () => {
-    await logout();
-    navigation.navigate("Login");
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar

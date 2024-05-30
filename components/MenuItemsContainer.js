@@ -16,8 +16,16 @@ import {
   ShieldExclamationIcon,
   WalletIcon,
 } from "react-native-heroicons/outline";
+import { logout } from "../services/api";
+import { useNavigation } from "@react-navigation/native";
 
 const MenuItemsContainer = () => {
+  const navigation = useNavigation();
+  const handleLogout = async () => {
+    await logout();
+    navigation.navigate("Login");
+  };
+
   return (
     <View>
       <View className="flex-row">
@@ -156,7 +164,10 @@ const MenuItemsContainer = () => {
       </View>
       {/* sign out button at the bottom */}
       <View>
-        <TouchableOpacity className="flex-row bg-gray-500 mt-6 rounded-lg justify-center">
+        <TouchableOpacity
+          className="flex-row bg-gray-500 mt-6 rounded-lg justify-center"
+          onPress={handleLogout}
+        >
           <View className="flex-col items-center p-3">
             <View className="flex-row space-x-2 items-center">
               <ArrowRightOnRectangleIcon
