@@ -10,6 +10,7 @@ import {
   TextInput,
   Keyboard,
   TouchableWithoutFeedback,
+  ActivityIndicator,
 } from "react-native";
 import React, { useEffect, useMemo, useState } from "react";
 import {
@@ -34,6 +35,7 @@ const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = async () => {
     if (email === "" || password === "") {
@@ -41,8 +43,12 @@ const LoginScreen = () => {
       return;
     }
 
+    setIsLoading(true);
+
     const result = await login(email, password);
     setMessage(result.message);
+
+    setIsLoading(false);
 
     if (result.success) {
       navigation.navigate("HomeScreen");
@@ -175,6 +181,7 @@ const LoginScreen = () => {
                 <TouchableOpacity
                   className="mx-5 bg-white p-4 mb-4 mt-6 mr-4 rounded-full flex-1 items-center space-x-1"
                   onPress={handleLogin}
+                  disabled={isLoading}
                 >
                   <View className="flex-row">
                     <Text className=" text-black font-bold text-md text-center">
@@ -182,6 +189,19 @@ const LoginScreen = () => {
                     </Text>
                   </View>
                 </TouchableOpacity>
+              </View>
+              <View className="flex-row justify-center">
+                {isLoading && <ActivityIndicator size="large" color="#fff" />}
+              </View>
+              <View className="flex-row justify-center">
+                {message ? (
+                  <>
+                    <ExclamationCircleIcon size={35} color={"red"} />
+                    <Text className="text-red-600 font-bold text-lg pl-2 pt-1">
+                      {message}
+                    </Text>
+                  </>
+                ) : null}
               </View>
 
               <View className="flex-row justify-center mb-4 mt-6">
@@ -196,16 +216,6 @@ const LoginScreen = () => {
                     Forgot password
                   </Text>
                 </Text>
-              </View>
-              <View className="flex-row justify-center">
-                {message ? (
-                  <>
-                    <ExclamationCircleIcon size={35} color={"red"} />
-                    <Text className="text-red-600 font-bold text-lg pl-2 pt-1">
-                      {message}
-                    </Text>
-                  </>
-                ) : null}
               </View>
             </View>
 
