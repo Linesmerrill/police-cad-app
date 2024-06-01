@@ -46,7 +46,6 @@ export const fetchProtectedData = async () => {
     const data = await response.json();
 
     if (response.ok) {
-      //   console.log(data);
       return { success: true, data: data.message };
     } else {
       return {
@@ -62,3 +61,53 @@ export const fetchProtectedData = async () => {
 export const logout = async () => {
   await AsyncStorage.removeItem("token");
 };
+
+export const createAccount = async (emailAddress, password, username) => {
+  try {
+    const response = await fetch(`${API_URL}/api/v1/user/create-user`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: emailAddress,
+        password: password,
+        username: username,
+      }),
+    });
+
+    const data = await response.json();
+    if (response.code === 201) {
+      return { success: true, data: data };
+    } else {
+      return { success: false, message: data.Response.Message };
+    }
+  } catch (error) {
+    // we get back an empty body which triggers this error, but it really isn't an error
+    return { success: true, message: null };
+  }
+};
+
+export async function checkEmailExists(emailAddress) {
+  try {
+    const response = await fetch(`${API_URL}/api/v1/user/check-user`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: emailAddress,
+      }),
+    });
+
+    const data = await response.json();
+    if (response.code === 201) {
+      return { success: true, data: data };
+    } else {
+      return { success: false, message: data.Response.Message };
+    }
+  } catch (error) {
+    // we get back an empty body which triggers this error, but it really isn't an error
+    return { success: true, message: null };
+  }
+}

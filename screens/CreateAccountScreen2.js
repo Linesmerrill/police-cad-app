@@ -19,9 +19,9 @@ import { StatusBar } from "expo-status-bar";
 import { Divider } from "react-native-paper";
 import Checkbox from "expo-checkbox";
 
-const CreateAccountScreen2 = () => {
+const CreateAccountScreen2 = ({ route }) => {
+  const { emailAddress } = route.params;
   const navigation = useNavigation();
-  const [emailAddress, setEmailAddress] = useState();
   const [password, setPassword] = useState("");
   const [isChecked, setChecked] = useState(false);
   return (
@@ -51,27 +51,23 @@ const CreateAccountScreen2 = () => {
             Create a password
           </Text>
           <View className="flex-1 mt-1">
-            <View className="bg-[#111] rounded-lg">
-              {/* <TextInput
-                placeholder="Email"
-                placeholderTextColor={"gray"}
-                keyboardType="email-address"
-              /> */}
-              <TextFieldAnimated
-                label="Password"
-                placeholder={"Password"}
-                className="text-white"
-                clearButtonMode="always"
-                placeholderTextColor={"gray"}
-                keyboardType=""
-                cursorColor={"white"}
-                autoComplete="password"
-                color={"white"}
-                secureTextEntry
-                focusable
-              />
-
-              {/* <StatusBar style="auto" /> */}
+            <View className="flex-row">
+              <View className="flex-1 mx-5 mr-4 mt-6">
+                <View className="bg-black p-4 rounded-lg border-solid border-2 border-gray-400">
+                  <TextInput
+                    placeholder="Password"
+                    placeholderTextColor={"gray"}
+                    keyboardType="visible-password"
+                    cursorColor={"white"}
+                    autoComplete="password"
+                    color={"white"}
+                    clearButtonMode="always"
+                    secureTextEntry={!isChecked}
+                    value={password}
+                    onChangeText={setPassword}
+                  />
+                </View>
+              </View>
             </View>
             {/* <View className="bg-gray-200 p-4 rounded-lg mt-4">
               <TextInput
@@ -96,7 +92,12 @@ const CreateAccountScreen2 = () => {
 
         <View className="">
           <TouchableOpacity
-            onPress={() => navigation.push("CreateAccount3")}
+            onPress={() =>
+              navigation.push("CreateAccount3", {
+                emailAddress,
+                password,
+              })
+            }
             className="mx-5 bg-white p-4 mb-4 rounded-full flex-row items-center space-x-1"
           >
             <Text className="flex-1 text-black font-semibold text-lg text-center">
