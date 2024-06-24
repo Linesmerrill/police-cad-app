@@ -51,7 +51,10 @@ const LoginScreen = () => {
     setIsLoading(false);
 
     if (result.success) {
-      navigation.navigate("HomeScreen");
+      navigation.navigate("HomeScreen", {
+        screen: "HomeScreen",
+        params: { emailAddress: email },
+      });
     }
   };
 

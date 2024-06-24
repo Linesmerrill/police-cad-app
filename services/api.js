@@ -50,7 +50,7 @@ export const fetchProtectedData = async () => {
     } else {
       return {
         success: false,
-        message: data.message || "Failed to fetch data",
+        message: data.message || "Failed to fetch data from: /api/v1/civilians",
       };
     }
   } catch (error) {

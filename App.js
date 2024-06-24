@@ -96,10 +96,14 @@ function ChatStack() {
   );
 }
 
-function HomeStack() {
+function HomeStack({ email }) {
+  const emailAddress = email;
+
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Home" /*component={HomeScreen}*/>
+        {(props) => <HomeScreen {...props} email={emailAddress} />}
+      </Stack.Screen>
       <Stack.Screen
         name="Notifications"
         component={NotificationScreen}
@@ -146,12 +150,13 @@ function SearchStack() {
   );
 }
 
-function HomeTabs() {
+function HomeTabs({ route }) {
+  const email = route.params.params.emailAddress;
   return (
     <Tab.Navigator>
       <Tab.Screen
         name="HomeStack"
-        component={HomeStack}
+        // component={HomeStack}
         options={{
           tabBarLabel: "Home",
           headerShown: false,
@@ -163,7 +168,9 @@ function HomeTabs() {
             ),
           tabBarActiveTintColor: "#FFF",
         }}
-      />
+      >
+        {(props) => <HomeStack {...props} email={email} />}
+      </Tab.Screen>
       <Tab.Screen
         name="CommunitiesStack"
         component={CommunitiesStack}

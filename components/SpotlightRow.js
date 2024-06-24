@@ -1,81 +1,89 @@
-import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
-import React from "react";
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  ActivityIndicator,
+} from "react-native";
+import React, { useEffect, useState } from "react";
+import { fetchSpotlightData } from "../services/spotlight.js";
+import { formatDistanceToNow } from "date-fns";
 
-const SpotlightRow = () => {
+const SpotlightRow = ({ email }) => {
+  const [data, setData] = useState(null);
+  const emailAddress = email;
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetchSpotlightData()
+      .then((response) => {
+        console.log("[SpotlightRow] response", response);
+        setData(response);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setIsLoading(false);
+      });
+  }, []);
+
+  if (isLoading) {
+    return <ActivityIndicator size="large" color="#0000ff" />;
+  }
+
   return (
-    <View className="py-5">
-      <ScrollView
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        className="flex-row space-x-4"
-      >
-        <TouchableOpacity>
-          <View className="flex-col">
-            <Image
-              source={require("../assets/images/spotlight-1.jpg")}
-              className="w-80 h-60 rounded-3xl"
-            />
-            <Text
-              numberOfLines={1}
-              className="text-white text-lg font-semibold pt-2 pl-2"
-              position="absolute"
-              bottom={60}
-            >
-              Top Communities of 2023
-            </Text>
-            <Text
-              numberOfLines={1}
-              className="text-green-500 text-sm font-semibold"
-            >
-              1h ago
-            </Text>
+    <View>
+      {Array.isArray(data) && data.length > 0 && (
+        <View>
+          <View className="flex-row justify-between px-5">
+            <Text className="text-white text-xl font-bold">Spotlight</Text>
+            <TouchableOpacity>
+              <Text className="text-gray-500 text-lg font-semibold">
+                See All
+              </Text>
+            </TouchableOpacity>
           </View>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <View className="flex-col">
-            <Image
-              source={require("../assets/images/spotlight-2.jpg")}
-              className="w-80 h-60 rounded-3xl"
-            />
-            <Text
-              numberOfLines={1}
-              className="text-white text-lg font-semibold pt-2 pl-2"
-              position="absolute"
-              bottom={60}
+          <View className="py-5">
+            <ScrollView
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              className="flex-row space-x-4"
             >
-              How to Organize your Community
-            </Text>
-            <Text
-              numberOfLines={1}
-              className="text-green-500 text-sm font-semibold"
-            >
-              12h ago
-            </Text>
+              {data.map(
+                (item, index) => (
+                  console.log("[SpotlightRow] index:item", index, item),
+                  (
+                    <TouchableOpacity key={index}>
+                      <View className="flex-col pl-2">
+                        <Image
+                          source={{ uri: item.spotlight.image }}
+                          className="w-96 h-60 rounded-3xl"
+                        />
+
+                        <Text
+                          numberOfLines={1}
+                          className="text-white text-lg font-semibold pt-2"
+                        >
+                          {item.spotlight.title}
+                        </Text>
+                        <Text
+                          numberOfLines={1}
+                          className="text-green-500 text-sm font-semibold"
+                        >
+                          {formatDistanceToNow(new Date(item.spotlight.time), {
+                            addSuffix: true,
+                          })}
+                        </Text>
+                      </View>
+                    </TouchableOpacity>
+                  )
+                )
+              )}
+            </ScrollView>
           </View>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <View className="flex-col">
-            <Image
-              source={require("../assets/images/spotlight-3.jpg")}
-              className="w-80 h-60 rounded-3xl"
-            />
-            <Text
-              numberOfLines={1}
-              className="text-white text-lg font-semibold pt-2 pl-2"
-              position="absolute"
-              bottom={60}
-            >
-              Community of the Month
-            </Text>
-            <Text
-              numberOfLines={1}
-              className="text-green-500 text-sm font-semibold"
-            >
-              1d ago
-            </Text>
-          </View>
-        </TouchableOpacity>
-      </ScrollView>
+        </View>
+      )}
     </View>
   );
 };

@@ -35,7 +35,10 @@ const CreateAccountScreen3 = ({ route }) => {
     const result = await createAccount(emailAddress, password, username);
 
     if (result.success) {
-      navigation.navigate("HomeScreen");
+      navigation.navigate("HomeScreen", {
+        screen: "HomeScreen",
+        params: { emailAddress: emailAddress },
+      });
     } else {
       setMessage(result.message);
     }

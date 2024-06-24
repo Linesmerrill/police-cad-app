@@ -2,9 +2,7 @@ import {
   View,
   Text,
   SafeAreaView,
-  Image,
   TouchableOpacity,
-  Animated,
   ScrollView,
   RefreshControl,
   StyleSheet,
@@ -12,25 +10,6 @@ import {
 } from "react-native";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import {
-  ArrowRightCircleIcon,
-  ChevronDownIcon,
-  UserIcon,
-} from "react-native-heroicons/outline";
-
-import {
-  ArrowRightIcon,
-  BellAlertIcon,
-  BellIcon,
-  ChatBubbleLeftIcon,
-  EllipsisHorizontalIcon,
-  TvIcon,
-  UserGroupIcon,
-  XMarkIcon,
-} from "react-native-heroicons/solid";
-import RoleIcon from "../components/RoleIcon";
-import HomeScreenWelcomeCarousel from "../components/HomeScreenWelcomeCarousel";
-import { Card, Paragraph, Title } from "react-native-paper";
 import CommunityRow from "../components/CommunityRow";
 import MultiplayerRow from "../components/MultiplayerRow";
 import TrendingFreeCommunitiesRow from "../components/TrendingFreeCommunitiesRow";
@@ -40,14 +19,11 @@ import FriendsOnlineRow from "../components/FriendsOnlineRow";
 import SpotlightRow from "../components/SpotlightRow";
 import DiscoverPeopleRow from "../components/DiscoverPeopleRow";
 import LastAccessedCommunityRow from "../components/LastAccessedCommunityRow";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { fetchProtectedData, logout } from "../services/api";
+import { fetchProtectedData } from "../services/api";
 
-const HomeScreen = () => {
+const HomeScreen = ({ emailAddress }) => {
   const navigation = useNavigation();
-  const civilianUser = require("../assets/images/civilian-icon.png");
-  const [isPressed, setIsPressed] = useState(false);
-  const [currentRole, setCurrentRole] = useState("Civilian");
+  const email = emailAddress;
   const [refreshing, setRefreshing] = React.useState(false);
 
   const communityDetails = {
@@ -72,14 +48,14 @@ const HomeScreen = () => {
 
   const [message, setMessage] = useState("");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await fetchProtectedData();
-      setMessage(result.success ? result.data : result.message);
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const result = await fetchProtectedData();
+  //     setMessage(result.success ? result.data : result.message);
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -109,16 +85,8 @@ const HomeScreen = () => {
         {/* horizontal scrollable round images of friends */}
         <FriendsOnlineRow />
 
-        {/* new section called Spotlight */}
-        <View className="flex-row justify-between px-5 pt-5">
-          <Text className="text-white text-xl font-bold">Spotlight</Text>
-          <TouchableOpacity>
-            <Text className="text-gray-500 text-lg font-semibold">See All</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* horizontal scrollable cards with large images */}
-        <SpotlightRow />
+        {/* horizontal spotlight scrollable cards with large images */}
+        <SpotlightRow email={email} />
 
         {/* new section called discover people, with horizontal scrolling cards that contain profile pictures and names for people to add as friends */}
         <View className="flex-row justify-between px-5 pt-5">
