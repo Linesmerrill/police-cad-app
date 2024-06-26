@@ -10,9 +10,8 @@ import React, { useEffect, useState } from "react";
 import { fetchSpotlightData } from "../services/spotlight.js";
 import { formatDistanceToNow } from "date-fns";
 
-const SpotlightRow = ({ email }) => {
+const SpotlightRow = () => {
   const [data, setData] = useState(null);
-  const emailAddress = email;
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

@@ -51,6 +51,7 @@ const LoginScreen = () => {
     setIsLoading(false);
 
     if (result.success) {
+      await AsyncStorage.setItem("email", email); // Save email to AsyncStorage
       navigation.navigate("HomeScreen", {
         screen: "HomeScreen",
         params: { emailAddress: email },

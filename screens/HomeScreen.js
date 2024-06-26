@@ -48,15 +48,6 @@ const HomeScreen = ({ emailAddress }) => {
 
   const [message, setMessage] = useState("");
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const result = await fetchProtectedData();
-  //     setMessage(result.success ? result.data : result.message);
-  //   };
-
-  //   fetchData();
-  // }, []);
-
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
@@ -86,15 +77,7 @@ const HomeScreen = ({ emailAddress }) => {
         <FriendsOnlineRow />
 
         {/* horizontal spotlight scrollable cards with large images */}
-        <SpotlightRow email={email} />
-
-        {/* new section called discover people, with horizontal scrolling cards that contain profile pictures and names for people to add as friends */}
-        <View className="flex-row justify-between px-5 pt-5">
-          <Text className="text-white text-xl font-bold">Discover People</Text>
-          <TouchableOpacity>
-            <Text className="text-gray-500 text-lg font-semibold">See All</Text>
-          </TouchableOpacity>
-        </View>
+        <SpotlightRow />
 
         {/* horizontal scrollable cards with large images */}
         <DiscoverPeopleRow />
