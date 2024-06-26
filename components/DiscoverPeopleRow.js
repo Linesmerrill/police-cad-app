@@ -74,7 +74,7 @@ const DiscoverPeopleRow = () => {
                             item.user.profilePicture
                               ? { uri: item.user.profilePicture }
                               : {
-                                  uri: `https://ui-avatars.com/api/?name=${item.user.username}&background=random`,
+                                  uri: `https://ui-avatars.com/api/?name=${item.user.username}&background=808080&color=fff&size=256`,
                                 }
                           }
                           className="w-20 h-20 rounded-full bg-opacity-90 m-4"
