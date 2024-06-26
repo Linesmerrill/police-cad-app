@@ -71,7 +71,7 @@ const DiscoverPeopleRow = () => {
                       <View className="flex-row justify-around ml-8 mr-8">
                         <Image
                           source={
-                            item.user.profilePic
+                            item.user.profilePicture
                               ? { uri: item.user.profilePicture }
                               : {
                                   uri: `https://ui-avatars.com/api/?name=${item.user.username}&background=random`,
