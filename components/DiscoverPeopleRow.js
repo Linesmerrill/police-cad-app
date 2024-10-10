@@ -12,6 +12,9 @@ import { fetchDiscoverPeopleData } from "../services/discoverPeople.js";
 
 const DiscoverPeopleRow = () => {
   const [data, setData] = useState(null);
+  const removeData = (index) => {
+    setData([...items.slice(0, index), ...items.slice(index + 1)]);
+  };
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -58,7 +61,9 @@ const DiscoverPeopleRow = () => {
                   (
                     <View className="flex-col bg-slate-800 rounded-2xl">
                       {/* add an x in the top right corner to dismiss the current card */}
-                      <TouchableOpacity>
+                      {/* when pressed it will remove the item from the row and shift remaining cards left */}
+
+                      <TouchableOpacity onPress={data}>
                         <View className="flex-row justify-end">
                           <XMarkIcon
                             position="absolute"

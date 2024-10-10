@@ -16,6 +16,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import {
   ChevronLeftIcon,
   ExclamationCircleIcon,
+  XMarkIcon,
 } from "react-native-heroicons/solid";
 import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
@@ -26,6 +27,7 @@ WebBrowser.maybeCompleteAuthSession();
 import base64 from "react-native-base64";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { login } from "../services/api";
+import { Modal } from "react-native";
 
 const LoginScreen = () => {
   const [token, setToken] = useState("");
@@ -36,10 +38,11 @@ const LoginScreen = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
 
   const handleLogin = async () => {
     if (email === "" || password === "") {
-      setMessage("Please fill in both fields");
+      setShowErrorMessage(true);
       return;
     }
 
@@ -125,26 +128,27 @@ const LoginScreen = () => {
 
             <View className="flex-row justify-center">
               <Image
-                className="w-40 h-40"
+                className="w-32 h-32"
                 source={require("../assets/lines-police-cad-discord-logo-2024.png")}
               />
             </View>
 
-            <View className="mt-4 flex-col p-4">
+            <View className="flex-col p-4">
               <View className="flex-row justify-center">
                 <Text className="text-3xl text-white">Welcome back.</Text>
               </View>
               <View className="flex-row justify-center">
                 <Text className="text-3xl text-white">
-                  Log in and start roleplaying.
+                  <Text className="font-bold">Log in</Text> and start
+                  roleplaying.
                 </Text>
               </View>
             </View>
 
-            <View className="mt-1">
-              <View className="flex-col space-x-1 pb-4">
+            <View className="">
+              <View className="flex-col space-x-1">
                 <View className="flex-row">
-                  <View className="flex-1 mx-5 mr-4 mt-6">
+                  <View className="flex-1 mx-5 mr-4 mt-2">
                     <View className="bg-black p-4 rounded-lg border-solid border-2 border-gray-400">
                       <TextInput
                         placeholder="Email address"
@@ -208,7 +212,7 @@ const LoginScreen = () => {
                 ) : null}
               </View>
 
-              <View className="flex-row justify-center mb-4 mt-6">
+              <View className="flex-row justify-center mb-4">
                 <Text className="text-white text-sm">
                   <Text
                     style={{
@@ -281,6 +285,65 @@ const LoginScreen = () => {
                 </TouchableOpacity>
               </View> */}
             </View>
+            <Modal
+              animationType="slide"
+              transparent={true}
+              visible={showErrorMessage}
+              onRequestClose={() => {
+                // this.closeButtonFunction()
+              }}
+            >
+              <View
+                style={{
+                  height: "30%",
+                  marginTop: "auto",
+                  backgroundColor: "#1F2937",
+                }}
+              >
+                <View className="flex-col">
+                  <View className="flex-row justify-center mt-2">
+                    <TouchableOpacity
+                      className=""
+                      onPress={() => {
+                        setShowErrorMessage(false);
+                      }}
+                    >
+                      <View className="flex-row items-center">
+                        <View className="flex-row items-center">
+                          <ExclamationCircleIcon size={40} color={"red"} />
+                        </View>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+
+                  <View className="flex-row justify-around align-middle mt-2">
+                    <Text className="text-lg font-bold text-white">
+                      Email or Password is Empty
+                    </Text>
+                  </View>
+                  <View className="flex-row justify-around align-middle mt-2">
+                    <Text className="text-white">
+                      Check your email and/or password and try again.
+                    </Text>
+                  </View>
+                  {/* log in button, white background */}
+                  <View className="mt-6">
+                    <TouchableOpacity
+                      className="mx-5 bg-white p-4 mb-4 mr-5 rounded-full flex-1 items-center space-x-1"
+                      onPress={() => {
+                        setShowErrorMessage(false);
+                      }}
+                    >
+                      <View className="flex-row">
+                        <Text className=" text-black font-bold text-md text-center">
+                          OK
+                        </Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </View>
+            </Modal>
           </SafeAreaView>
         </View>
       </View>

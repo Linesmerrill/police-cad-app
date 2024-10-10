@@ -74,7 +74,7 @@ const CommunityHomeScreen = () => {
         <View className="flex-row items-center">
           <TouchableOpacity
             className="flex-row"
-            onPress={() => navigation.navigate("HomeScreen")}
+            onPress={() => navigation.goBack()}
           >
             <ChevronLeftIcon className="text-white" color={"#FFF"} />
             <HomeIcon className="text-white" color={"#FFF"} />

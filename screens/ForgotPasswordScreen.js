@@ -13,7 +13,11 @@ import {
   Modal,
 } from "react-native";
 import React, { useEffect, useMemo, useState } from "react";
-import { ChevronLeftIcon, XMarkIcon } from "react-native-heroicons/solid";
+import {
+  CheckCircleIcon,
+  ChevronLeftIcon,
+  XMarkIcon,
+} from "react-native-heroicons/solid";
 import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
 const { width, height } = Dimensions.get("window");
@@ -225,26 +229,22 @@ const ForgotPasswordScreen = () => {
                 }}
               >
                 <View className="flex-col">
-                  <View className="flex-row justify-end mt-2 mr-2">
+                  <View className="flex-row justify-center mt-2">
                     <TouchableOpacity
                       className=""
                       onPress={() => {
                         setSentEmail(!sentEmail);
                       }}
                     >
-                      <View className="flex-row bg-slate-500 rounded-full p-3 items-center">
+                      <View className="flex-row items-center">
                         <View className="flex-row items-center">
-                          <XMarkIcon
-                            size={20}
-                            className="text-white"
-                            color={"#FFF"}
-                          />
+                          <CheckCircleIcon size={40} color={"green"} />
                         </View>
                       </View>
                     </TouchableOpacity>
                   </View>
 
-                  <View className="flex-row justify-around align-middle mt-6">
+                  <View className="flex-row justify-around align-middle mt-2">
                     <Text className="text-lg font-bold text-white">
                       Check your email
                     </Text>
@@ -264,7 +264,7 @@ const ForgotPasswordScreen = () => {
                     >
                       <View className="flex-row">
                         <Text className=" text-black font-bold text-md text-center">
-                          Log in
+                          OK
                         </Text>
                       </View>
                     </TouchableOpacity>
