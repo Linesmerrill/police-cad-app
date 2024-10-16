@@ -37,12 +37,12 @@ const LastAccessedCommunityRow = (props) => {
             </View>
           </View>
           <View className="flex-row bg-slate-500 rounded-3xl ml-4 justify-between">
-            <Text className="text-white text-base font-semibold pt-2.5 pl-3 mr-2">
-              Join
+            <Text className="text-white text-lg font-bold pt-2 pl-3 mr-2">
+              Go
             </Text>
             <View className="m-2.5 ml-1">
               <ArrowRightIcon
-                className="w-10 h-10 text-white font-semibold"
+                className="w-10 h-10 text-white font-bold"
                 color={"#FFF"}
               />
             </View>
