@@ -79,6 +79,7 @@ import Call911Screen from "./screens/Call911Screen";
 import VehicleScreen from "./screens/VehicleScreen";
 import FirearmScreen from "./screens/FirearmScreen";
 import { ActionSheetProvider } from "@expo/react-native-action-sheet";
+import CommunityManagementScreen from "./screens/CommunityManagementScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -615,6 +616,12 @@ export default function App() {
             <Stack.Screen
               name="CommunityHome"
               component={CadTabs}
+              options={{ headerShown: false }}
+            />
+
+            <Stack.Screen
+              name="CommunityManagement"
+              component={CommunityManagementScreen}
               options={{ headerShown: false }}
             />
 
