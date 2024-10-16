@@ -32,6 +32,14 @@ const CreateAccountScreen3 = ({ route }) => {
 
   const handleCreateAccount = async () => {
     setIsLoading(true);
+
+    if (!username) {
+      setMessage("Please enter a username.");
+      setIsLoading(false);
+      return;
+    }
+    setMessage("");
+
     const result = await createAccount(emailAddress, password, username);
 
     if (result.success) {
@@ -121,7 +129,7 @@ const CreateAccountScreen3 = ({ route }) => {
           </View>
         </View>
 
-        <View className="">
+        <View className="flex-1 -mt-72">
           <TouchableOpacity
             onPress={() => handleCreateAccount()}
             className="mx-5 bg-white p-4 mb-4 rounded-full flex-row items-center space-x-1"

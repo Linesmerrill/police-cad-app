@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   TextInput,
+  ActivityIndicator,
 } from "react-native";
 import React, { useState } from "react";
 import {
@@ -18,12 +19,34 @@ import TextFieldAnimated from "../components/TextFieldAnimated";
 import { StatusBar } from "expo-status-bar";
 import { Divider } from "react-native-paper";
 import Checkbox from "expo-checkbox";
+import { ExclamationCircleIcon } from "react-native-heroicons/solid";
 
 const CreateAccountScreen2 = ({ route }) => {
   const { emailAddress } = route.params;
   const navigation = useNavigation();
   const [password, setPassword] = useState("");
   const [isChecked, setChecked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState(null);
+
+  async function handleNextButtonPress(emailAddress, password, navigation) {
+    if (!password) {
+      setMessage("Please enter a password.");
+      setIsLoading(false);
+      return;
+    }
+    setMessage("");
+
+    setIsLoading(true);
+
+    navigation.push("CreateAccount3", {
+      emailAddress: emailAddress,
+      password: password,
+    });
+
+    setIsLoading(false);
+  }
+
   return (
     <View className="bg-[#111] flex-1">
       <SafeAreaView className="flex-1">
@@ -87,16 +110,24 @@ const CreateAccountScreen2 = ({ route }) => {
               />
               <Text className="text-gray-400 mt-1">Show Password</Text>
             </View>
+            <View className="flex-row justify-center mt-5">
+              {isLoading && <ActivityIndicator size="large" />}
+              {message ? (
+                <View className="flex-row justify-center">
+                  <ExclamationCircleIcon size={35} color={"red"} />
+                  <Text className="text-red-600 font-bold text-lg pl-2 pt-1 capitalize">
+                    {message}
+                  </Text>
+                </View>
+              ) : null}
+            </View>
           </View>
         </View>
 
-        <View className="">
+        <View className="flex-1 -mt-72">
           <TouchableOpacity
             onPress={() =>
-              navigation.push("CreateAccount3", {
-                emailAddress,
-                password,
-              })
+              handleNextButtonPress(emailAddress, password, navigation)
             }
             className="mx-5 bg-white p-4 mb-4 rounded-full flex-row items-center space-x-1"
           >

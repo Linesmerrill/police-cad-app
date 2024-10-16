@@ -23,6 +23,13 @@ const CreateAccountScreen = () => {
   const [message, setMessage] = useState(null);
 
   async function handleNextButtonPress(emailAddress, navigation) {
+    if (!emailAddress) {
+      setMessage("Please enter an email address.");
+      setIsLoading(false);
+      return;
+    }
+    setMessage("");
+
     setIsLoading(true);
 
     const result = await checkEmailExists(emailAddress);
@@ -107,10 +114,10 @@ const CreateAccountScreen = () => {
           </View>
         </View>
 
-        <View className="">
+        <View className="flex-1 -mt-72">
           <TouchableOpacity
             onPress={() => handleNextButtonPress(emailAddress, navigation)}
-            className="mx-5 bg-white p-4 mb-4 rounded-full flex-row items-center space-x-1"
+            className="mx-5 bg-white p-4 rounded-full flex-row items-center"
           >
             <Text className="flex-1 text-black font-semibold text-lg text-center">
               Next
