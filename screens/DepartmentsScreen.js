@@ -26,6 +26,7 @@ import {
   ChevronLeftIcon,
   EllipsisHorizontalIcon,
   HomeIcon,
+  PencilIcon,
   ShareIcon,
   TvIcon,
   UserGroupIcon,
@@ -80,7 +81,16 @@ const DepartmentsScreen = () => {
           <BellChatContainer />
         </View>
       </View>
-
+      <View className="flex-row justify-end">
+        <TouchableOpacity
+          onPress={() => navigation.navigate("DepartmentManagement")}
+        >
+          <View className="flex-row items-center space-x-1 border-white border-2 rounded-lg p-2">
+            <PencilIcon color={"#FFF"} size={10} />
+            <Text className="text-white text-sm font-semibold">Edit Page</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
       {/* content */}
       <ScrollView
         className="bg-black"

@@ -42,6 +42,7 @@ import TrendingFreeCommunitiesRow from "../components/TrendingFreeCommunitiesRow
 import PromotionalCardLarge from "../components/PromotionalCardLarge";
 import BellChatContainer from "../components/BellChatContainer";
 import MenuScreen from "./MenuScreen";
+import EventsRow from "../components/EventsRow";
 
 const CommunityHomeScreen = () => {
   const navigation = useNavigation();
@@ -135,7 +136,7 @@ const CommunityHomeScreen = () => {
             </TouchableOpacity>
           </View>
           {/* members online */}
-          <View className="flex-row justify-between items-center p-5">
+          <View className="flex-row justify-between items-center px-5">
             <TouchableOpacity>
               <View className="flex-row items-center space-x-2">
                 <Text className="text-white text-lg font-semibold"> 475</Text>
@@ -158,6 +159,7 @@ const CommunityHomeScreen = () => {
               departments.
             </Text>
           </View>
+
           {/* Cards of upcoming events with images and descriptions that are clickable */}
           <View className="flex-col p-5">
             <Text className="text-white text-2xl font-bold">
@@ -166,21 +168,9 @@ const CommunityHomeScreen = () => {
             <ScrollView
               horizontal={true}
               showsHorizontalScrollIndicator={false}
-              className="flex-row space-x-4"
+              className=""
             >
-              <View className="flex-row space-x-4">
-                <PromotionalCardLarge
-                  className="w-52"
-                  image={require("../assets/images/discover-community1.jpg")}
-                  title="Lines Police CAD"
-                  description="Join us for our weekly training session."
-                />
-                <PromotionalCardLarge
-                  image={require("../assets/images/discover-community2.jpg")}
-                  title="Lines Police CAD"
-                  description="Join us for our weekly training session."
-                />
-              </View>
+              <EventsRow />
             </ScrollView>
           </View>
 
@@ -192,18 +182,7 @@ const CommunityHomeScreen = () => {
               showsHorizontalScrollIndicator={false}
               className="flex-row space-x-4"
             >
-              <View className="flex-row space-x-4">
-                <PromotionalCardLarge
-                  image={require("../assets/images/discover-community3.jpg")}
-                  title="Lines Police CAD"
-                  description="Join us for our weekly training session."
-                />
-                <PromotionalCardLarge
-                  image={require("../assets/images/discover-community4.jpg")}
-                  title="Lines Police CAD"
-                  description="Join us for our weekly training session."
-                />
-              </View>
+              <EventsRow />
             </ScrollView>
           </View>
         </View>
