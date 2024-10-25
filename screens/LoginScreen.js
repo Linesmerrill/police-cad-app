@@ -76,6 +76,20 @@ const LoginScreen = () => {
     }
   }, [response, token]);
 
+  useEffect(() => {
+    const checkEmail = async () => {
+      const storedEmail = await AsyncStorage.getItem("email");
+      if (storedEmail) {
+        navigation.navigate("HomeScreen", {
+          screen: "HomeScreen",
+          params: { emailAddress: storedEmail },
+        });
+      }
+    };
+
+    checkEmail();
+  }, []);
+
   const getUserInfo = async () => {
     try {
       const response = await fetch(
@@ -111,7 +125,7 @@ const LoginScreen = () => {
               <TouchableOpacity
                 className=""
                 onPress={() => {
-                  navigation.goBack();
+                  navigation.navigate("Welcome");
                 }}
               >
                 <View className="flex-row bg-slate-800 rounded-full p-3 items-center">
@@ -227,71 +241,11 @@ const LoginScreen = () => {
               </View>
             </View>
 
-            <View className="mt-1">
-              {/* <View className="flex-row">
-                <TouchableOpacity
-                  className="mx-5 bg-[#007aff] p-4 mb-4 mr-5 rounded-full flex-1 items-center space-x-1"
-                  disabled={!request}
-                  onPress={() => {
-                    promptAsync();
-                  }}
-                >
-                  <View className="flex-row">
-                    <View className="absolute -left-24 -top-1">
-                      <RocketLaunchIcon color="white" size={25} />
-                    </View>
-                    <Text className=" text-white font-bold text-md text-center">
-                      Continue with Google
-                    </Text>
-                  </View>
-                </TouchableOpacity>
-              </View> */}
-
-              {/* <View className="flex-row">
-                <TouchableOpacity
-                  className="mx-5 bg-[#3c5997] p-4 mb-4 mr-5 rounded-full flex-1 items-center space-x-1"
-                  disabled={true} //enable facebook login
-                  onPress={() => {
-                    promptAsync();
-                  }}
-                >
-                  <View className="flex-row">
-                    <View className="absolute -left-24 -top-1">
-                      <BookOpenIcon color="white" size={25} />
-                    </View>
-                    <Text className=" text-white font-bold text-md text-center">
-                      Continue with Facebook
-                    </Text>
-                  </View>
-                </TouchableOpacity>
-              </View> */}
-
-              {/* <View className="flex-row">
-                <TouchableOpacity
-                  className="mx-5 bg-[#fff] p-4 mr-5 rounded-full flex-1 items-center space-x-1"
-                  disabled={true} //enable apple/android login
-                  onPress={() => {
-                    promptAsync();
-                  }}
-                >
-                  <View className="flex-row">
-                    <View className="absolute -left-28 -top-1">
-                      <GlobeAltIcon color="black" size={25} />
-                    </View>
-                    <Text className=" text-black font-bold text-md text-center">
-                      Continue with Apple
-                    </Text>
-                  </View>
-                </TouchableOpacity>
-              </View> */}
-            </View>
             <Modal
               animationType="slide"
               transparent={true}
               visible={showErrorMessage}
-              onRequestClose={() => {
-                // this.closeButtonFunction()
-              }}
+              onRequestClose={() => {}}
             >
               <View
                 style={{

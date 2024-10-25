@@ -15,6 +15,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Video, AVPlaybackStatus } from "expo-av";
 import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 WebBrowser.maybeCompleteAuthSession();
 const { width, height } = Dimensions.get("window");
 
@@ -43,6 +44,20 @@ const WelcomeScreen = () => {
       navigation.navigate("HomeScreen");
     }
   }, [response, token]);
+
+  useEffect(() => {
+    const checkEmail = async () => {
+      const storedEmail = await AsyncStorage.getItem("email");
+      if (storedEmail) {
+        navigation.navigate("HomeScreen", {
+          screen: "HomeScreen",
+          params: { emailAddress: storedEmail },
+        });
+      }
+    };
+
+    checkEmail();
+  }, []);
 
   const getUserInfo = async () => {
     try {

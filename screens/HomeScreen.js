@@ -19,6 +19,7 @@ import FriendsOnlineRow from "../components/FriendsOnlineRow";
 import SpotlightRow from "../components/SpotlightRow";
 import DiscoverPeopleRow from "../components/DiscoverPeopleRow";
 import LastAccessedCommunityRow from "../components/LastAccessedCommunityRow";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { fetchProtectedData } from "../services/api";
 
 const HomeScreen = ({ emailAddress }) => {

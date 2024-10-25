@@ -1,4 +1,3 @@
-import React from "react";
 import {
   SafeAreaView,
   View,
@@ -8,13 +7,18 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  FlatList,
 } from "react-native";
+import React, { useState } from "react";
 import { useRoute } from "@react-navigation/native";
 import { ChevronLeftIcon } from "react-native-heroicons/solid";
+import tw from "twrnc";
 
-const MemberEditScreen = () => {
+const MemberEditScreen = ({ navigation }) => {
   const route = useRoute();
   const member = route.params?.member;
+
+  const [isEditingRoles, setIsEditingRoles] = useState(true);
 
   if (!member) {
     return (
@@ -24,14 +28,12 @@ const MemberEditScreen = () => {
     );
   }
 
+  const toggleEditRoles = () => {
+    setIsEditingRoles(!isEditingRoles);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      {/* <StatusBar
-        animated={true}
-        barStyle="light-content"
-        backgroundColor="transparent"
-      /> */}
-
       {/* back button left chevron with circle gray background */}
       <View className="flex-row justify-between">
         <View className="flex-row">
@@ -78,11 +80,22 @@ const MemberEditScreen = () => {
         </View>
         <View className="flex-1 my-5 space-y-5">
           <Text className="text-gray-400 font-semibold text-sm">Roles</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={toggleEditRoles}>
             <View className="flex-row items-center bg-slate-800 rounded-2xl p-5">
               <Text className="text-white font-bold">Edit Roles</Text>
             </View>
           </TouchableOpacity>
+          {isEditingRoles && (
+            <View>
+              <Text className="text-white">Testing Roles</Text>
+            </View>
+          )}
+          {!isEditingRoles && (
+            <View>
+              <Text className="text-white">Testing Roles</Text>
+            </View>
+          )}
+
           <TouchableOpacity>
             <View className="flex-row items-center bg-slate-800 rounded-2xl p-5">
               <Text className="text-red-400 font-bold">

@@ -60,6 +60,7 @@ export const fetchProtectedData = async () => {
 
 export const logout = async () => {
   await AsyncStorage.removeItem("token");
+  await AsyncStorage.removeItem("email");
 };
 
 export const createAccount = async (emailAddress, password, username) => {
