@@ -25,12 +25,14 @@ import {
   ChatBubbleLeftIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
+  Cog8ToothIcon,
   EllipsisHorizontalIcon,
   HomeIcon,
   PencilIcon,
   ShareIcon,
   TvIcon,
   UserGroupIcon,
+  UserPlusIcon,
   XMarkIcon,
 } from "react-native-heroicons/solid";
 import RoleIcon from "../components/RoleIcon";
@@ -103,20 +105,17 @@ const CommunityHomeScreen = () => {
               }}
               className="w-full h-52 rounded-xl"
             />
-            <TouchableOpacity className="absolute top-4 right-4 white">
-              <ShareIcon color={"#FFF"} size={30} />
-            </TouchableOpacity>
 
             {/* add a round profile picture of the community in the bottom left corner with the following url image: https://images.unsplash.com/photo-1608889175157-718b6205a50d?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D. it has a white border around the outside of the image */}
 
-            <View className="absolute -bottom-5 left-0">
+            {/* <View className="absolute -bottom-5 left-0">
               <Image
                 source={{
                   uri: "https://images.unsplash.com/photo-1608889175157-718b6205a50d?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 }}
                 className="w-20 h-20 rounded-full border-4 border-white"
               />
-            </View>
+            </View> */}
           </View>
           {/* community name */}
           <View className="flex-row justify-between items-center p-5">
@@ -124,20 +123,18 @@ const CommunityHomeScreen = () => {
               Lines Police CAD Community
             </Text>
             {/* on press it should navigate to the community management page */}
-            <TouchableOpacity
-              onPress={() => navigation.navigate("CommunityManagement")}
-            >
+            {/* <TouchableOpacity>
               <View className="flex-row items-center space-x-1 border-white border-2 rounded-lg p-2">
                 <PencilIcon color={"#FFF"} size={10} />
                 <Text className="text-white text-sm font-semibold">
                   Edit Page
                 </Text>
               </View>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
           {/* members online */}
           <View className="flex-row justify-between items-center px-5">
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate("Members")}>
               <View className="flex-row items-center space-x-2">
                 <Text className="text-white text-lg font-semibold"> 475</Text>
                 <Text className="text-gray-300 text-base ">Members</Text>
@@ -150,6 +147,35 @@ const CommunityHomeScreen = () => {
               <Text className="text-white text-sm font-semibold"> 25</Text>
               <Text className="text-white text-sm">Online</Text>
             </View>
+          </View>
+          {/* 3 round buttons, similar to discord where you have one for invite, notifications and settings */}
+          <View className="flex-row justify-between items-center p-5 mx-5">
+            <TouchableOpacity>
+              <View className="flex-col items-center">
+                <View className="bg-gray-500 rounded-full p-2 mb-2">
+                  <UserPlusIcon color={"#FFF"} size={30} />
+                </View>
+                <Text className="text-white text-xs">Invite</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <View className="flex-col items-center">
+                <View className="bg-gray-500 rounded-full p-2 mb-2">
+                  <BellIcon color={"#FFF"} size={30} />
+                </View>
+                <Text className="text-white text-xs">Notifications</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("CommunityManagement")}
+            >
+              <View className="flex-col items-center">
+                <View className="bg-gray-500 rounded-full p-2 mb-2">
+                  <Cog8ToothIcon color={"#FFF"} size={30} />
+                </View>
+                <Text className="text-white text-xs">Settings</Text>
+              </View>
+            </TouchableOpacity>
           </View>
           {/* community description */}
           <View className="flex-col p-5">

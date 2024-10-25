@@ -9,6 +9,7 @@ import {
   StyleSheet,
   Switch,
   Image,
+  Alert,
 } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
@@ -86,6 +87,28 @@ const CommunityManagementScreen = () => {
     );
   };
 
+  const handleDeleteCommunity = () => {
+    // Add your deletion logic here
+    Alert.alert(
+      "Delete Community",
+      "Are you sure you want to delete this community?",
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Delete",
+          onPress: () => {
+            // Perform the delete action
+            console.log("Community deleted");
+          },
+          style: "destructive",
+        },
+      ]
+    );
+  };
+
   const activeChats = () => setChats(true);
   const activeContacts = () => setChats(false);
 
@@ -130,15 +153,15 @@ const CommunityManagementScreen = () => {
           </TouchableOpacity>
           <View className="justify-center">
             <Text className="text-white text-xl font-bold ml-4">
-              Community Management
+              Community Settings
             </Text>
           </View>
         </View>
-        <TouchableOpacity className="justify-center">
+        {/* <TouchableOpacity className="justify-center">
           <View className="mr-4">
             <Cog8ToothIcon color={"#FFF"} size={28} />
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
       <ScrollView
         className="bg-black"
@@ -147,7 +170,7 @@ const CommunityManagementScreen = () => {
         }
         showsVerticalScrollIndicator={false}
       >
-        <View className="flex-col space-y-3">
+        {/* <View className="flex-col space-y-3">
           <View className="flex-row m-5">
             <View className="flex-1">
               <Text className="text-white text-base font-semibold">
@@ -170,7 +193,7 @@ const CommunityManagementScreen = () => {
               />
             </TouchableOpacity>
           </View>
-        </View>
+        </View> */}
 
         <View className="flex-col">
           <View className="flex-row m-5">
@@ -193,6 +216,28 @@ const CommunityManagementScreen = () => {
                 }}
                 className="rounded-xl w-full h-56"
               />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View className="flex-col">
+          <View className="flex-row m-5">
+            <View className="flex-1">
+              <Text className="text-white text-base font-semibold">
+                Community Name
+              </Text>
+            </View>
+            <View className="m-2">
+              <TouchableOpacity>
+                <Text className="text-blue-500 ">Edit</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View className="flex-row ml-5 mr-2">
+            <TouchableOpacity>
+              <Text className="text-white text-sm font-base">
+                Lines Police CAD
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -284,6 +329,15 @@ const CommunityManagementScreen = () => {
               </View>
             </TouchableOpacity>
           </View>
+        </View>
+        {/* Delete button */}
+        <View className="mt-20 items-center">
+          <TouchableOpacity
+            className="bg-red-500 py-5 px-20 rounded-lg"
+            onPress={handleDeleteCommunity}
+          >
+            <Text className="text-white text-lg font-bold">Delete</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>

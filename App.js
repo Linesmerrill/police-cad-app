@@ -81,6 +81,8 @@ import FirearmScreen from "./screens/FirearmScreen";
 import { ActionSheetProvider } from "@expo/react-native-action-sheet";
 import CommunityManagementScreen from "./screens/CommunityManagementScreen";
 import DepartmentManagementScreen from "./screens/DepartmentManagementScreen";
+import MembersScreen from "./screens/MembersScreen";
+import MemberEditScreen from "./screens/MemberEditScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -628,6 +630,18 @@ export default function App() {
             <Stack.Screen
               name="DepartmentManagement"
               component={DepartmentManagementScreen}
+              options={{ headerShown: false }}
+            />
+
+            <Stack.Screen
+              name="Members"
+              component={MembersScreen}
+              options={{ headerShown: false }}
+            />
+
+            <Stack.Screen
+              name="MemberEdit"
+              component={MemberEditScreen}
               options={{ headerShown: false }}
             />
 
