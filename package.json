@@ -52,6 +52,7 @@
     "react-native-checkbox": "^2.0.0",
     "react-native-heroicons": "^3.2.0",
     "react-native-maps": "1.14.0",
+    "react-native-modal": "^13.0.1",
     "react-native-mongodb": "^1.0.0",
     "react-native-paper": "^5.2.0",
     "react-native-passmeter": "^0.0.5",

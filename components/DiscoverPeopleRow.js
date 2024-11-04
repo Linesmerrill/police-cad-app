@@ -101,6 +101,14 @@ const DiscoverPeopleRow = () => {
                   {item.user.bio}
                 </Text>
               </View>
+              <View>
+                {/* touchable follow button */}
+                <TouchableOpacity>
+                  <View className="flex-row justify-center bg-gray-700 rounded-2xl p-2 m-2">
+                    <Text className="text-white font-semibold">Follow</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
             </View>
           ))}
         </ScrollView>

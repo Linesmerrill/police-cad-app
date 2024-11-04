@@ -9,6 +9,7 @@ import {
   RefreshControl,
   StyleSheet,
   StatusBar,
+  TextInput,
 } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
@@ -17,6 +18,7 @@ import {
   ChevronDownIcon,
   UserIcon,
 } from "react-native-heroicons/outline";
+import Modal from "react-native-modal";
 
 import {
   ArrowRightIcon,
@@ -29,6 +31,7 @@ import {
   EllipsisHorizontalIcon,
   HomeIcon,
   PencilIcon,
+  PlusIcon,
   ShareIcon,
   TvIcon,
   UserGroupIcon,
@@ -52,6 +55,11 @@ const CommunityHomeScreen = () => {
   const [isPressed, setIsPressed] = useState(false);
   const [currentRole, setCurrentRole] = useState("Civilian");
   const [refreshing, setRefreshing] = React.useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const toggleModal = () => {
+    setModalVisible(!modalVisible);
+  };
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
@@ -152,7 +160,7 @@ const CommunityHomeScreen = () => {
           <View className="flex-row justify-between items-center p-5 mx-5">
             <TouchableOpacity>
               <View className="flex-col items-center">
-                <View className="bg-gray-500 rounded-full p-2 mb-2">
+                <View className="bg-blue-500 rounded-full p-2 mb-2">
                   <UserPlusIcon color={"#FFF"} size={30} />
                 </View>
                 <Text className="text-white text-xs">Invite</Text>
@@ -160,7 +168,7 @@ const CommunityHomeScreen = () => {
             </TouchableOpacity>
             <TouchableOpacity>
               <View className="flex-col items-center">
-                <View className="bg-gray-500 rounded-full p-2 mb-2">
+                <View className="bg-blue-500 rounded-full p-2 mb-2">
                   <BellIcon color={"#FFF"} size={30} />
                 </View>
                 <Text className="text-white text-xs">Notifications</Text>
@@ -170,7 +178,7 @@ const CommunityHomeScreen = () => {
               onPress={() => navigation.navigate("CommunityManagement")}
             >
               <View className="flex-col items-center">
-                <View className="bg-gray-500 rounded-full p-2 mb-2">
+                <View className="bg-blue-500 rounded-full p-2 mb-2">
                   <Cog8ToothIcon color={"#FFF"} size={30} />
                 </View>
                 <Text className="text-white text-xs">Settings</Text>
@@ -213,6 +221,53 @@ const CommunityHomeScreen = () => {
           </View>
         </View>
       </ScrollView>
+      {/* plus sign stays in the bottom right regardless of scroll - with round background to add new upcoming events, bottom right of screen */}
+      <View className="absolute bottom-3 right-3">
+        <TouchableOpacity onPress={toggleModal}>
+          <View className="bg-blue-500 rounded-full p-3">
+            <PlusIcon color={"#FFF"} size={30} />
+          </View>
+        </TouchableOpacity>
+      </View>
+      <View>
+        <Modal
+          isVisible={modalVisible}
+          swipeDirection="down"
+          onSwipeComplete={toggleModal}
+          onBackdropPress={toggleModal}
+          style={styles.modal}
+        >
+          <View className="bg-white rounded-tl-3xl rounded-tr-3xl p-20">
+            <View className="">
+              <Text className="text-lg font-bold">Add a new Event</Text>
+              {/* input for event name */}
+              <TextInput placeholder="Event Name" />
+              {/* input for event description */}
+              <TextInput placeholder="Event Description" />
+              {/* input for event date */}
+              <TextInput placeholder="Event Date" />
+              {/* input for event time */}
+              <TextInput placeholder="Event Time" />
+              {/* input for event location */}
+              <TextInput placeholder="Event Location" />
+              {/* input for event image */}
+              <Image
+                className="w-48 h-48"
+                source={require("../assets/images/spotlight-2.jpg")}
+              />
+              {/* submit button */}
+              <TouchableOpacity onPress={toggleModal}>
+                <View className="bg-blue-500 rounded-full p-3">
+                  <Text className="text-white">Create</Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={toggleModal}>
+                <Text style={styles.closeButton}>Close</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+      </View>
     </SafeAreaView>
   );
 };
@@ -222,6 +277,25 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     backgroundColor: "black",
+  },
+  modal: {
+    justifyContent: "flex-end",
+    margin: 0,
+  },
+  modalContent: {
+    backgroundColor: "white",
+    padding: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  modalText: {
+    fontSize: 18,
+    marginBottom: 10,
+  },
+  closeButton: {
+    color: "blue",
+    textAlign: "center",
+    marginTop: 10,
   },
 });
 
