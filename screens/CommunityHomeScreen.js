@@ -247,7 +247,7 @@ const CommunityHomeScreen = () => {
                 <Text className="text-lg text-white font-bold">
                   Add a new Event
                 </Text>
-                <TouchableOpacity className="border border-white p-10">
+                <TouchableOpacity className="border-2 rounded-md border-white p-10">
                   {/* upload image icon */}
                   <ArrowUpOnSquareIcon color={"#FFF"} size={50} />
                 </TouchableOpacity>
