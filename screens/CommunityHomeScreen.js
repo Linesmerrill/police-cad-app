@@ -15,6 +15,7 @@ import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
   ArrowRightCircleIcon,
+  ArrowUpOnSquareIcon,
   ChevronDownIcon,
   UserIcon,
 } from "react-native-heroicons/outline";
@@ -237,33 +238,65 @@ const CommunityHomeScreen = () => {
           onBackdropPress={toggleModal}
           style={styles.modal}
         >
-          <View className="bg-white rounded-tl-3xl rounded-tr-3xl p-20">
-            <View className="">
-              <Text className="text-lg font-bold">Add a new Event</Text>
-              {/* input for event name */}
-              <TextInput placeholder="Event Name" />
-              {/* input for event description */}
-              <TextInput placeholder="Event Description" />
-              {/* input for event date */}
-              <TextInput placeholder="Event Date" />
-              {/* input for event time */}
-              <TextInput placeholder="Event Time" />
-              {/* input for event location */}
-              <TextInput placeholder="Event Location" />
+          <View className="bg-gray-800 rounded-tl-3xl rounded-tr-3xl px-10 py-10">
+            <View style={styles.modalBar} />
+
+            <View className="space-y-5">
               {/* input for event image */}
-              <Image
-                className="w-48 h-48"
-                source={require("../assets/images/spotlight-2.jpg")}
+              <View className="items-center space-y-5">
+                <Text className="text-lg text-white font-bold">
+                  Add a new Event
+                </Text>
+                <TouchableOpacity className="border border-white p-10">
+                  {/* upload image icon */}
+                  <ArrowUpOnSquareIcon color={"#FFF"} size={50} />
+                </TouchableOpacity>
+              </View>
+              {/* input for event name */}
+              {/* <Text className="text-white">Event Name:</Text> */}
+              <TextInput
+                placeholder="Event Name"
+                placeholderTextColor={"#9ca3af"}
+                className="text-white bg-gray-700 rounded-full p-3"
               />
+              {/* input for event description */}
+              {/* <Text className="text-white">Event Description:</Text> */}
+              <TextInput
+                placeholder="Event Description"
+                placeholderTextColor={"#9ca3af"}
+                className="text-white bg-gray-700 rounded-full p-3"
+              />
+              {/* input for event date */}
+              {/* <Text>
+                <Text className="text-white">Event Date:</Text>
+              </Text> */}
+              <TextInput
+                placeholder="Event Date"
+                placeholderTextColor={"#9ca3af"}
+                className="text-white bg-gray-700 rounded-full p-3"
+              />
+              {/* input for event time */}
+              <TextInput
+                placeholder="Event Time"
+                placeholderTextColor={"#9ca3af"}
+                className="text-white bg-gray-700 rounded-full p-3"
+              />
+              {/* input for event location */}
+              <TextInput
+                placeholder="Event Location"
+                placeholderTextColor={"#9ca3af"}
+                className="text-white bg-gray-700 rounded-full p-3"
+              />
+
               {/* submit button */}
-              <TouchableOpacity onPress={toggleModal}>
-                <View className="bg-blue-500 rounded-full p-3">
+              <TouchableOpacity onPress={toggleModal} className="items-center">
+                <View className="bg-blue-500 rounded-full px-10 py-3">
                   <Text className="text-white">Create</Text>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity onPress={toggleModal}>
+              {/* <TouchableOpacity onPress={toggleModal}>
                 <Text style={styles.closeButton}>Close</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           </View>
         </Modal>
@@ -296,6 +329,15 @@ const styles = StyleSheet.create({
     color: "blue",
     textAlign: "center",
     marginTop: 10,
+  },
+  modalBar: {
+    width: 40,
+    height: 5,
+    backgroundColor: "#374151",
+    borderRadius: 2.5,
+    alignSelf: "center",
+    marginBottom: 10,
+    marginTop: -30,
   },
 });
 
